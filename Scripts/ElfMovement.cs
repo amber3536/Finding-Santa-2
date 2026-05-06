@@ -16,13 +16,14 @@ public class ElfMovement : MonoBehaviour
     public GameObject rock;
     public bool holdingRock = false;
     public PickUpRock pickUpRock;
-
+    
     Vector3 lastStepPos;
     public float lifetime = 6f;
     public float fadeTime = 2f;
     private RiverUnblock currentUnblock;
     private SnowyTree currentTree;
     private ThreeLogs currentLogs;
+    private PickBerries currentBerries;
     public GameObject axe;
     public PickUpAxe pickUpAxe;
     private bool holdingAxe = false;
@@ -46,7 +47,7 @@ public class ElfMovement : MonoBehaviour
 
     public void OnPickUp()
     {
-        Debug.Log("hiyaaaa");
+        //Debug.Log("hiyaaaa");
         if (pickUpRock.rockReady)
         {
             rock.SetActive(false);
@@ -81,6 +82,11 @@ public class ElfMovement : MonoBehaviour
                 axe.transform.position = new Vector3(transform.position.x + 1, transform.position.y - 1, 0f);
             }
         }
+
+        if (currentBerries != null && currentBerries.pickReady)
+        {
+            currentBerries.picking();
+        }
     }
 
     public void OnUseTool()
@@ -90,6 +96,8 @@ public class ElfMovement : MonoBehaviour
             animator.SetBool("Axing", true);
             Invoke("stopAxing", 2f);
         }
+
+
     }
 
     void stopAxing()
@@ -195,21 +203,28 @@ public class ElfMovement : MonoBehaviour
         RiverUnblock block = other.GetComponent<RiverUnblock>();
         SnowyTree tree = other.GetComponent<SnowyTree>();
         ThreeLogs logs = other.GetComponent<ThreeLogs>();
+        PickBerries berries = other.GetComponent<PickBerries>();
 
         if (block != null)
         {
+            Debug.Log("i am here");
             currentUnblock = block;
         }
-
-        if (tree != null)
+        else if (tree != null)
         {
             currentTree = tree;
         }
-
-        if (logs != null)
+        else if (logs != null)
         {
             currentLogs = logs;
         }
+        else if (berries != null)
+        {
+            currentBerries = berries;
+            //Debug.Log("pppppft");
+        }
+
+
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -217,20 +232,23 @@ public class ElfMovement : MonoBehaviour
         RiverUnblock block = other.GetComponent<RiverUnblock>();
         SnowyTree tree = other.GetComponent<SnowyTree>();
         ThreeLogs logs = other.GetComponent<ThreeLogs>();
+        PickBerries berries = other.GetComponent<PickBerries>();
 
         if (block != null && block == currentUnblock)
         {
             currentUnblock = null;
         }
-
-        if (tree != null && tree == currentTree)
+        else if (tree != null && tree == currentTree)
         {
             currentTree = null;
         }
-
-        if (logs != null && logs == currentLogs)
+        else if (logs != null && logs == currentLogs)
         {
             currentLogs = null;
+        }
+        else if (berries != null && berries == currentBerries)
+        {
+            currentBerries = null;
         }
     }
 

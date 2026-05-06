@@ -17,22 +17,7 @@ public class RiverUnblock : MonoBehaviour
         path.SetActive(false);
         magic.SetActive(false);
     }
-    // private void OnTriggerEnter2D(Collider2D other)
-    // {
-    //     unblocked = true;
-    //     // if (Keyboard.current.spaceKey.isPressed && elfMovement.holdingRock)
-    //     // {
-    //     //     magic.SetActive(true);
-    //     //     PlayerPrefs.SetFloat("pathLocation", path.transform.position.x);
-    //     //     Invoke("UnblockRiver", 1f);
-    //     // }
 
-    // }
-
-    // private void OnTriggerExit2D(Collider2D other)
-    // {
-    //     unblocked = false;
-    // }
 
     public void UnblockRiver()
     {
