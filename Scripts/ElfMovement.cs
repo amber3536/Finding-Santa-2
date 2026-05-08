@@ -16,6 +16,7 @@ public class ElfMovement : MonoBehaviour
     public GameObject rock;
     public bool holdingRock = false;
     public PickUpRock pickUpRock;
+    public ItemData itemWood;
     
     Vector3 lastStepPos;
     public float lifetime = 6f;
@@ -27,6 +28,7 @@ public class ElfMovement : MonoBehaviour
     public GameObject axe;
     public PickUpAxe pickUpAxe;
     private bool holdingAxe = false;
+    private bool holdingLogs = false;
 
 
     void Start()
@@ -45,9 +47,22 @@ public class ElfMovement : MonoBehaviour
         // Your movement code
     }
 
+    public void OnStoreinInventory()
+    {
+        //Debug.Log("it worked!");
+        Inventory inventory = GetComponent<Inventory>();
+
+        if (currentLogs != null && currentLogs.logsReady)
+        //if (inventory != null)
+        {
+            inventory.AddItem(itemWood);
+            currentLogs.threeLogs.SetActive(false);
+            //Destroy(gameObject);
+        }
+    }
+
     public void OnPickUp()
     {
-        //Debug.Log("hiyaaaa");
         if (pickUpRock.rockReady)
         {
             rock.SetActive(false);
@@ -55,18 +70,22 @@ public class ElfMovement : MonoBehaviour
             holdingRock = true;
         }
 
-        if (holdingRock && currentUnblock != null)
-        {
-            
-            //PlayerPrefs.SetFloat("pathLocation", path.transform.position.x);
-            animator.SetBool("Rock", false);
-            currentUnblock.UnblockRiver();
-        }
+        //switching from rock to wood
+        // if (holdingRock && currentUnblock != null)
+        // {
+        //     animator.SetBool("Rock", false);
+        //     currentUnblock.UnblockRiver();
+        // }
         else if (pickUpAxe.axeReady)
         {
             axe.SetActive(false);
             animator.SetBool("Wood axe", true);
             holdingAxe = true;
+        }
+        else if (holdingLogs && currentUnblock != null)
+        {
+            animator.SetBool("Logs", false);
+            currentUnblock.UnblockRiver();
         }
 
         if (currentLogs != null && currentLogs.logsReady)
@@ -74,9 +93,11 @@ public class ElfMovement : MonoBehaviour
             //Debug.Log("made it");
             animator.SetBool("Logs", true);
             currentLogs.threeLogs.SetActive(false);
+            holdingLogs = true;
 
             if (holdingAxe)
             {
+                animator.SetBool("Wood axe", false);
                 axe.SetActive(true);
                 holdingAxe = false;
                 axe.transform.position = new Vector3(transform.position.x + 1, transform.position.y - 1, 0f);
