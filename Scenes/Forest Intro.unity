@@ -3727,6 +3727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   myCamera: {fileID: 519420033}
   relocate: 0
+  axe: {fileID: 244154062}
 --- !u!61 &437722470
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11470,7 +11471,7 @@ MonoBehaviour:
   rock: {fileID: 1729712580}
   holdingRock: 0
   pickUpRock: {fileID: 1729712585}
-  itemWood: {fileID: 0}
+  itemWood: {fileID: 11400000, guid: 136102abb98174c85b963b5dba51fe42, type: 2}
   lifetime: 6
   fadeTime: 2
   axe: {fileID: 244154062}

@@ -69,15 +69,15 @@ public class ElfMovement : MonoBehaviour
             animator.SetBool("Rock", true);
             holdingRock = true;
         }
-
-        //switching from rock to wood
-        // if (holdingRock && currentUnblock != null)
-        // {
-        //     animator.SetBool("Rock", false);
-        //     currentUnblock.UnblockRiver();
-        // }
         else if (pickUpAxe.axeReady)
         {
+            if (holdingRock)
+            {
+                rock.SetActive(true);
+                rock.transform.position = new Vector3(transform.position.x + 1, transform.position.y - 1, 0f);
+                holdingRock = false;
+                animator.SetBool("Rock", false);
+            }
             axe.SetActive(false);
             animator.SetBool("Wood axe", true);
             holdingAxe = true;
@@ -88,13 +88,8 @@ public class ElfMovement : MonoBehaviour
             currentUnblock.UnblockRiver();
         }
 
-        if (currentLogs != null && currentLogs.logsReady)
+        else if (currentLogs != null && currentLogs.logsReady)
         {
-            //Debug.Log("made it");
-            animator.SetBool("Logs", true);
-            currentLogs.threeLogs.SetActive(false);
-            holdingLogs = true;
-
             if (holdingAxe)
             {
                 animator.SetBool("Wood axe", false);
@@ -102,9 +97,14 @@ public class ElfMovement : MonoBehaviour
                 holdingAxe = false;
                 axe.transform.position = new Vector3(transform.position.x + 1, transform.position.y - 1, 0f);
             }
+            animator.SetBool("Logs", true);
+            currentLogs.threeLogs.SetActive(false);
+            holdingLogs = true;
+
+
         }
 
-        if (currentBerries != null && currentBerries.pickReady)
+        else if (currentBerries != null && currentBerries.pickReady)
         {
             currentBerries.picking();
         }

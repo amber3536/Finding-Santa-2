@@ -7,7 +7,7 @@ public class ExitCave : MonoBehaviour
 
    void OnTriggerEnter2D(Collider2D other)
     {
-        elf.transform.position = new Vector3(25f, 30, 0);
+        elf.transform.position = new Vector3(18f, 28, 0);
         myCamera.ResumeFollow();       
     }
 }

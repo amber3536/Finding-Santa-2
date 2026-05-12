@@ -5,6 +5,12 @@ public class GoInsideCabin : MonoBehaviour
 {
     public CameraMovement myCamera;
     public bool relocate = false;
+    public GameObject axe;
+
+    void Start()
+    {
+        axe.SetActive(false);
+    }
 //
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -21,11 +27,12 @@ public class GoInsideCabin : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)
     {
         relocate = false;
-        Debug.Log("relocate false");
+        //Debug.Log("relocate false");
     }
 
     public void free()
     {
         myCamera.ResumeFollow();
+        axe.SetActive(true);
     }
 }
