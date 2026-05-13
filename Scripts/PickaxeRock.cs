@@ -6,29 +6,32 @@ public class PickaxeRock : MonoBehaviour
     public SpriteRenderer sr;
     public GameObject rock;
     public Animator animator;
+    public bool gemReady = false;
     //private int count = 0;
 
-    void OnTriggerStay2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (Keyboard.current.spaceKey.isPressed)
-        {
-            animator.SetBool("Axing", true);
-            // count++;
-            // Debug.Log(count);
-            // if (count == 5)
-            // {
-            //     revealStone();
-            // }
-            Invoke("revealStone", 3f);
-        }
-        // else
+        gemReady = true;
+        // if (Keyboard.current.spaceKey.isPressed)
         // {
-        //     animator.SetBool("Axing", false);
-        //     count = 0;
+
         // }
+
     }
 
-    void revealStone()
+    void OnTriggerExit2D(Collider2D other)
+    {
+        gemReady = false;
+    }
+    
+
+    public void revealStone()
+    {
+        animator.SetBool("Axing", true);
+        Invoke("bigReveal", 3f);
+    }
+
+    void bigReveal()
     {
         sr.sortingOrder = 1;
         rock.SetActive(false);

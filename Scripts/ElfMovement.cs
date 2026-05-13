@@ -73,10 +73,7 @@ public class ElfMovement : MonoBehaviour
         {
             if (holdingRock)
             {
-                rock.SetActive(true);
-                rock.transform.position = new Vector3(transform.position.x + 1, transform.position.y - 1, 0f);
-                holdingRock = false;
-                animator.SetBool("Rock", false);
+                dropRock();
             }
             axe.SetActive(false);
             animator.SetBool("Wood axe", true);
@@ -92,22 +89,40 @@ public class ElfMovement : MonoBehaviour
         {
             if (holdingAxe)
             {
-                animator.SetBool("Wood axe", false);
-                axe.SetActive(true);
-                holdingAxe = false;
-                axe.transform.position = new Vector3(transform.position.x + 1, transform.position.y - 1, 0f);
+                dropAxe();
             }
             animator.SetBool("Logs", true);
             currentLogs.threeLogs.SetActive(false);
             holdingLogs = true;
-
-
         }
-
         else if (currentBerries != null && currentBerries.pickReady)
         {
             currentBerries.picking();
         }
+        else if (holdingRock)
+        {
+            dropRock();
+        }
+        else if (holdingAxe)
+        {
+            dropAxe();
+        }
+    }
+
+    void dropRock()
+    {
+        rock.SetActive(true);
+        rock.transform.position = new Vector3(transform.position.x + .5f, transform.position.y - .5f, 0f);
+        holdingRock = false;
+        animator.SetBool("Rock", false);
+    }
+
+    void dropAxe()
+    {
+        animator.SetBool("Wood axe", false);
+        axe.SetActive(true);
+        holdingAxe = false;
+        axe.transform.position = new Vector3(transform.position.x + .5f, transform.position.y - .5f, 0f);
     }
 
     public void OnUseTool()

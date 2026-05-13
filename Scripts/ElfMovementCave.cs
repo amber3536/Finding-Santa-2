@@ -9,42 +9,16 @@ public class ElfMovementCave : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private bool isFacingRight = true;
-    //public GameObject footprintPrefab;
-    //public float stepDistance = 0.3f;
-    //public AudioSource crunching;
-    //public AudioClip crunch;
-
-    //Vector3 lastStepPos;
-    //bool leftFoot = true;
-    //float footSpacing = 0.3f;
-    //public float lifetime = 6f;
-    //public float fadeTime = 2f;
-    //public SpriteRenderer sr;
-    //private List<GameObject> clonesList = new List<GameObject>();
-
-    // bool leftFoot = true;
-    // float stepDistance = 0.5f;
-    // float footSpacing = 0.2f;
-    // Vector3 lastFramePos;
-    // Vector3 lastStepPos;
-
-    // Vector3 lastPos;
-    // float distanceTravelled = 0f;
 
 
     void Start()
 
     {
-        // lastFramePos = transform.position;
-        //lastStepPos = transform.position;
+
+
         rb = GetComponent<Rigidbody2D>(); // Get reference to the Rigidbody2D
 
     }
-
-    // public void OnMove(InputAction.CallbackContext context)
-    // {
-    //     moveInput = context.ReadValue<Vector2>();
-    // }
 
     public void OnMove(InputValue value)
     {
@@ -56,12 +30,7 @@ public class ElfMovementCave : MonoBehaviour
     void Update()
 
     {
-        //animator.setFloat("Speed", Mathf.Abs(moveInput.x));
         animator.SetFloat("Speed", Mathf.Abs(moveInput.x));
-        // moveInput.x = Input.GetAxis("Horizontal"); // Get left/right input
-        // moveInput.y = Input.GetAxis("Vertical");
-
-        // moveInput.Normalize();
 
         if (moveInput.x > 0 && !isFacingRight) {
             Flip();
@@ -85,37 +54,9 @@ public class ElfMovementCave : MonoBehaviour
         // transform.Translate(move * speed * Time.deltaTime);
         rb.linearVelocity = moveInput * speed;
 
-        // if (Vector3.Distance(transform.position, lastStepPos) > stepDistance)
-        // {
-        //     Vector3 movement = transform.position - lastStepPos;
-        //     Vector3 moveDirection = movement.normalized;
-        //     float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-        //     Quaternion rot = Quaternion.Euler(0, 0, angle - 90f);
-        //     //Quaternion rot = Quaternion.LookRotation(Vector3.forward, moveInput);
-        //     //GameObject newClone = Instantiate(footprintPrefab, transform.position, rot);
-        //     //SpriteRenderer sr = newClone.GetComponent<SpriteRenderer>();
-        //     //StartCoroutine(FadeFootprint(sr, newClone));
-        //     // Instantiate(footprintPrefab, transform.position, Quaternion.identity);
-        //     //destroyClone(newClone);
-        //     lastStepPos = transform.position;
-        //     //FeetCrunching();
-        //     //Debug.Log(transform.position);
-        // }
   
     }
 
-    // void destroyClone(GameObject newClone)
-    // {   
-    //     Destroy(newClone, 5f);  
-    // }
-
-    // void FeetCrunching()
-    // {
-    //     if (!crunching.isPlaying)
-    //     {
-    //         crunching.PlayOneShot(crunch);
-    //     }
-    // }
 
     void Flip() 
     {

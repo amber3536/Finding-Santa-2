@@ -11,10 +11,18 @@ public class ElfMovementMine : MonoBehaviour
     private bool isFacingRight = true;
     public GameObject pickAxe;
     public PickUpPickaxe pickUpPickaxe;
-
+    private bool holdingRock = false;
+    public GameObject rock;
+    private PickaxeRock currentGem;
 
     void Start()
     {
+        int val = PlayerPrefs.GetInt("rock");
+        if (val == 1)
+        {
+            animator.SetBool("Rock", true);
+            holdingRock = true;
+        }
         rb = GetComponent<Rigidbody2D>(); // Get reference to the Rigidbody2D
     }
 
@@ -31,7 +39,29 @@ public class ElfMovementMine : MonoBehaviour
         {
             pickAxe.SetActive(false);
             animator.SetBool("Pickaxe", true);
-        }   
+        } 
+        else if (holdingRock)
+        {
+            dropRock();
+        } 
+
+    }
+
+    public void OnUseTool()
+    {
+        if (currentGem != null && currentGem.gemReady)
+        {
+            currentGem.revealStone();
+        }
+    }
+
+
+    void dropRock()
+    {
+        rock.SetActive(true);
+        rock.transform.position = new Vector3(transform.position.x + .5f, transform.position.y - .5f, 0f);
+        holdingRock = false;
+        animator.SetBool("Rock", false);
     }
 
     void Update()
@@ -74,5 +104,25 @@ public class ElfMovementMine : MonoBehaviour
             isFacingRight = !isFacingRight;
             transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
         //}  
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        PickaxeRock gem = other.GetComponent<PickaxeRock>();
+
+        if (gem != null)
+        {
+            currentGem = gem;
+        }    
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        PickaxeRock gem = other.GetComponent<PickaxeRock>();       
+    
+        if (gem != null && gem == currentGem)
+        {
+            currentGem = null;
+        }
     }
 }
