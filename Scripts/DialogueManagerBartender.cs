@@ -86,7 +86,7 @@ public class DialogueManagerBartender : MonoBehaviour
             {
                 //Debug.Log("firstLines");
                 //startedSpeaking = true;
-                Invoke("firstLines", 3f);
+                Invoke("firstLines", 1f);
             }
 
         }

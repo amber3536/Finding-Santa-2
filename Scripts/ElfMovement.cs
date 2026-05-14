@@ -29,6 +29,7 @@ public class ElfMovement : MonoBehaviour
     public PickUpAxe pickUpAxe;
     private bool holdingAxe = false;
     private bool holdingLogs = false;
+    public InventoryUI inventoryUI;
 
 
     void Start()
@@ -57,6 +58,7 @@ public class ElfMovement : MonoBehaviour
         {
             inventory.AddItem(itemWood);
             currentLogs.threeLogs.SetActive(false);
+            inventoryUI.RefreshUI();
             //Destroy(gameObject);
         }
     }

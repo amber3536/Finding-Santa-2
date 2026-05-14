@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public InventoryUI inventoryUI;
     public List<InventorySlot> slots = new List<InventorySlot>();
 
     public void AddItem(ItemData item)
