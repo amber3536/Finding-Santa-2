@@ -17,7 +17,7 @@ public class ElfMovement : MonoBehaviour
     public bool holdingRock = false;
     public PickUpRock pickUpRock;
     public ItemData itemWood;
-    
+    public ItemData itemRock;
     Vector3 lastStepPos;
     public float lifetime = 6f;
     public float fadeTime = 2f;
@@ -29,6 +29,8 @@ public class ElfMovement : MonoBehaviour
     public PickUpAxe pickUpAxe;
     private bool holdingAxe = false;
     private bool holdingLogs = false;
+    private bool inventoryOpen = false;
+    private int inventoryLocation = 0;
 
     public OpenInventory openInventory;
     //public InventoryUI inventoryUI;
@@ -47,6 +49,21 @@ public class ElfMovement : MonoBehaviour
     {
         moveInput = value.Get<Vector2>();
         //Debug.Log("Move input: " + moveInput);
+
+        if (inventoryOpen)
+        {
+            
+            if (moveInput.x == 1)
+            {
+                inventoryLocation++;
+            }
+            else if (moveInput.x == -1)
+            {
+                inventoryLocation--;
+            }
+            //Debug.Log("loc "+ inventoryLocation);
+        }
+        
         // Your movement code
     }
 
@@ -63,58 +80,75 @@ public class ElfMovement : MonoBehaviour
             
             //Destroy(gameObject);
         }
+        else if (pickUpRock.rockReady)
+        {
+            inventory.AddItem(itemRock);
+            rock.SetActive(false);
+        }
     }
 
     public void OnPickUp()
     {
-        if (pickUpRock.rockReady)
+        if (!inventoryOpen)
         {
-            rock.SetActive(false);
-            animator.SetBool("Rock", true);
-            holdingRock = true;
-        }
-        else if (pickUpAxe.axeReady)
-        {
-            if (holdingRock)
+            if (pickUpRock.rockReady)
+            {
+                rock.SetActive(false);
+                animator.SetBool("Rock", true);
+                holdingRock = true;
+            }
+            else if (pickUpAxe.axeReady)
+            {
+                if (holdingRock)
+                {
+                    dropRock();
+                }
+                axe.SetActive(false);
+                animator.SetBool("Wood axe", true);
+                holdingAxe = true;
+            }
+            else if (holdingLogs && currentUnblock != null)
+            {
+                animator.SetBool("Logs", false);
+                currentUnblock.UnblockRiver();
+            }
+
+            else if (currentLogs != null && currentLogs.logsReady)
+            {
+                if (holdingAxe)
+                {
+                    dropAxe();
+                }
+                animator.SetBool("Logs", true);
+                currentLogs.threeLogs.SetActive(false);
+                holdingLogs = true;
+            }
+            else if (currentBerries != null && currentBerries.pickReady)
+            {
+                currentBerries.picking();
+            }
+            else if (holdingRock)
             {
                 dropRock();
             }
-            axe.SetActive(false);
-            animator.SetBool("Wood axe", true);
-            holdingAxe = true;
-        }
-        else if (holdingLogs && currentUnblock != null)
-        {
-            animator.SetBool("Logs", false);
-            currentUnblock.UnblockRiver();
-        }
-
-        else if (currentLogs != null && currentLogs.logsReady)
-        {
-            if (holdingAxe)
+            else if (holdingAxe)
             {
                 dropAxe();
             }
-            animator.SetBool("Logs", true);
-            currentLogs.threeLogs.SetActive(false);
-            holdingLogs = true;
         }
-        else if (currentBerries != null && currentBerries.pickReady)
+        else
         {
-            currentBerries.picking();
+            Inventory inventory = GetComponent<Inventory>();
+            Debug.Log("inventory loc "+ inventoryLocation);
+            inventory.RemoveItem(inventoryLocation);
         }
-        else if (holdingRock)
-        {
-            dropRock();
-        }
-        else if (holdingAxe)
-        {
-            dropAxe();
-        }
+
     }
 
     public void OnOpenInventory()
     {
+        inventoryOpen = !inventoryOpen;
+        inventoryLocation = 0;
         //Debug.Log("yowza");
         openInventory.openingInventory();
     }

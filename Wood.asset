@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Wood
   icon: {fileID: -6322607251198048694, guid: 360e502b025cb43c98b4c07c85588cc7, type: 3}
-  stackable: 0
+  stackable: 1
   worldPrefab: {fileID: 4200078866031125869, guid: 428e8b653f3e84f23bd1c5147bab4bee, type: 3}

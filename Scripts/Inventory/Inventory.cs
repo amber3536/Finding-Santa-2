@@ -15,6 +15,8 @@ public class Inventory : MonoBehaviour
             if (slot.item == item && item.stackable)
             {
                 slot.amount++;
+                Debug.Log("hiya");
+                inventoryUI.RefreshUI();
                 //refresh UI?
                 return;
             }
@@ -30,19 +32,21 @@ public class Inventory : MonoBehaviour
         inventoryUI.RefreshUI();
     }
 
-    public void RemoveItem(int index, int amount)
+    public void RemoveItem(int index)
     {
+        //Debug.Log(slots.Count);
         var slot = slots[index];
         if (slot == null) return;
 
-        slot.amount -= amount;
+        slot.amount -= 1;
 
         if (slot.amount <= 0)
         {
             slot.item = null;
             slot.amount = 0;
+            slots.RemoveAt(index);
         }
-
+        //Debug.Log(slots.Count);
         inventoryUI.RefreshUI();
     }
 }
