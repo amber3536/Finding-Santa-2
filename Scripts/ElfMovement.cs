@@ -28,6 +28,7 @@ public class ElfMovement : MonoBehaviour
     private PickBerries currentBerries;
     public GameObject axe;
     public PickUpAxe pickUpAxe;
+    public GoInsideCabin goInsideCabin;
     private bool holdingAxe = false;
     private bool holdingLogs = false;
     private bool inventoryOpen = false;
@@ -113,11 +114,6 @@ public class ElfMovement : MonoBehaviour
                 animator.SetBool("Wood axe", true);
                 holdingAxe = true;
             }
-            else if (holdingLogs && currentUnblock != null)
-            {
-                animator.SetBool("Logs", false);
-                currentUnblock.UnblockRiver();
-            }
 
             else if (currentLogs != null && currentLogs.logsReady)
             {
@@ -126,21 +122,15 @@ public class ElfMovement : MonoBehaviour
                     dropAxe();
                 }
                 animator.SetBool("Logs", true);
-                currentLogs.threeLogs.SetActive(false);
+                //currentLogs.threeLogs.SetActive(false);
+                Destroy(currentLogs.threeLogs);
                 holdingLogs = true;
             }
             else if (currentBerries != null && currentBerries.pickReady)
             {
                 currentBerries.picking();
             }
-            else if (holdingRock)
-            {
-                dropRock();
-            }
-            else if (holdingAxe)
-            {
-                dropAxe();
-            }
+
         }
         else
         {
@@ -149,9 +139,66 @@ public class ElfMovement : MonoBehaviour
             Debug.Log("inventory item "+ curr);
             inventory.RemoveItem(inventoryLocation);
             inventoryLocation = 0;
+            // put item in hand, close inventory
+
+            
 
         }
 
+    }
+
+    public void OnDrop()
+    {
+        // if goInsideCabin.relocate and item is berries, increment (inside and outside inventory)
+
+        if (holdingRock)
+        {
+            dropRock();
+        }
+        else if (holdingAxe)
+        {
+            dropAxe();
+        }
+        else if (inventoryOpen)
+        {
+            Inventory inventory = GetComponent<Inventory>();
+            string curr = inventory.IdentifyItem(inventoryLocation);
+            Debug.Log("inventory item "+ curr);
+        
+            ItemData item = inventory.GetItem(inventoryLocation);
+            DropItem(item);
+
+            inventory.RemoveItem(inventoryLocation);
+            inventoryLocation = 0;
+        }
+        else if (holdingLogs)
+        {
+            if (currentUnblock != null)
+            {
+                animator.SetBool("Logs", false);
+                currentUnblock.UnblockRiver();
+            }
+            else
+            {
+                Vector3 dropPosition = transform.position + Vector3.right;
+
+                Instantiate(itemWood.worldPrefab, dropPosition, Quaternion.identity);
+                animator.SetBool("Logs", false);
+            }
+
+        }
+        
+        
+    }
+
+    public void DropItem(ItemData item)
+    {
+        if (item.worldPrefab != null)
+        {
+            Vector3 dropPosition = transform.position + Vector3.right;
+
+            Instantiate(item.worldPrefab, dropPosition, Quaternion.identity);
+        }
     }
 
     public void OnOpenInventory()
@@ -165,9 +212,15 @@ public class ElfMovement : MonoBehaviour
     void dropRock()
     {
         rock.SetActive(true);
-        rock.transform.position = new Vector3(transform.position.x + .5f, transform.position.y - .5f, 0f);
+        Vector3 dropPosition = transform.position + Vector3.right;
+        rock.transform.position = dropPosition; // (transform.position.x + .5f, transform.position.y - .5f, 0f);
         holdingRock = false;
         animator.SetBool("Rock", false);
+    }
+
+    void dropWood()
+    {
+        
     }
 
     void dropAxe()
@@ -175,7 +228,8 @@ public class ElfMovement : MonoBehaviour
         animator.SetBool("Wood axe", false);
         axe.SetActive(true);
         holdingAxe = false;
-        axe.transform.position = new Vector3(transform.position.x + .5f, transform.position.y - .5f, 0f);
+        Vector3 dropPosition = transform.position + Vector3.right;
+        axe.transform.position = dropPosition; //new Vector3(transform.position.x + .5f, transform.position.y - .5f, 0f);
     }
 
     public void OnUseTool()

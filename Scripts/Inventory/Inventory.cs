@@ -57,4 +57,10 @@ public class Inventory : MonoBehaviour
 
         return slot.item.itemName;
     }
+
+    public ItemData GetItem(int index)
+    {
+        var slot = slots[index];
+        return slot.item;
+    }
 }
