@@ -18,6 +18,7 @@ public class ElfMovement : MonoBehaviour
     public PickUpRock pickUpRock;
     public ItemData itemWood;
     public ItemData itemRock;
+    public ItemData itemBerries;
     Vector3 lastStepPos;
     public float lifetime = 6f;
     public float fadeTime = 2f;
@@ -85,6 +86,11 @@ public class ElfMovement : MonoBehaviour
             inventory.AddItem(itemRock);
             rock.SetActive(false);
         }
+        else if (currentBerries != null && currentBerries.pickReady)
+        {
+            inventory.AddItem(itemBerries);
+            currentBerries.picking();
+        }
     }
 
     public void OnPickUp()
@@ -139,8 +145,11 @@ public class ElfMovement : MonoBehaviour
         else
         {
             Inventory inventory = GetComponent<Inventory>();
-            Debug.Log("inventory loc "+ inventoryLocation);
+            string curr = inventory.IdentifyItem(inventoryLocation);
+            Debug.Log("inventory item "+ curr);
             inventory.RemoveItem(inventoryLocation);
+            inventoryLocation = 0;
+
         }
 
     }

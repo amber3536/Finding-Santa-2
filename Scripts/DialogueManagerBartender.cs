@@ -14,9 +14,10 @@ public class DialogueManagerBartender : MonoBehaviour
     public GameObject shrimp_bubble;
     public GoInsideCabin goInsideCabin;
     public GameObject elf;
-    private string[] bartenderSentences = {"I am starving right now.\r\nI could really use some berries."};
+    private string[] bartenderSentences = {"I am starving right now."};
         //"It's okay, dad. Just stay strong.\r\nYou can do this. I believe in you."};
-    private string[] bartenderSentences2 = {"Some secret info..."};
+    private string[] bartenderSentences1 = {"Delicious. Got any more\r\nwhere that came from?"};
+    private string[] bartenderSentences2 = {"Thanks for the presents.\r\nEveryone likes presents..."};
     private string[] shrimpSentences = { };
     private int bartenderIndex = 0;
     private float typingSpeed = 0.01f;
@@ -79,8 +80,12 @@ public class DialogueManagerBartender : MonoBehaviour
             if (num == 6)
             {
                 //Debug.Log("hyooo");
-                Invoke("secondLines", 3f);
+                Invoke("lastLines", 1f);
 
+            }
+            else if (num >= 1)
+            {
+                Invoke("secondLines", 1f);
             }
             else
             {
@@ -96,7 +101,7 @@ public class DialogueManagerBartender : MonoBehaviour
     {
         //Debug.Log("something wrong");
         goInsideCabin.free();
-        elf.transform.position = new Vector3(53f, -5f, 0f);
+        elf.transform.position = new Vector3(56f, -5f, 0f);
         startedSpeaking = false;
         bartenderIndex = 0;
         dontSpeak = false;
@@ -112,11 +117,18 @@ public class DialogueManagerBartender : MonoBehaviour
         StartCoroutine(TypeBartenderDialogue(bartenderSentences));
     }
 
-    private void secondLines()
+    private void lastLines()
     {
         dontInterrupt = true;
         wait = false;
         StartCoroutine(TypeBartenderDialogue(bartenderSentences2));
+    }
+
+    private void secondLines()
+    {
+        dontInterrupt = true;
+        wait = false;
+        StartCoroutine(TypeBartenderDialogue(bartenderSentences1));
     }
     private void disappearTextBubbles()
     {

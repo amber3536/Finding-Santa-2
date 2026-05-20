@@ -29,14 +29,14 @@ public class OpenInventory : MonoBehaviour
         if (isOpen)
         {
             Time.timeScale = 0f;
-            //if (inventoryUI.slotObjects.Count != 0)
-            //{
+            if (inventoryUI.slotObjects.Count != 0)
+            {
                 //Debug.Log("boo");
-                //EventSystem.current.SetSelectedGameObject(inventoryUI.slotObjects[0].gameObject);
+                EventSystem.current.SetSelectedGameObject(inventoryUI.slotObjects[0].gameObject);
 
                 //Debug.Log("item is "+ inventoryUI.slotObjects[0].gameObject);
                 //Debug.Log(inventoryUI.slotObjects.Count);
-            //}
+            }
             
         }
         else

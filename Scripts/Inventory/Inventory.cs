@@ -49,4 +49,12 @@ public class Inventory : MonoBehaviour
         //Debug.Log(slots.Count);
         inventoryUI.RefreshUI();
     }
+
+    public string IdentifyItem(int index)
+    {
+        var slot = slots[index];
+        if (slot == null) return "";
+
+        return slot.item.itemName;
+    }
 }
