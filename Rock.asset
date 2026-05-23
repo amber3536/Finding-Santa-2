@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0756493f897324d0495dfebddc81e4ca, type: 3}
   m_Name: Rock
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: 
-  icon: {fileID: 0}
-  stackable: 0
+  itemName: Rock
+  icon: {fileID: 4318819427204992536, guid: c02d87882ead84b73a9718cd2c9e895b, type: 3}
+  stackable: 1
+  worldPrefab: {fileID: 1720849886484237041, guid: 5e151d69271064a0a875fa50fe209d84, type: 3}

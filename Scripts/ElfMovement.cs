@@ -31,6 +31,7 @@ public class ElfMovement : MonoBehaviour
     public GoInsideCabin goInsideCabin;
     private bool holdingAxe = false;
     private bool holdingLogs = false;
+    private bool holdingBerries = false;
     private bool inventoryOpen = false;
     private int inventoryLocation = 0;
 
@@ -100,6 +101,18 @@ public class ElfMovement : MonoBehaviour
         {
             if (pickUpRock.rockReady)
             {
+                if (holdingBerries)
+                {
+                    dropBerries();
+                }
+                else if (holdingAxe)
+                {
+                    dropAxe();
+                }
+                else if (holdingLogs)
+                {
+                    dropLogs();
+                }
                 rock.SetActive(false);
                 animator.SetBool("Rock", true);
                 holdingRock = true;
@@ -109,6 +122,14 @@ public class ElfMovement : MonoBehaviour
                 if (holdingRock)
                 {
                     dropRock();
+                }
+                else if (holdingAxe)
+                {
+                    dropAxe();
+                }
+                else if (holdingLogs)
+                {
+                    dropLogs();
                 }
                 axe.SetActive(false);
                 animator.SetBool("Wood axe", true);
@@ -121,14 +142,45 @@ public class ElfMovement : MonoBehaviour
                 {
                     dropAxe();
                 }
+                else if (holdingRock)
+                {
+                    dropRock();
+                }
+                else if (holdingBerries)
+                {
+                    dropBerries();
+                }
                 animator.SetBool("Logs", true);
-                //currentLogs.threeLogs.SetActive(false);
                 Destroy(currentLogs.threeLogs);
                 holdingLogs = true;
             }
             else if (currentBerries != null && currentBerries.pickReady)
             {
+                if (holdingBerries)
+                {
+                    Inventory inventory = GetComponent<Inventory>();
+                    inventory.AddItem(itemBerries);
+                    //currentBerries.picking();
+                }
+                else if (holdingRock)
+                {
+                    dropRock();
+                }
+                else if (holdingAxe)
+                {
+                    dropAxe();
+                }
+                else if (holdingLogs)
+                {
+                    dropLogs();
+                }
+
+
+                holdingBerries = true;
                 currentBerries.picking();
+                animator.SetBool("Berries", true);
+                
+
             }
 
         }
@@ -184,6 +236,7 @@ public class ElfMovement : MonoBehaviour
 
                 Instantiate(itemWood.worldPrefab, dropPosition, Quaternion.identity);
                 animator.SetBool("Logs", false);
+                holdingLogs = false;
             }
 
         }
@@ -218,9 +271,11 @@ public class ElfMovement : MonoBehaviour
         animator.SetBool("Rock", false);
     }
 
-    void dropWood()
+    void dropLogs()
     {
-        
+        DropItem(itemWood);
+        animator.SetBool("Logs", false);
+        holdingLogs = false;
     }
 
     void dropAxe()
@@ -230,6 +285,13 @@ public class ElfMovement : MonoBehaviour
         holdingAxe = false;
         Vector3 dropPosition = transform.position + Vector3.right;
         axe.transform.position = dropPosition; //new Vector3(transform.position.x + .5f, transform.position.y - .5f, 0f);
+    }
+
+    void dropBerries()
+    {
+        DropItem(itemBerries);
+        animator.SetBool("Berries", false);
+        holdingBerries = false;
     }
 
     public void OnUseTool()
