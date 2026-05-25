@@ -42,6 +42,7 @@ public class ElfMovement : MonoBehaviour
     void Start()
 
     {
+        PlayerPrefs.SetInt("rock", 0);
         lastStepPos = transform.position;
         rb = GetComponent<Rigidbody2D>(); // Get reference to the Rigidbody2D
 

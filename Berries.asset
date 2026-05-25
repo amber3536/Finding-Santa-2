@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Berries
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Berries
-  icon: {fileID: -2441988009694033137, guid: a2414b5bc8c994d08941a811ddb654d7, type: 3}
+  icon: {fileID: 2778267843588853002, guid: e68a839bc198442629e842c32db6c432, type: 3}
   stackable: 1
-  worldPrefab: {fileID: 4739925098560539076, guid: 5e0791ddb826042fd82b7131de25c32b, type: 3}
+  worldPrefab: {fileID: 6350080988336178923, guid: e39c44e45c1fd473ca647997916191c7, type: 3}

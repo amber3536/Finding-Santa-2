@@ -12,8 +12,10 @@ public class ElfMovementMine : MonoBehaviour
     public GameObject pickAxe;
     public PickUpPickaxe pickUpPickaxe;
     private bool holdingRock = false;
+    private bool holdingAxe = false;
     public GameObject rock;
     private PickaxeRock currentGem;
+    public PickUpRock pickUpRock;
 
     void Start()
     {
@@ -37,21 +39,44 @@ public class ElfMovementMine : MonoBehaviour
     {
         if (pickUpPickaxe.pickAxeReady)
         {
+            if (holdingRock)
+            {
+            dropRock();
+            } 
             pickAxe.SetActive(false);
             animator.SetBool("Pickaxe", true);
+            holdingAxe = true;
         } 
-        else if (holdingRock)
+        else if (pickUpRock.rockReady)
         {
-            dropRock();
-        } 
+            if (holdingAxe)
+            {
+                dropAxe();
+            }
+            rock.SetActive(false);
+            animator.SetBool("Rock", true);
+            holdingRock = true;
+        }
 
     }
 
     public void OnUseTool()
     {
-        if (currentGem != null && currentGem.gemReady)
+        if (holdingAxe && currentGem != null && currentGem.gemReady)
         {
             currentGem.revealStone();
+        }
+    }
+
+    public void OnDrop()
+    {
+        if (holdingRock)
+        {
+            dropRock();
+        }
+        else if (holdingAxe)
+        {
+            dropAxe();
         }
     }
 
@@ -62,6 +87,15 @@ public class ElfMovementMine : MonoBehaviour
         rock.transform.position = new Vector3(transform.position.x + .5f, transform.position.y - .5f, 0f);
         holdingRock = false;
         animator.SetBool("Rock", false);
+    }
+
+    void dropAxe()
+    {
+        animator.SetBool("Wood axe", false);
+        pickAxe.SetActive(true);
+        holdingAxe = false;
+        Vector3 dropPosition = transform.position + Vector3.right;
+        pickAxe.transform.position = dropPosition; //new Vector3(transform.position.x + .5f, transform.position.y - .5f, 0f);
     }
 
     void Update()
