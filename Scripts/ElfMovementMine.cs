@@ -16,6 +16,9 @@ public class ElfMovementMine : MonoBehaviour
     public GameObject rock;
     private PickaxeRock currentGem;
     public PickUpRock pickUpRock;
+    private bool inventoryOpen = false;
+    private int inventoryLocation = 0;
+    public OpenInventory openInventory;
 
     void Start()
     {
@@ -32,6 +35,20 @@ public class ElfMovementMine : MonoBehaviour
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
+
+        if (inventoryOpen)
+        {
+            
+            if (moveInput.x == 1)
+            {
+                inventoryLocation++;
+            }
+            else if (moveInput.x == -1)
+            {
+                inventoryLocation--;
+            }
+            //Debug.Log("loc "+ inventoryLocation);
+        }
 
     }
 
@@ -62,7 +79,7 @@ public class ElfMovementMine : MonoBehaviour
 
     public void OnUseTool()
     {
-        if (holdingAxe && currentGem != null && currentGem.gemReady)
+        if (currentGem != null && currentGem.gemReady)
         {
             currentGem.revealStone();
         }
@@ -78,6 +95,14 @@ public class ElfMovementMine : MonoBehaviour
         {
             dropAxe();
         }
+    }
+
+    public void OnOpenInventory()
+    {
+        inventoryOpen = !inventoryOpen;
+        inventoryLocation = 0;
+        //Debug.Log("yowza");
+        openInventory.openingInventory();
     }
 
 
