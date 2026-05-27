@@ -2283,7 +2283,7 @@ Transform:
   m_GameObject: {fileID: 948191438}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.207035, y: 7.8, z: 0}
+  m_LocalPosition: {x: 52.4, y: 1, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2868,8 +2868,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed34fcc670a7c4dbf9114dabc67ad39c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  inventoryPanel: {fileID: 0}
-  inventoryUI: {fileID: 0}
+  inventoryPanel: {fileID: 1746742529}
+  inventoryUI: {fileID: 1746742531}
 --- !u!4 &1184807337
 Transform:
   m_ObjectHideFlags: 0
@@ -3293,7 +3293,7 @@ Transform:
   m_GameObject: {fileID: 1265970374}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.050137, y: 25.613148, z: 0}
+  m_LocalPosition: {x: 14.050137, y: 17.8, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5172,7 +5172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5d4e1971faca4cedb6821db5cd47cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
-  inventoryUI: {fileID: 0}
+  inventoryUI: {fileID: 1746742531}
   slots: []
 --- !u!1 &1630396842
 GameObject:
@@ -5409,7 +5409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdda9982be83d4d70a7fef8115a12059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryUI
-  inventory: {fileID: 0}
+  inventory: {fileID: 1578600841}
   slotPrefab: {fileID: 4477721190568601889, guid: b43cc9ffeb0b94b9191c09e5ae5a7009, type: 3}
   slotParent: {fileID: 1842513316}
   slotObjects: []

@@ -30,6 +30,9 @@ public class Inventory : MonoBehaviour
         slots.Add(newSlot);
 
         inventoryUI.RefreshUI();
+
+        SaveData saveData = GetSaveData();
+        SaveSystem.Save(saveData);
     }
 
     public void RemoveItem(int index)
@@ -62,5 +65,45 @@ public class Inventory : MonoBehaviour
     {
         var slot = slots[index];
         return slot.item;
+    }
+
+    public SaveData GetSaveData()
+    {
+        SaveData saveData = new SaveData();
+
+        foreach (InventorySlot slot in slots)
+        {
+            if (slot.item == null)
+                continue;
+
+            InventorySlotSaveData slotData =
+                new InventorySlotSaveData();
+
+            slotData.itemID = slot.item.itemName;
+            slotData.amount = slot.amount;
+            
+            Debug.Log("slot Data " + slotData.itemID);
+            saveData.inventoryItems.Add(slotData);
+        }
+
+        return saveData;
+    }
+
+    public void LoadInventory(SaveData saveData, ItemDatabase database)
+    {
+        slots.Clear();
+
+        foreach (InventorySlotSaveData slotData
+                in saveData.inventoryItems)
+        {
+            InventorySlot slot = new InventorySlot();
+
+            slot.item = database.GetItem(slotData.itemID);
+
+            slot.amount = slotData.amount;
+
+            slots.Add(slot);
+        }
+        inventoryUI.RefreshUI();
     }
 }
