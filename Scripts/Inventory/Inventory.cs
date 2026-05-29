@@ -17,6 +17,7 @@ public class Inventory : MonoBehaviour
                 slot.amount++;
                 Debug.Log("hiya");
                 inventoryUI.RefreshUI();
+                SaveManager.Instance.SaveGame();
                 //refresh UI?
                 return;
             }
@@ -31,8 +32,13 @@ public class Inventory : MonoBehaviour
 
         inventoryUI.RefreshUI();
 
-        SaveData saveData = GetSaveData();
-        SaveSystem.Save(saveData);
+        //SaveManager manager = new SaveManager();
+        //manager.SaveGame();
+
+        SaveManager.Instance.SaveGame();
+        //SaveManager.SaveGame();
+        // SaveData saveData = GetSaveData();
+        // SaveSystem.Save(saveData);
     }
 
     public void RemoveItem(int index)
@@ -67,27 +73,51 @@ public class Inventory : MonoBehaviour
         return slot.item;
     }
 
-    public SaveData GetSaveData()
-    {
-        SaveData saveData = new SaveData();
+    // public SaveData GetSaveData()
+    // {
+    //     SaveData saveData = new SaveData();
 
-        foreach (InventorySlot slot in slots)
-        {
-            if (slot.item == null)
-                continue;
+    //     foreach (InventorySlot slot in slots)
+    //     {
+    //         if (slot.item == null)
+    //             continue;
 
-            InventorySlotSaveData slotData =
-                new InventorySlotSaveData();
+    //         InventorySlotSaveData slotData =
+    //             new InventorySlotSaveData();
 
-            slotData.itemID = slot.item.itemName;
-            slotData.amount = slot.amount;
+    //         slotData.itemID = slot.item.itemName;
+    //         slotData.amount = slot.amount;
             
-            Debug.Log("slot Data " + slotData.itemID);
-            saveData.inventoryItems.Add(slotData);
-        }
+    //         Debug.Log("slot Data " + slotData.itemID);
+    //         saveData.inventoryItems.Add(slotData);
+    //     }
 
-        return saveData;
+    //     return saveData;
+    // }
+
+    public List<InventorySlotSaveData>GetInventorySaveData()
+{
+    List<InventorySlotSaveData> saveData =
+        new List<InventorySlotSaveData>();
+
+    foreach (InventorySlot slot in slots)
+    {
+        if (slot.item == null)
+            continue;
+
+        InventorySlotSaveData slotData =
+            new InventorySlotSaveData();
+
+        slotData.itemID = slot.item.itemName;
+        slotData.amount = slot.amount;
+
+        Debug.Log("slot Data " + slotData.itemID);
+
+        saveData.Add(slotData);
     }
+
+    return saveData;
+}
 
     public void LoadInventory(SaveData saveData, ItemDatabase database)
     {

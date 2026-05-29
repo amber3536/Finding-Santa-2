@@ -10,5 +10,5 @@ public class SaveData
 
     public List<InventorySlotSaveData> inventoryItems = new List<InventorySlotSaveData>();
 
-
+    public List<WorldObjectSaveData> worldObjects = new List<WorldObjectSaveData>();
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class PickBerries : MonoBehaviour
 {
     public GameObject berry_bush;
@@ -19,6 +20,14 @@ public class PickBerries : MonoBehaviour
 
     public void picking()
     {
+        PersistentObject po = GetComponent<PersistentObject>();
+
+        SaveManager.Instance.worldObjects[po.UniqueId] = new WorldObjectSaveData
+            {
+                id = po.UniqueId,
+                isDestroyed = true
+            };
+
         //berry_bush.SetActive(false);
         Destroy(berry_bush);
         int num = PlayerPrefs.GetInt("berries") + 1;
