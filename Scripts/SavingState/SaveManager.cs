@@ -17,7 +17,7 @@ public class SaveManager : MonoBehaviour
 
     private void Start()
     {
-        LoadGame();
+        //LoadGame();
     }
 
     public void LoadGame()
