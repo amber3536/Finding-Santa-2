@@ -4,10 +4,12 @@ public class MadScientist : MonoBehaviour
 {
     public Animator scientist;
     public GameObject fish;
+    public GameObject sci;
     
     void Start()
     {
         fish.SetActive(false);
+        sci.SetActive(false);
     }
     void OnTriggerEnter2D(Collider2D other)
     {

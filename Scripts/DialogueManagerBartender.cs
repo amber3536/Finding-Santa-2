@@ -17,7 +17,8 @@ public class DialogueManagerBartender : MonoBehaviour
     private string[] bartenderSentences = {"I am starving right now."};
         //"It's okay, dad. Just stay strong.\r\nYou can do this. I believe in you."};
     private string[] bartenderSentences1 = {"Delicious. Got any more\r\nwhere that came from?"};
-    private string[] bartenderSentences2 = {"Thanks for the presents.\r\nEveryone likes presents..."};
+    private string[] bartenderSentences2 = {"I'm not the only who's one hungry around here."};
+    //{"Thanks for the presents.\r\nEveryone likes presents..."};
     private string[] shrimpSentences = { };
     private int bartenderIndex = 0;
     private float typingSpeed = 0.01f;

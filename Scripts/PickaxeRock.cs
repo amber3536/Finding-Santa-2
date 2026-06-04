@@ -7,7 +7,13 @@ public class PickaxeRock : MonoBehaviour
     public GameObject rock;
     public Animator animator;
     public bool gemReady = false;
+    public GameObject scientist;
     //private int count = 0;
+
+    void Start()
+    {
+        PlayerPrefs.SetInt("gems", 0);
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -36,5 +42,16 @@ public class PickaxeRock : MonoBehaviour
         sr.sortingOrder = 1;
         rock.SetActive(false);
         animator.SetBool("Axing", false);
+        int curr = PlayerPrefs.GetInt("gems");
+
+        if (curr == 6)
+        {
+            scientist.SetActive(true);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("gems", curr++);
+        }
+        
     }
 }
