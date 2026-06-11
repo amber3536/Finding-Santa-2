@@ -34,7 +34,7 @@ public class ElfMovement : MonoBehaviour
     private bool holdingBerries = false;
     private bool inventoryOpen = false;
     private int inventoryLocation = 0;
-
+    public SaveMenu saveMenu;
     public OpenInventory openInventory;
     //public InventoryUI inventoryUI;
 
@@ -261,6 +261,11 @@ public class ElfMovement : MonoBehaviour
         inventoryLocation = 0;
         //Debug.Log("yowza");
         openInventory.openingInventory();
+    }
+
+    public void OnSaveMenu()
+    {
+        saveMenu.ToggleSaveMenu();
     }
 
     void dropRock()

@@ -43,6 +43,7 @@ public class PickaxeRock : MonoBehaviour
         rock.SetActive(false);
         animator.SetBool("Axing", false);
         int curr = PlayerPrefs.GetInt("gems");
+        Debug.Log("curr gem " + curr);
 
         if (curr == 6)
         {
@@ -50,7 +51,7 @@ public class PickaxeRock : MonoBehaviour
         }
         else
         {
-            PlayerPrefs.SetInt("gems", curr++);
+            PlayerPrefs.SetInt("gems", curr+1);
         }
         
     }

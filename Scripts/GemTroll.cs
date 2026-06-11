@@ -24,7 +24,7 @@ public class GemTroll : MonoBehaviour
             Invoke("stopWalking", .5f);
             Invoke("walkBack", 1f);
             Invoke("stopWalking", 1.25f);
-            yield return new WaitForSeconds(8f);
+            yield return new WaitForSeconds(7f);
         }
     }
 

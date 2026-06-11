@@ -19,6 +19,7 @@ public class ElfMovementMine : MonoBehaviour
     private bool inventoryOpen = false;
     private int inventoryLocation = 0;
     public OpenInventory openInventory;
+    public SaveMenu saveMenu;
 
     void Start()
     {
@@ -105,6 +106,10 @@ public class ElfMovementMine : MonoBehaviour
         openInventory.openingInventory();
     }
 
+    public void OnSaveMenu()
+    {
+        saveMenu.ToggleSaveMenu();
+    }
 
     void dropRock()
     {
