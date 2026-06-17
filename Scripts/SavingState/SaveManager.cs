@@ -41,10 +41,16 @@ public class SaveManager : MonoBehaviour
             {
                 worldObjects[d.id] = d;
             }
-        PersistentObject[] objects = FindObjectsByType<PersistentObject>(FindObjectsSortMode.None);
+        //PersistentObject[] objects = FindObjectsByType<PersistentObject>(FindObjectsSortMode.None);
+
+        PersistentObject[] objects =
+            FindObjectsByType<PersistentObject>(
+                FindObjectsInactive.Include,
+                FindObjectsSortMode.None);
 
         foreach (PersistentObject obj in objects)
         {
+            //Debug.Log($"Found object: {obj.name}  ID: {obj.UniqueId}");
             if (worldObjects.TryGetValue(
                     obj.UniqueId,
                     out WorldObjectSaveData d))
@@ -52,6 +58,11 @@ public class SaveManager : MonoBehaviour
                 if (d.isDestroyed)
                 {
                     obj.gameObject.SetActive(false);
+                }
+                else
+                {
+                    //Debug.Log(obj.UniqueId);
+                    obj.gameObject.SetActive(true);
                 }
             }
         }
@@ -66,10 +77,5 @@ public class SaveManager : MonoBehaviour
     
         SaveSystem.Save(saveData);
 
-        //data.inventoryItems = inventory.GetInventorySaveData();
-
-        //data.playerPosition = player.position;
-
-        //SaveSystem.Save(data);
     }
 }

@@ -34,5 +34,12 @@ public class GoInsideCabin : MonoBehaviour
     {
         myCamera.ResumeFollow();
         axe.SetActive(true);
+        PersistentObject po_axe = axe.GetComponent<PersistentObject>();
+        
+        SaveManager.Instance.worldObjects[po_axe.UniqueId] = new WorldObjectSaveData
+            {
+                id = po_axe.UniqueId,
+                isDestroyed = false
+            };
     }
 }

@@ -3,12 +3,11 @@ using UnityEngine.InputSystem;
 
 public class RiverUnblock : MonoBehaviour
 {
-    public Collider2D block;
+    //public Collider2D block;
     public GameObject path;  
     public GameObject magic;
+    public GameObject block;
 
-    //public ElfMovement elfMovement;
-    // public Animator animator;
     
     public bool unblocked = false;
 
@@ -23,13 +22,28 @@ public class RiverUnblock : MonoBehaviour
     {
         magic.SetActive(true);
         Invoke("keepUnblockin", 1f);
-        //animator.SetBool("Rock", false);
+        PersistentObject po_path = path.GetComponent<PersistentObject>();
+        
+        SaveManager.Instance.worldObjects[po_path.UniqueId] = new WorldObjectSaveData
+            {
+                id = po_path.UniqueId,
+                isDestroyed = false
+            };
     }
 
     void keepUnblockin()
     {
         magic.SetActive(false);
-        block.enabled = false;
+        //block.enabled = false;
         path.SetActive(true);
+
+        PersistentObject po_block = block.GetComponent<PersistentObject>();
+        
+        SaveManager.Instance.worldObjects[po_block.UniqueId] = new WorldObjectSaveData
+            {
+                id = po_block.UniqueId,
+                isDestroyed = true
+            };
+        block.SetActive(false);
     }
 }

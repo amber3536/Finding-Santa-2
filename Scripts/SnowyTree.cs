@@ -15,13 +15,32 @@ public class SnowyTree : MonoBehaviour
 
     public void chopTree()
     {
-        //SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        //spriteRenderer.enabled = false;
-        //Debug.Log("yyyyy");
+        PersistentObject po = GetComponent<PersistentObject>();
+
+        SaveManager.Instance.worldObjects[po.UniqueId] = new WorldObjectSaveData
+            {
+                id = po.UniqueId,
+                isDestroyed = true
+            };
+
         tree.SetActive(false);
-        //tree.sortingOrder = -1;
-        //sr_stump.sortingOrder = 2;
+  
+        PersistentObject po_log = log.GetComponent<PersistentObject>();
+        //Debug.Log("log " + po_log.UniqueId);
+        SaveManager.Instance.worldObjects[po_log.UniqueId] = new WorldObjectSaveData
+            {
+                id = po_log.UniqueId,
+                isDestroyed = false
+            };
         log.SetActive(true);
+
+        PersistentObject po_stump = stump.GetComponent<PersistentObject>();
+
+        SaveManager.Instance.worldObjects[po_stump.UniqueId] = new WorldObjectSaveData
+            {
+                id = po_stump.UniqueId,
+                isDestroyed = false
+            };
         stump.SetActive(true);
     }
 }

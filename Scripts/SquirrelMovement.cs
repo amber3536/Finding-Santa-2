@@ -9,13 +9,17 @@ public class SquirrelMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Invoke("Look", 3f);
+    }
+
+    public void beginSquirrel()
+    {
+        Invoke("Look", 1f);
     }
 
     void Look()
     {
         animator.SetBool("Look", true);
-        Invoke("Run", 3f);
+        Invoke("Run", 2f);
     }
 
     void Run()
@@ -26,7 +30,10 @@ public class SquirrelMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("ahhh");
-        Run();
+        //Debug.Log("ahhh");
+        if (other.gameObject.name == "Elf")
+        {
+            Run();
+        }
     }
 }
