@@ -14,8 +14,10 @@ public class ElfMovementMine : MonoBehaviour
     private bool holdingRock = false;
     private bool holdingAxe = false;
     public GameObject rock;
+    public GameObject fish;
     private PickaxeRock currentGem;
     public PickUpRock pickUpRock;
+    public PickUpFish pickUpFish;
     private bool inventoryOpen = false;
     private int inventoryLocation = 0;
     public OpenInventory openInventory;
@@ -59,7 +61,7 @@ public class ElfMovementMine : MonoBehaviour
         {
             if (holdingRock)
             {
-            dropRock();
+                dropRock();
             } 
             pickAxe.SetActive(false);
             animator.SetBool("Pickaxe", true);
@@ -74,6 +76,20 @@ public class ElfMovementMine : MonoBehaviour
             rock.SetActive(false);
             animator.SetBool("Rock", true);
             holdingRock = true;
+        }
+        else if (pickUpFish.fishReady)
+        {
+            if (holdingAxe)
+            {
+                dropAxe();
+            }
+            else if (holdingRock)
+            {
+                dropRock();
+            }
+            fish.SetActive(false);
+            animator.SetBool("Fish", true);
+            //holdingRock = true;
         }
 
     }
@@ -121,7 +137,7 @@ public class ElfMovementMine : MonoBehaviour
 
     void dropAxe()
     {
-        animator.SetBool("Wood axe", false);
+        animator.SetBool("Pickaxe", false);
         pickAxe.SetActive(true);
         holdingAxe = false;
         Vector3 dropPosition = transform.position + Vector3.right;

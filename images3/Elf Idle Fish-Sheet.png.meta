@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 9e33f6090f6534808b9fe33194478b43
+guid: 44e0508c69f9741189a2af1507caf40c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5303539520757225474
-    second: Fish skeleton_0
+      213: -4335487261950383604
+    second: Elf Idle Fish-Sheet_0
+  - first:
+      213: 6082074913872198339
+    second: Elf Idle Fish-Sheet_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +116,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fish skeleton_0
+      name: Elf Idle Fish-Sheet_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 25
-        width: 59
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 84
+        height: 84
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ef7250db7ea0666b0800000000000000
-      internalID: -5303539520757225474
+      spriteID: c0a673f3e4145d3c0800000000000000
+      internalID: -4335487261950383604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elf Idle Fish-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 0
+        width: 84
+        height: 84
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cabaa2f8eed76450800000000000000
+      internalID: 6082074913872198339
       vertices: []
       indices: 
       edges: []
@@ -138,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 53a4c9f4b572943149f5c5f2f9b85c2d
     internalID: 0
     vertices: []
     indices: 
@@ -146,9 +171,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":84.0,"y":84.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.10000000149011612},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Fish skeleton_0: -5303539520757225474
+      Elf Idle Fish-Sheet_0: -4335487261950383604
+      Elf Idle Fish-Sheet_1: 6082074913872198339
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

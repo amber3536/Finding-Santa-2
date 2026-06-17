@@ -2616,6 +2616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   path: {fileID: 881613978}
   magic: {fileID: 1586295138}
+  block: {fileID: 1926217205}
   unblocked: 0
 --- !u!4 &317575018
 Transform:
@@ -4086,6 +4087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   path: {fileID: 1698823494}
   magic: {fileID: 50891977}
+  block: {fileID: 427993285}
   unblocked: 0
 --- !u!4 &418571903
 Transform:
@@ -4657,6 +4659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   path: {fileID: 128269980}
   magic: {fileID: 1009942447}
+  block: {fileID: 305911430}
   unblocked: 0
 --- !u!4 &487212171
 Transform:
@@ -13984,6 +13987,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   path: {fileID: 568584275}
   magic: {fileID: 646089472}
+  block: {fileID: 356653560}
   unblocked: 0
 --- !u!4 &1699210567
 Transform:
@@ -15188,6 +15192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   saveMenu: {fileID: 1275092817}
+  squirrel: {fileID: 1893913374}
 --- !u!114 &1821207345
 MonoBehaviour:
   m_ObjectHideFlags: 0

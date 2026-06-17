@@ -22,7 +22,7 @@ public class DialogueManagerCave : MonoBehaviour
     //  "Yeah, man. Life’s full of surprises.\r\nTiny yetis, lost elves…\r\nit’s all part of the cosmic mix.",
     //  "Hey, man—seriously!\r\nNot the right one!"};
         //"It's okay, dad. Just stay strong.\r\nYou can do this. I believe in you."};
-    private string[] elfSentences = { "Oh hello…\r\nI’m looking for Santa.\r\nHave you seen him?"};   //Are you a yeti?",
+    private string[] elfSentences = { };//"Oh hello…\r\nI’m looking for Santa.\r\nHave you seen him?"};   //Are you a yeti?",
     // "I—uh—was expecting someone… bigger.",
     // "Ok...thanks."};
     // "Which way did he go?",
