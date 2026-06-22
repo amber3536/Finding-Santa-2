@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class ElfMovement : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class ElfMovement : MonoBehaviour
     private ThreeLogs currentLogs;
     private PickBerries currentBerries;
     public GameObject axe;
+    public GameObject pickAxe;
     public PickUpAxe pickUpAxe;
     public GoInsideCabin goInsideCabin;
     private bool holdingAxe = false;
@@ -36,13 +38,20 @@ public class ElfMovement : MonoBehaviour
     private int inventoryLocation = 0;
     public SaveMenu saveMenu;
     public OpenInventory openInventory;
-    //public InventoryUI inventoryUI;
+    public PickUpFish pickUpFish;
+    public GameObject fish;
+    private PickaxeRock currentGem;
+    public PickUpPickaxe pickUpPickaxe;
 
 
     void Start()
 
     {
-        PlayerPrefs.SetInt("rock", 0);
+        if (SaveManager.Instance.carriedWorldObjectUniqueId == "rock")
+        {
+            animator.SetBool("Rock", true);
+            holdingRock = true;
+        }
         lastStepPos = transform.position;
         rb = GetComponent<Rigidbody2D>(); // Get reference to the Rigidbody2D
 
@@ -52,7 +61,6 @@ public class ElfMovement : MonoBehaviour
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
-        //Debug.Log("Move input: " + moveInput);
 
         if (inventoryOpen)
         {
@@ -65,24 +73,17 @@ public class ElfMovement : MonoBehaviour
             {
                 inventoryLocation--;
             }
-            //Debug.Log("loc "+ inventoryLocation);
         }
-        
-        // Your movement code
     }
 
     public void OnStoreinInventory()
     {
-        //Debug.Log("it worked!");
         Inventory inventory = GetComponent<Inventory>();
 
         if (currentLogs != null && currentLogs.logsReady)
-        //if (inventory != null)
         {
             inventory.AddItem(itemWood);
             currentLogs.threeLogs.SetActive(false);
-            
-            //Destroy(gameObject);
         }
         else if (pickUpRock.rockReady)
         {
@@ -117,6 +118,7 @@ public class ElfMovement : MonoBehaviour
                 rock.SetActive(false);
                 animator.SetBool("Rock", true);
                 holdingRock = true;
+                SaveManager.Instance.carriedWorldObjectUniqueId = "rock";
             }
             else if (pickUpAxe.axeReady)
             {
@@ -180,8 +182,29 @@ public class ElfMovement : MonoBehaviour
                 holdingBerries = true;
                 currentBerries.picking();
                 animator.SetBool("Berries", true);
-                
-
+            }
+            else if (pickUpPickaxe.pickAxeReady)
+            {
+                if (holdingRock)
+                {
+                    dropRock();
+                } 
+                pickAxe.SetActive(false);
+                animator.SetBool("Pickaxe", true);
+                holdingAxe = true;
+            } 
+            else if (pickUpFish.fishReady)
+            {
+                if (holdingAxe)
+                {
+                    dropAxe();
+                }
+                else if (holdingRock)
+                {
+                    dropRock();
+                }
+                fish.SetActive(false);
+                animator.SetBool("Fish", true);
             }
 
         }
@@ -275,6 +298,7 @@ public class ElfMovement : MonoBehaviour
         rock.transform.position = dropPosition; // (transform.position.x + .5f, transform.position.y - .5f, 0f);
         holdingRock = false;
         animator.SetBool("Rock", false);
+        SaveManager.Instance.carriedWorldObjectUniqueId = null;
     }
 
     void dropLogs()
@@ -307,7 +331,10 @@ public class ElfMovement : MonoBehaviour
             animator.SetBool("Axing", true);
             Invoke("stopAxing", 2f);
         }
-
+        else if (currentGem != null && currentGem.gemReady)
+        {
+            currentGem.revealStone();
+        }
 
     }
 
@@ -320,12 +347,7 @@ public class ElfMovement : MonoBehaviour
     void Update()
 
     {
-        //animator.setFloat("Speed", Mathf.Abs(moveInput.x));
         animator.SetFloat("Speed", Mathf.Abs(moveInput.x));
-        // moveInput.x = Input.GetAxis("Horizontal"); // Get left/right input
-        // moveInput.y = Input.GetAxis("Vertical");
-
-        // moveInput.Normalize();
 
         if (moveInput.x > 0 && !isFacingRight) {
             Flip();
@@ -346,26 +368,29 @@ public class ElfMovement : MonoBehaviour
             animator.SetBool("Walk towards", false);
         }
 
-        // Vector3 move = new Vector3(moveInput.x, 0, moveInput.y);
-        // transform.Translate(move * speed * Time.deltaTime);
         rb.linearVelocity = moveInput * speed;
 
-        if (Vector3.Distance(transform.position, lastStepPos) > stepDistance)
+
+        //snow prints
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        if (currentScene.name == "Forest Intro")
         {
-            Vector3 movement = transform.position - lastStepPos;
-            Vector3 moveDirection = movement.normalized;
-            float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-            Quaternion rot = Quaternion.Euler(0, 0, angle - 90f);
-            //Quaternion rot = Quaternion.LookRotation(Vector3.forward, moveInput);
-            GameObject newClone = Instantiate(footprintPrefab, transform.position, rot);
-            SpriteRenderer sr = newClone.GetComponent<SpriteRenderer>();
-            StartCoroutine(FadeFootprint(sr, newClone));
-            // Instantiate(footprintPrefab, transform.position, Quaternion.identity);
-            destroyClone(newClone);
-            lastStepPos = transform.position;
-            FeetCrunching();
-            //Debug.Log(transform.position);
+            if (Vector3.Distance(transform.position, lastStepPos) > stepDistance)
+            {
+                Vector3 movement = transform.position - lastStepPos;
+                Vector3 moveDirection = movement.normalized;
+                float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+                Quaternion rot = Quaternion.Euler(0, 0, angle - 90f);
+                GameObject newClone = Instantiate(footprintPrefab, transform.position, rot);
+                SpriteRenderer sr = newClone.GetComponent<SpriteRenderer>();
+                StartCoroutine(FadeFootprint(sr, newClone));
+                destroyClone(newClone);
+                lastStepPos = transform.position;
+                FeetCrunching();
+            }
         }
+
   
     }
 
@@ -385,10 +410,8 @@ public class ElfMovement : MonoBehaviour
 
     void Flip() 
     {
-        //if (!dontMove) {
-            isFacingRight = !isFacingRight;
-            transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
-        //}  
+        isFacingRight = !isFacingRight;
+        transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
     }
 
     IEnumerator FadeFootprint(SpriteRenderer sr, GameObject obj)
@@ -415,6 +438,7 @@ public class ElfMovement : MonoBehaviour
         SnowyTree tree = other.GetComponent<SnowyTree>();
         ThreeLogs logs = other.GetComponent<ThreeLogs>();
         PickBerries berries = other.GetComponent<PickBerries>();
+        PickaxeRock gem = other.GetComponent<PickaxeRock>();
 
         if (block != null)
         {
@@ -432,8 +456,11 @@ public class ElfMovement : MonoBehaviour
         else if (berries != null)
         {
             currentBerries = berries;
-            //Debug.Log("pppppft");
         }
+        else if (gem != null)
+        {
+            currentGem = gem;
+        }  
 
 
     }
@@ -444,6 +471,7 @@ public class ElfMovement : MonoBehaviour
         SnowyTree tree = other.GetComponent<SnowyTree>();
         ThreeLogs logs = other.GetComponent<ThreeLogs>();
         PickBerries berries = other.GetComponent<PickBerries>();
+        PickaxeRock gem = other.GetComponent<PickaxeRock>();
 
         if (block != null && block == currentUnblock)
         {
@@ -460,6 +488,10 @@ public class ElfMovement : MonoBehaviour
         else if (berries != null && berries == currentBerries)
         {
             currentBerries = null;
+        }
+        else if (gem != null && gem == currentGem)
+        {
+            currentGem = null;
         }
     }
 

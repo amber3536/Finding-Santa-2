@@ -9,6 +9,7 @@ public class SaveManager : MonoBehaviour
     public Dictionary<string, WorldObjectSaveData> worldObjects = new Dictionary<string, WorldObjectSaveData>();
     [SerializeField] private Inventory inventory;
     [SerializeField] private ItemDatabase itemDatabase;
+    public string carriedWorldObjectUniqueId;
 
     private void Awake()
     {

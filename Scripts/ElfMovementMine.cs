@@ -25,12 +25,12 @@ public class ElfMovementMine : MonoBehaviour
 
     void Start()
     {
-        int val = PlayerPrefs.GetInt("rock");
-        if (val == 1)
-        {
-            animator.SetBool("Rock", true);
-            holdingRock = true;
-        }
+        // int val = PlayerPrefs.GetInt("rock");
+        // if (val == 1)
+        // {
+        //     animator.SetBool("Rock", true);
+        //     holdingRock = true;
+        // }
         rb = GetComponent<Rigidbody2D>(); // Get reference to the Rigidbody2D
     }
 
