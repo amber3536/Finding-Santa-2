@@ -15,4 +15,26 @@ public class PickUpRock : MonoBehaviour
     {
         rockReady = false;
     }
+
+    public void destroyRock()
+    {
+        PersistentObject po = GetComponent<PersistentObject>();
+
+        SaveManager.Instance.worldObjects[po.UniqueId] = new WorldObjectSaveData
+            {
+                id = po.UniqueId,
+                isDestroyed = true
+            };
+    }
+
+    public void restoreRock()
+    {
+        PersistentObject po = GetComponent<PersistentObject>();
+
+        SaveManager.Instance.worldObjects[po.UniqueId] = new WorldObjectSaveData
+            {
+                id = po.UniqueId,
+                isDestroyed = false
+            };
+    }
 }

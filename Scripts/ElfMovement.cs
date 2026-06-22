@@ -47,14 +47,19 @@ public class ElfMovement : MonoBehaviour
     void Start()
 
     {
+        addCarryItem();
+        lastStepPos = transform.position;
+        rb = GetComponent<Rigidbody2D>(); // Get reference to the Rigidbody2D
+
+    }
+
+    public void addCarryItem()
+    {
         if (SaveManager.Instance.carriedWorldObjectUniqueId == "rock")
         {
             animator.SetBool("Rock", true);
             holdingRock = true;
         }
-        lastStepPos = transform.position;
-        rb = GetComponent<Rigidbody2D>(); // Get reference to the Rigidbody2D
-
     }
 
 
@@ -119,6 +124,7 @@ public class ElfMovement : MonoBehaviour
                 animator.SetBool("Rock", true);
                 holdingRock = true;
                 SaveManager.Instance.carriedWorldObjectUniqueId = "rock";
+                pickUpRock.destroyRock();
             }
             else if (pickUpAxe.axeReady)
             {
@@ -299,6 +305,7 @@ public class ElfMovement : MonoBehaviour
         holdingRock = false;
         animator.SetBool("Rock", false);
         SaveManager.Instance.carriedWorldObjectUniqueId = null;
+        pickUpRock.restoreRock();
     }
 
     void dropLogs()

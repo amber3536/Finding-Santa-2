@@ -6,6 +6,7 @@ public class SaveManager : MonoBehaviour
 {
     public static SaveManager Instance;
     public Transform player;
+    public ElfMovement elf;
     public Dictionary<string, WorldObjectSaveData> worldObjects = new Dictionary<string, WorldObjectSaveData>();
     [SerializeField] private Inventory inventory;
     [SerializeField] private ItemDatabase itemDatabase;
@@ -67,6 +68,8 @@ public class SaveManager : MonoBehaviour
                 }
             }
         }
+        carriedWorldObjectUniqueId = data.carriedObjectId;
+        elf.addCarryItem();
     }
 
     public void SaveGame()
@@ -75,6 +78,7 @@ public class SaveManager : MonoBehaviour
         saveData.inventoryItems = inventory.GetInventorySaveData();
         saveData.playerPosition = player.position;
         saveData.worldObjects = worldObjects.Values.ToList();
+        saveData.carriedObjectId = carriedWorldObjectUniqueId;
     
         SaveSystem.Save(saveData);
 
