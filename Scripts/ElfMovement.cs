@@ -32,6 +32,7 @@ public class ElfMovement : MonoBehaviour
     public PickUpAxe pickUpAxe;
     public GoInsideCabin goInsideCabin;
     private bool holdingAxe = false;
+    private bool holdingPickaxe = false;
     private bool holdingLogs = false;
     private bool holdingBerries = false;
     private bool inventoryOpen = false;
@@ -47,16 +48,17 @@ public class ElfMovement : MonoBehaviour
     void Start()
 
     {
-        addCarryItem();
+        
         lastStepPos = transform.position;
         rb = GetComponent<Rigidbody2D>(); // Get reference to the Rigidbody2D
-
+        addCarryItem();
     }
 
     public void addCarryItem()
     {
         if (SaveManager.Instance.carriedWorldObjectUniqueId == "rock")
         {
+            //Debug.Log("yyy");
             animator.SetBool("Rock", true);
             holdingRock = true;
         }
@@ -120,6 +122,10 @@ public class ElfMovement : MonoBehaviour
                 {
                     dropLogs();
                 }
+                else if (holdingPickaxe)
+                {
+                    dropPickaxe();
+                }
                 rock.SetActive(false);
                 animator.SetBool("Rock", true);
                 holdingRock = true;
@@ -140,6 +146,10 @@ public class ElfMovement : MonoBehaviour
                 {
                     dropLogs();
                 }
+                else if (holdingPickaxe)
+                {
+                    dropPickaxe();
+                }
                 axe.SetActive(false);
                 animator.SetBool("Wood axe", true);
                 holdingAxe = true;
@@ -158,6 +168,10 @@ public class ElfMovement : MonoBehaviour
                 else if (holdingBerries)
                 {
                     dropBerries();
+                }
+                else if (holdingPickaxe)
+                {
+                    dropPickaxe();
                 }
                 animator.SetBool("Logs", true);
                 Destroy(currentLogs.threeLogs);
@@ -183,7 +197,10 @@ public class ElfMovement : MonoBehaviour
                 {
                     dropLogs();
                 }
-
+                else if (holdingPickaxe)
+                {
+                    dropPickaxe();
+                }
 
                 holdingBerries = true;
                 currentBerries.picking();
@@ -197,7 +214,7 @@ public class ElfMovement : MonoBehaviour
                 } 
                 pickAxe.SetActive(false);
                 animator.SetBool("Pickaxe", true);
-                holdingAxe = true;
+                holdingPickaxe = true;
             } 
             else if (pickUpFish.fishReady)
             {
@@ -208,6 +225,10 @@ public class ElfMovement : MonoBehaviour
                 else if (holdingRock)
                 {
                     dropRock();
+                }
+                else if (holdingPickaxe)
+                {
+                    dropPickaxe();
                 }
                 fish.SetActive(false);
                 animator.SetBool("Fish", true);
@@ -240,6 +261,10 @@ public class ElfMovement : MonoBehaviour
         else if (holdingAxe)
         {
             dropAxe();
+        }
+        else if (holdingPickaxe)
+        {
+            dropPickaxe();
         }
         else if (inventoryOpen)
         {
@@ -322,6 +347,15 @@ public class ElfMovement : MonoBehaviour
         holdingAxe = false;
         Vector3 dropPosition = transform.position + Vector3.right;
         axe.transform.position = dropPosition; //new Vector3(transform.position.x + .5f, transform.position.y - .5f, 0f);
+    }
+
+    void dropPickaxe()
+    {
+        animator.SetBool("Pickaxe", false);
+        pickAxe.SetActive(true);
+        holdingPickaxe = false;
+        Vector3 dropPosition = transform.position + Vector3.right;
+        pickAxe.transform.position = dropPosition; //new Vector3(transform.position.x + .5f, transform.position.y - .5f, 0f);
     }
 
     void dropBerries()

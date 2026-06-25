@@ -10,16 +10,19 @@ public class SaveManager : MonoBehaviour
     public Dictionary<string, WorldObjectSaveData> worldObjects = new Dictionary<string, WorldObjectSaveData>();
     [SerializeField] private Inventory inventory;
     [SerializeField] private ItemDatabase itemDatabase;
-    public string carriedWorldObjectUniqueId;
+    public string carriedWorldObjectUniqueId = null;
+    
 
     private void Awake()
     {
         Instance = this;
+        PlayerPrefs.SetInt("gameStarted", 0);
     }
 
     private void Start()
     {
         //LoadGame();
+        
     }
 
     public void LoadGame()

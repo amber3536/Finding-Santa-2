@@ -6,7 +6,8 @@ public class ReturnToYeti : MonoBehaviour
     public CameraMovementCave myCamera;
    void OnTriggerEnter2D(Collider2D other)
     {
-        myCamera.mode = CameraModeCave.LockedPosition;
+        //Debug.Log("okkkkay");
+        //myCamera.mode = CameraModeCave.LockedPosition;
         myCamera.LockToPosition(new Vector3(-20, 0, -10));
         //relocate = true;
         //myCamera.transform.position = new Vector3(-20, 0, -10);
