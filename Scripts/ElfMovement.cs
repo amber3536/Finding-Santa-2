@@ -35,6 +35,7 @@ public class ElfMovement : MonoBehaviour
     private bool holdingPickaxe = false;
     private bool holdingLogs = false;
     private bool holdingBerries = false;
+    private bool holdingFish = false;
     private bool inventoryOpen = false;
     private int inventoryLocation = 0;
     public SaveMenu saveMenu;
@@ -122,6 +123,10 @@ public class ElfMovement : MonoBehaviour
                 {
                     dropLogs();
                 }
+                else if (holdingFish)
+                {
+                    dropFish();
+                }
                 else if (holdingPickaxe)
                 {
                     dropPickaxe();
@@ -141,6 +146,10 @@ public class ElfMovement : MonoBehaviour
                 else if (holdingAxe)
                 {
                     dropAxe();
+                }
+                else if (holdingFish)
+                {
+                    dropFish();
                 }
                 else if (holdingLogs)
                 {
@@ -168,6 +177,10 @@ public class ElfMovement : MonoBehaviour
                 else if (holdingBerries)
                 {
                     dropBerries();
+                }
+                else if (holdingFish)
+                {
+                    dropFish();
                 }
                 else if (holdingPickaxe)
                 {
@@ -197,6 +210,10 @@ public class ElfMovement : MonoBehaviour
                 {
                     dropLogs();
                 }
+                else if (holdingFish)
+                {
+                    dropFish();
+                }
                 else if (holdingPickaxe)
                 {
                     dropPickaxe();
@@ -208,10 +225,23 @@ public class ElfMovement : MonoBehaviour
             }
             else if (pickUpPickaxe.pickAxeReady)
             {
-                if (holdingRock)
+                if (holdingAxe)
+                {
+                    dropAxe();
+                }
+                else if (holdingRock)
                 {
                     dropRock();
-                } 
+                }
+                else if (holdingFish)
+                {
+                    dropFish();
+                    //dropPickaxe();
+                }
+                else if (holdingLogs)
+                {
+                    dropLogs();
+                }
                 pickAxe.SetActive(false);
                 animator.SetBool("Pickaxe", true);
                 holdingPickaxe = true;
@@ -230,8 +260,17 @@ public class ElfMovement : MonoBehaviour
                 {
                     dropPickaxe();
                 }
+                else if (holdingFish)
+                {
+                    dropFish();
+                }
+                else if (holdingLogs)
+                {
+                    dropLogs();
+                }
                 fish.SetActive(false);
                 animator.SetBool("Fish", true);
+                holdingFish = true;
             }
 
         }
@@ -239,7 +278,7 @@ public class ElfMovement : MonoBehaviour
         {
             Inventory inventory = GetComponent<Inventory>();
             string curr = inventory.IdentifyItem(inventoryLocation);
-            Debug.Log("inventory item "+ curr);
+            //Debug.Log("inventory item "+ curr);
             inventory.RemoveItem(inventoryLocation);
             inventoryLocation = 0;
             // put item in hand, close inventory
@@ -265,6 +304,10 @@ public class ElfMovement : MonoBehaviour
         else if (holdingPickaxe)
         {
             dropPickaxe();
+        }
+        else if (holdingFish)
+        {
+            dropFish();
         }
         else if (inventoryOpen)
         {
@@ -338,6 +381,16 @@ public class ElfMovement : MonoBehaviour
         DropItem(itemWood);
         animator.SetBool("Logs", false);
         holdingLogs = false;
+    }
+
+    void dropFish()
+    {
+        Debug.Log("okeee");
+        fish.SetActive(true);
+        Vector3 dropPosition = transform.position + Vector3.right;
+        fish.transform.position = dropPosition; // (transform.position.x + .5f, transform.position.y - .5f, 0f);
+        holdingFish = false;
+        animator.SetBool("Fish", false);
     }
 
     void dropAxe()
