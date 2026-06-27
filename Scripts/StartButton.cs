@@ -4,11 +4,11 @@ public class StartButton : MonoBehaviour
 {
     public GameObject startMenu;
     public SquirrelMovement squirrel;
+    static bool gameStarted = false;
 
     void Start()
     {
-       // Debug.Log(SaveManagr.Instance.gameStarted);
-        if (PlayerPrefs.GetInt("gameStarted") == 1)
+        if (gameStarted)
         {
             startMenu.SetActive(false);
         }
@@ -17,7 +17,10 @@ public class StartButton : MonoBehaviour
     {
         //Debug.Log("Button was clicked via the Inspector method!");
         startMenu.SetActive(false);
-        PlayerPrefs.SetInt("gameStarted", 1);
+        gameStarted = true;
+        //SaveManager.Instance.gameBegun = true;
+        //SaveManager.Instance.SaveGame();
+        //PlayerPrefs.SetInt("gameStarted", 1);
         //SaveManager.Instance.gameStarted = true;
         //SaveManager.Instance.SaveGame();
         squirrel.beginSquirrel();

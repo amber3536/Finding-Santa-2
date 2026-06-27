@@ -11,19 +11,75 @@ public class SaveManager : MonoBehaviour
     [SerializeField] private Inventory inventory;
     [SerializeField] private ItemDatabase itemDatabase;
     public string carriedWorldObjectUniqueId = null;
+    static bool gameBegun = false;
     
 
     private void Awake()
     {
         Instance = this;
-        PlayerPrefs.SetInt("gameStarted", 0);
+        //PlayerPrefs.SetInt("gameStarted", 0);
     }
 
     private void Start()
     {
         //LoadGame();
+        //Debug.Log("save manager");
+        if (gameBegun)
+        {
+            GetCarryObject();
+        }
+        gameBegun = true;
         
     }
+
+    private void GetCarryObject()
+    {
+        SaveData data = SaveSystem.Load();
+
+        if (data == null)
+        {
+            Debug.Log("No save file found");
+            return;
+        }
+
+        carriedWorldObjectUniqueId = data.carriedObjectId;
+        elf.addCarryItem();
+
+        inventory.LoadInventory(
+            data,
+            itemDatabase);
+
+        
+        foreach (WorldObjectSaveData d in data.worldObjects)
+            {
+                worldObjects[d.id] = d;
+            }
+            
+        PersistentObject[] objects =
+            FindObjectsByType<PersistentObject>(
+                FindObjectsInactive.Include,
+                FindObjectsSortMode.None);
+
+        foreach (PersistentObject obj in objects)
+        {
+            //Debug.Log($"Found object: {obj.name}  ID: {obj.UniqueId}");
+            if (worldObjects.TryGetValue(
+                    obj.UniqueId,
+                    out WorldObjectSaveData d))
+            {
+                if (d.isDestroyed)
+                {
+                    obj.gameObject.SetActive(false);
+                }
+                else
+                {
+                    //Debug.Log(obj.UniqueId);
+                    obj.gameObject.SetActive(true);
+                }
+            }
+        }
+    }
+
 
     public void LoadGame()
     {

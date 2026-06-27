@@ -7,6 +7,9 @@ public class PenguinCatchingNothing : MonoBehaviour
     public float animationTime = 8f;
     public string triggerName = "Checking";
     private bool catching = false;
+    public ElfMovement elf;
+    public Rigidbody2D rb_train;
+    public Animator animator_train;
 
     void Start()
     {
@@ -15,7 +18,13 @@ public class PenguinCatchingNothing : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!catching)
+        if (elf.holdingFish)
+        {
+            //Debug.Log("fishy");
+            rb_train.linearVelocity = new Vector2(-3f, 0);
+            Invoke("stopTrain", 6f);
+        }
+        else if (!catching)
         {
             animator.SetBool("Catch", true);
             catching = true;
@@ -31,6 +40,12 @@ public class PenguinCatchingNothing : MonoBehaviour
     void catchFalse()
     {
         animator.SetBool("Catch", false);
+    }
+
+    void stopTrain()
+    {
+        rb_train.linearVelocity = new Vector3(0f, 0f, 0f);
+        animator_train.SetBool("Idle", true);
     }
 
     IEnumerator CheckingLine()

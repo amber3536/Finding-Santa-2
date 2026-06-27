@@ -35,7 +35,7 @@ public class ElfMovement : MonoBehaviour
     private bool holdingPickaxe = false;
     private bool holdingLogs = false;
     private bool holdingBerries = false;
-    private bool holdingFish = false;
+    public bool holdingFish = false;
     private bool inventoryOpen = false;
     private int inventoryLocation = 0;
     public SaveMenu saveMenu;
@@ -44,6 +44,7 @@ public class ElfMovement : MonoBehaviour
     public GameObject fish;
     private PickaxeRock currentGem;
     public PickUpPickaxe pickUpPickaxe;
+    public bool justLoaded = false;
 
 
     void Start()
@@ -52,16 +53,37 @@ public class ElfMovement : MonoBehaviour
         
         lastStepPos = transform.position;
         rb = GetComponent<Rigidbody2D>(); // Get reference to the Rigidbody2D
-        addCarryItem();
+        //addCarryItem();
     }
 
     public void addCarryItem()
     {
-        if (SaveManager.Instance.carriedWorldObjectUniqueId == "rock")
+        //Debug.Log(SaveManager.Instance.carriedWorldObjectUniqueId);
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        if (currentScene.name == "Forest Intro" && !justLoaded)
         {
-            //Debug.Log("yyy");
+            transform.position = new Vector3(55f, 28f, 0f);
+        }
+
+        if (SaveManager.Instance.carriedWorldObjectUniqueId == null)
+        {
+            return;
+        }
+        else if (SaveManager.Instance.carriedWorldObjectUniqueId == "rock")
+        {
             animator.SetBool("Rock", true);
             holdingRock = true;
+        }
+        else if (SaveManager.Instance.carriedWorldObjectUniqueId == "axe")
+        {
+            animator.SetBool("Wood axe", true);
+            holdingAxe = true;
+        }
+        else if (SaveManager.Instance.carriedWorldObjectUniqueId == "fish")
+        {
+            animator.SetBool("Fish", true);
+            holdingFish = true;
         }
     }
 
@@ -135,6 +157,7 @@ public class ElfMovement : MonoBehaviour
                 animator.SetBool("Rock", true);
                 holdingRock = true;
                 SaveManager.Instance.carriedWorldObjectUniqueId = "rock";
+                SaveManager.Instance.SaveGame();
                 pickUpRock.destroyRock();
             }
             else if (pickUpAxe.axeReady)
@@ -142,10 +165,6 @@ public class ElfMovement : MonoBehaviour
                 if (holdingRock)
                 {
                     dropRock();
-                }
-                else if (holdingAxe)
-                {
-                    dropAxe();
                 }
                 else if (holdingFish)
                 {
@@ -155,13 +174,18 @@ public class ElfMovement : MonoBehaviour
                 {
                     dropLogs();
                 }
+                else if (holdingBerries)
+                {
+                    dropBerries();
+                }
                 else if (holdingPickaxe)
                 {
                     dropPickaxe();
                 }
                 axe.SetActive(false);
                 animator.SetBool("Wood axe", true);
-                holdingAxe = true;
+                holdingAxe = true;              
+                SaveManager.Instance.carriedWorldObjectUniqueId = "axe";
             }
 
             else if (currentLogs != null && currentLogs.logsReady)
@@ -236,7 +260,10 @@ public class ElfMovement : MonoBehaviour
                 else if (holdingFish)
                 {
                     dropFish();
-                    //dropPickaxe();
+                }
+                else if (holdingBerries)
+                {
+                    dropBerries();
                 }
                 else if (holdingLogs)
                 {
@@ -260,9 +287,9 @@ public class ElfMovement : MonoBehaviour
                 {
                     dropPickaxe();
                 }
-                else if (holdingFish)
+                else if (holdingBerries)
                 {
-                    dropFish();
+                    dropBerries();
                 }
                 else if (holdingLogs)
                 {
@@ -271,6 +298,9 @@ public class ElfMovement : MonoBehaviour
                 fish.SetActive(false);
                 animator.SetBool("Fish", true);
                 holdingFish = true;
+                SaveManager.Instance.carriedWorldObjectUniqueId = "fish";
+                SaveManager.Instance.SaveGame();
+                //Debug.Log(SaveManager.Instance.carriedWorldObjectUniqueId);
             }
 
         }
@@ -282,9 +312,6 @@ public class ElfMovement : MonoBehaviour
             inventory.RemoveItem(inventoryLocation);
             inventoryLocation = 0;
             // put item in hand, close inventory
-
-            
-
         }
 
     }
@@ -292,6 +319,8 @@ public class ElfMovement : MonoBehaviour
     public void OnDrop()
     {
         // if goInsideCabin.relocate and item is berries, increment (inside and outside inventory)
+        SaveManager.Instance.carriedWorldObjectUniqueId = null;
+        SaveManager.Instance.SaveGame();
 
         if (holdingRock)
         {
@@ -372,7 +401,6 @@ public class ElfMovement : MonoBehaviour
         rock.transform.position = dropPosition; // (transform.position.x + .5f, transform.position.y - .5f, 0f);
         holdingRock = false;
         animator.SetBool("Rock", false);
-        SaveManager.Instance.carriedWorldObjectUniqueId = null;
         pickUpRock.restoreRock();
     }
 
@@ -385,12 +413,12 @@ public class ElfMovement : MonoBehaviour
 
     void dropFish()
     {
-        Debug.Log("okeee");
         fish.SetActive(true);
         Vector3 dropPosition = transform.position + Vector3.right;
         fish.transform.position = dropPosition; // (transform.position.x + .5f, transform.position.y - .5f, 0f);
         holdingFish = false;
         animator.SetBool("Fish", false);
+        SaveManager.Instance.carriedWorldObjectUniqueId = null;
     }
 
     void dropAxe()
@@ -400,6 +428,7 @@ public class ElfMovement : MonoBehaviour
         holdingAxe = false;
         Vector3 dropPosition = transform.position + Vector3.right;
         axe.transform.position = dropPosition; //new Vector3(transform.position.x + .5f, transform.position.y - .5f, 0f);
+        SaveManager.Instance.carriedWorldObjectUniqueId = null;
     }
 
     void dropPickaxe()
@@ -536,7 +565,7 @@ public class ElfMovement : MonoBehaviour
 
         if (block != null)
         {
-            Debug.Log("i am here");
+            //Debug.Log("i am here");
             currentUnblock = block;
         }
         else if (tree != null)

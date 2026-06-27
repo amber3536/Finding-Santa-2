@@ -116,29 +116,7 @@ public class DialogueManagerPenguin : MonoBehaviour
         penguinDialogue.SetCharArray(new char[] { });
     }
 
-    // public void StartDialogue()
-    // {
-    //     if (shrimpSpeaking)
-    //         StartCoroutine(TypeShrimpDialogue(shrimpSentences));
-    //     else
-    //         StartCoroutine(TypeBartenderDialogue(bartenderSentences));
-    // }
 
-    // private IEnumerator TypeShrimpDialogue(string[] sentences)
-    // {
-    //     shrimp_bubble.SetActive(true);
-    //     ////
-    //     foreach (char letter in sentences[shrimpIndex])
-    //     {
-    //         shrimpDialogue.text += letter;
-    //         yield return new WaitForSeconds(typingSpeed);
-    //     }
-    //     shrimpIndex++;
-    //     shrimpSpeaking = false;
-    //     dontInterrupt = false;
-    //     Debug.Log("shrimp index " + shrimpIndex);
-    //     //StartDialogue();
-    // }
 
     private IEnumerator TypeBartenderDialogue(string[] sentences)
     {

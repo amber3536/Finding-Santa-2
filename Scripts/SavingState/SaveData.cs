@@ -11,4 +11,6 @@ public class SaveData
 
     public List<WorldObjectSaveData> worldObjects = new List<WorldObjectSaveData>();
     public string carriedObjectId;
+
+    //public bool started;
 }
