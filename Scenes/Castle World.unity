@@ -2084,11 +2084,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 1181483949}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 616aca4d84f504587837b81c6c906049, type: 3}
+  m_Script: {fileID: 11500000, guid: 005d0740e8308472ea1b8f4bc0460deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
   speed: 5
   animator: {fileID: 1181483953}
+  footprintPrefab: {fileID: 0}
+  stepDistance: 0.3
+  crunching: {fileID: 0}
+  crunch: {fileID: 0}
+  rock: {fileID: 0}
+  holdingRock: 0
+  pickUpRock: {fileID: 0}
+  itemWood: {fileID: 0}
+  itemRock: {fileID: 0}
+  itemBerries: {fileID: 0}
+  lifetime: 6
+  fadeTime: 2
+  axe: {fileID: 0}
+  pickAxe: {fileID: 0}
+  pickUpAxe: {fileID: 0}
+  goInsideCabin: {fileID: 0}
+  holdingFish: 0
+  saveMenu: {fileID: 0}
+  openInventory: {fileID: 0}
+  pickUpFish: {fileID: 0}
+  fish: {fileID: 0}
+  pickUpPickaxe: {fileID: 0}
+  justLoaded: 0
 --- !u!1 &1238955477
 GameObject:
   m_ObjectHideFlags: 0
