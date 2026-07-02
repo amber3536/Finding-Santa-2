@@ -11,6 +11,6 @@ public class EnterCastle : MonoBehaviour
         myCamera.LockToPosition(new Vector3(-20, 10, -10));
         //relocate = true;
         //myCamera.transform.position = new Vector3(-20, 0, -10);
-        elf.transform.position = new Vector3(-18f, 4, 0);
+        elf.transform.position = new Vector3(-18f, 5, 0);
     }
 }

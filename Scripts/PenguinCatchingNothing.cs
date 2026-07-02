@@ -75,7 +75,7 @@ public class PenguinCatchingNothing : MonoBehaviour
 
     void changeScene()
     {
-        SceneManager.LoadScene("Castle World");
+        SceneManager.LoadScene("Candy World");
     }
 
     IEnumerator CheckingLine()
