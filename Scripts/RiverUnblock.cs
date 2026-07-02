@@ -45,5 +45,6 @@ public class RiverUnblock : MonoBehaviour
                 isDestroyed = true
             };
         block.SetActive(false);
+        SaveManager.Instance.SaveGame();
     }
 }
