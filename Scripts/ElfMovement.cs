@@ -41,9 +41,13 @@ public class ElfMovement : MonoBehaviour
     public SaveMenu saveMenu;
     public OpenInventory openInventory;
     public PickUpFish pickUpFish;
+    public PickUpBridge pickUpBridge;
+    private bool holdingBridge = false;
+    public GameObject bridge;
     public GameObject fish;
     private PickaxeRock currentGem;
     public PickUpPickaxe pickUpPickaxe;
+    public MagicCloudPillar magicCloudPillar;
     public bool justLoaded = false;
 
 
@@ -85,6 +89,12 @@ public class ElfMovement : MonoBehaviour
             animator.SetBool("Fish", true);
             holdingFish = true;
         }
+        else if (SaveManager.Instance.carriedWorldObjectUniqueId == "logs")
+        {
+            animator.SetBool("Logs", true);
+            holdingLogs = true;
+        }
+        
     }
 
 
@@ -133,26 +143,7 @@ public class ElfMovement : MonoBehaviour
         {
             if (pickUpRock.rockReady)
             {
-                if (holdingBerries)
-                {
-                    dropBerries();
-                }
-                else if (holdingAxe)
-                {
-                    dropAxe();
-                }
-                else if (holdingLogs)
-                {
-                    dropLogs();
-                }
-                else if (holdingFish)
-                {
-                    dropFish();
-                }
-                else if (holdingPickaxe)
-                {
-                    dropPickaxe();
-                }
+                dropItems();
                 rock.SetActive(false);
                 animator.SetBool("Rock", true);
                 holdingRock = true;
@@ -162,57 +153,29 @@ public class ElfMovement : MonoBehaviour
             }
             else if (pickUpAxe.axeReady)
             {
-                if (holdingRock)
-                {
-                    dropRock();
-                }
-                else if (holdingFish)
-                {
-                    dropFish();
-                }
-                else if (holdingLogs)
-                {
-                    dropLogs();
-                }
-                else if (holdingBerries)
-                {
-                    dropBerries();
-                }
-                else if (holdingPickaxe)
-                {
-                    dropPickaxe();
-                }
+                dropItems();
                 axe.SetActive(false);
                 animator.SetBool("Wood axe", true);
                 holdingAxe = true;              
                 SaveManager.Instance.carriedWorldObjectUniqueId = "axe";
+                SaveManager.Instance.SaveGame();
+            }
+            else if (pickUpBridge.bridgeReady)
+            {
+                dropItems();
+                bridge.SetActive(false);
+                animator.SetBool("Bridge", true);
+                holdingBridge = true;
             }
 
             else if (currentLogs != null && currentLogs.logsReady)
             {
-                if (holdingAxe)
-                {
-                    dropAxe();
-                }
-                else if (holdingRock)
-                {
-                    dropRock();
-                }
-                else if (holdingBerries)
-                {
-                    dropBerries();
-                }
-                else if (holdingFish)
-                {
-                    dropFish();
-                }
-                else if (holdingPickaxe)
-                {
-                    dropPickaxe();
-                }
+                dropItems();
                 animator.SetBool("Logs", true);
                 Destroy(currentLogs.threeLogs);
                 holdingLogs = true;
+                SaveManager.Instance.carriedWorldObjectUniqueId = "logs";
+                SaveManager.Instance.SaveGame();
             }
             else if (currentBerries != null && currentBerries.pickReady)
             {
@@ -222,26 +185,6 @@ public class ElfMovement : MonoBehaviour
                     inventory.AddItem(itemBerries);
                     //currentBerries.picking();
                 }
-                else if (holdingRock)
-                {
-                    dropRock();
-                }
-                else if (holdingAxe)
-                {
-                    dropAxe();
-                }
-                else if (holdingLogs)
-                {
-                    dropLogs();
-                }
-                else if (holdingFish)
-                {
-                    dropFish();
-                }
-                else if (holdingPickaxe)
-                {
-                    dropPickaxe();
-                }
 
                 holdingBerries = true;
                 currentBerries.picking();
@@ -249,52 +192,14 @@ public class ElfMovement : MonoBehaviour
             }
             else if (pickUpPickaxe.pickAxeReady)
             {
-                if (holdingAxe)
-                {
-                    dropAxe();
-                }
-                else if (holdingRock)
-                {
-                    dropRock();
-                }
-                else if (holdingFish)
-                {
-                    dropFish();
-                }
-                else if (holdingBerries)
-                {
-                    dropBerries();
-                }
-                else if (holdingLogs)
-                {
-                    dropLogs();
-                }
+                dropItems();
                 pickAxe.SetActive(false);
                 animator.SetBool("Pickaxe", true);
                 holdingPickaxe = true;
             } 
             else if (pickUpFish.fishReady)
             {
-                if (holdingAxe)
-                {
-                    dropAxe();
-                }
-                else if (holdingRock)
-                {
-                    dropRock();
-                }
-                else if (holdingPickaxe)
-                {
-                    dropPickaxe();
-                }
-                else if (holdingBerries)
-                {
-                    dropBerries();
-                }
-                else if (holdingLogs)
-                {
-                    dropLogs();
-                }
+                dropItems();
                 fish.SetActive(false);
                 animator.SetBool("Fish", true);
                 holdingFish = true;
@@ -316,8 +221,37 @@ public class ElfMovement : MonoBehaviour
 
     }
 
+    void dropItems()
+    {                  
+        if (holdingRock)
+        {
+            dropRock();
+        }
+        else if (holdingFish)
+        {
+            dropFish();
+        }
+        else if (holdingLogs)
+        {
+            dropLogs();
+        }
+        else if (holdingBerries)
+        {
+            dropBerries();
+        }
+        else if (holdingPickaxe)
+        {
+            dropPickaxe();
+        }
+        else if (holdingAxe)
+        {
+            dropAxe();
+        }
+    }
+
     public void OnDrop()
     {
+        Debug.Log("yyyy" + holdingLogs);
         // if goInsideCabin.relocate and item is berries, increment (inside and outside inventory)
         SaveManager.Instance.carriedWorldObjectUniqueId = null;
         SaveManager.Instance.SaveGame();
@@ -352,10 +286,11 @@ public class ElfMovement : MonoBehaviour
         }
         else if (holdingLogs)
         {
-            if (currentUnblock != null)
+            if (magicCloudPillar.magicCloudReady)
             {
+                magicCloudPillar.makeMagic();
                 animator.SetBool("Logs", false);
-                currentUnblock.UnblockRiver();
+                holdingLogs = false;
             }
             else
             {
@@ -364,6 +299,15 @@ public class ElfMovement : MonoBehaviour
                 Instantiate(itemWood.worldPrefab, dropPosition, Quaternion.identity);
                 animator.SetBool("Logs", false);
                 holdingLogs = false;
+            }
+        }
+        else if (holdingBridge)
+        {
+            if (currentUnblock != null)
+            {
+                //trigger unblock
+                animator.SetBool("Bridge", false);
+                currentUnblock.UnblockRiver();
             }
 
         }
@@ -409,6 +353,7 @@ public class ElfMovement : MonoBehaviour
         DropItem(itemWood);
         animator.SetBool("Logs", false);
         holdingLogs = false;
+        SaveManager.Instance.carriedWorldObjectUniqueId = null;
     }
 
     void dropFish()

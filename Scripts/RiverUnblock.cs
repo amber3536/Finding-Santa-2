@@ -20,7 +20,7 @@ public class RiverUnblock : MonoBehaviour
 
     public void UnblockRiver()
     {
-        magic.SetActive(true);
+        //magic.SetActive(true);
         Invoke("keepUnblockin", 1f);
         PersistentObject po_path = path.GetComponent<PersistentObject>();
         
@@ -34,7 +34,7 @@ public class RiverUnblock : MonoBehaviour
     void keepUnblockin()
     {
         magic.SetActive(false);
-        //block.enabled = false;
+        
         path.SetActive(true);
 
         PersistentObject po_block = block.GetComponent<PersistentObject>();

@@ -20,11 +20,9 @@ public class CameraMovement : MonoBehaviour
     private int maxY;
     public float mapMinX = -8.5f;
     public float mapMaxX = 60;
-    public float mapMinY = -5;
+    public float mapMinY = -15;
     public float mapMaxY = 50; 
     private Vector3 origin; 
-   // public SnowyHill snowyHill;
-   // public GoInsideCabin goInsideCabin;
     public CameraMode mode = CameraMode.GridFollow;
     private Vector3 lockedPosition;
 
@@ -42,6 +40,9 @@ public class CameraMovement : MonoBehaviour
         minY = Mathf.FloorToInt((mapMinY + height / 2f - origin.y) / height);
         maxY = Mathf.FloorToInt((mapMaxY - height / 2f - origin.y) / height);
 
+        // Debug.Log($"height = {height}");
+        // Debug.Log($"minY = {minY}");
+        // Debug.Log($"maxY = {maxY}");
     }
 
     void LateUpdate()
@@ -58,8 +59,6 @@ public class CameraMovement : MonoBehaviour
             transform.position.z
             );
 
-        //if (!snowyHill.relocate && !goInsideCabin.relocate)
-          //  transform.position = targetPosition;
         if (mode == CameraMode.GridFollow)
         {
             transform.position = targetPosition;
