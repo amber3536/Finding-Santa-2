@@ -21,7 +21,8 @@ public class RiverUnblock : MonoBehaviour
     public void UnblockRiver()
     {
         //magic.SetActive(true);
-        Invoke("keepUnblockin", 1f);
+        //Invoke("keepUnblockin", 1f);
+        keepUnblockin();
         PersistentObject po_path = path.GetComponent<PersistentObject>();
         
         SaveManager.Instance.worldObjects[po_path.UniqueId] = new WorldObjectSaveData

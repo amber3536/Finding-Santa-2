@@ -94,6 +94,11 @@ public class ElfMovement : MonoBehaviour
             animator.SetBool("Logs", true);
             holdingLogs = true;
         }
+        else if (SaveManager.Instance.carriedWorldObjectUniqueId == "bridge")
+        {
+            animator.SetBool("Bridge", true);
+            holdingBridge = true;
+        }
         
     }
 
@@ -166,6 +171,8 @@ public class ElfMovement : MonoBehaviour
                 bridge.SetActive(false);
                 animator.SetBool("Bridge", true);
                 holdingBridge = true;
+                SaveManager.Instance.carriedWorldObjectUniqueId = "bridge";
+                SaveManager.Instance.SaveGame();
             }
 
             else if (currentLogs != null && currentLogs.logsReady)
@@ -251,7 +258,7 @@ public class ElfMovement : MonoBehaviour
 
     public void OnDrop()
     {
-        Debug.Log("yyyy" + holdingLogs);
+        //Debug.Log("yyyy" + holdingLogs);
         // if goInsideCabin.relocate and item is berries, increment (inside and outside inventory)
         SaveManager.Instance.carriedWorldObjectUniqueId = null;
         SaveManager.Instance.SaveGame();
