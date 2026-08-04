@@ -26,7 +26,8 @@ public class ElfMovement : MonoBehaviour
     private RiverUnblock currentUnblock;
     private SnowyTree currentTree;
     private ThreeLogs currentLogs;
-    private PickBerries currentBerries;
+    private PickBerries currentBerryBush;
+    private PickUpBerries currentBerries;
     public GameObject axe;
     public GameObject pickAxe;
     public PickUpAxe pickUpAxe;
@@ -135,10 +136,10 @@ public class ElfMovement : MonoBehaviour
             inventory.AddItem(itemRock);
             rock.SetActive(false);
         }
-        else if (currentBerries != null && currentBerries.pickReady)
+        else if (currentBerryBush != null && currentBerryBush.pickReady)
         {
             inventory.AddItem(itemBerries);
-            currentBerries.picking();
+            currentBerryBush.picking();
         }
     }
 
@@ -184,7 +185,7 @@ public class ElfMovement : MonoBehaviour
                 SaveManager.Instance.carriedWorldObjectUniqueId = "logs";
                 SaveManager.Instance.SaveGame();
             }
-            else if (currentBerries != null && currentBerries.pickReady)
+            else if (currentBerryBush != null && currentBerryBush.pickReady)
             {
                 if (holdingBerries)
                 {
@@ -194,7 +195,7 @@ public class ElfMovement : MonoBehaviour
                 }
 
                 holdingBerries = true;
-                currentBerries.picking();
+                currentBerryBush.picking();
                 animator.SetBool("Berries", true);
             }
             else if (pickUpPickaxe.pickAxeReady)
@@ -271,6 +272,10 @@ public class ElfMovement : MonoBehaviour
         {
             dropAxe();
         }
+        else if (holdingBerries)
+        {
+            dropBerries();
+        }
         else if (holdingPickaxe)
         {
             dropPickaxe();
@@ -324,6 +329,7 @@ public class ElfMovement : MonoBehaviour
 
     public void DropItem(ItemData item)
     {
+        //Debug.Log("here");
         if (item.worldPrefab != null)
         {
             Vector3 dropPosition = transform.position + Vector3.right;
@@ -512,8 +518,9 @@ public class ElfMovement : MonoBehaviour
         RiverUnblock block = other.GetComponent<RiverUnblock>();
         SnowyTree tree = other.GetComponent<SnowyTree>();
         ThreeLogs logs = other.GetComponent<ThreeLogs>();
-        PickBerries berries = other.GetComponent<PickBerries>();
+        PickBerries bush = other.GetComponent<PickBerries>();
         PickaxeRock gem = other.GetComponent<PickaxeRock>();
+        PickUpBerries berries = other.GetComponent<PickUpBerries>();
 
         if (block != null)
         {
@@ -528,14 +535,18 @@ public class ElfMovement : MonoBehaviour
         {
             currentLogs = logs;
         }
-        else if (berries != null)
+        else if (bush != null)
         {
-            currentBerries = berries;
+            currentBerryBush = bush;
         }
         else if (gem != null)
         {
             currentGem = gem;
         }  
+        else if (berries != null)
+        {
+            currentBerries = berries;
+        }
 
 
     }
@@ -545,8 +556,9 @@ public class ElfMovement : MonoBehaviour
         RiverUnblock block = other.GetComponent<RiverUnblock>();
         SnowyTree tree = other.GetComponent<SnowyTree>();
         ThreeLogs logs = other.GetComponent<ThreeLogs>();
-        PickBerries berries = other.GetComponent<PickBerries>();
+        PickBerries bush = other.GetComponent<PickBerries>();
         PickaxeRock gem = other.GetComponent<PickaxeRock>();
+        PickUpBerries berries = other.GetComponent<PickUpBerries>();
 
         if (block != null && block == currentUnblock)
         {
@@ -560,13 +572,17 @@ public class ElfMovement : MonoBehaviour
         {
             currentLogs = null;
         }
-        else if (berries != null && berries == currentBerries)
+        else if (bush != null && bush == currentBerryBush)
         {
-            currentBerries = null;
+            currentBerryBush = null;
         }
         else if (gem != null && gem == currentGem)
         {
             currentGem = null;
+        }
+        else if (berries != null && berries == currentBerries)
+        {
+            currentBerries = null;
         }
     }
 
