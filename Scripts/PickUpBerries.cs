@@ -3,6 +3,7 @@ using UnityEngine;
 public class PickUpBerries : MonoBehaviour
 {
     public bool berryReady = false;
+    
     void OnTriggerEnter2D(Collider2D other)
     {
         berryReady = true;

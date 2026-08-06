@@ -46,6 +46,7 @@ public class ElfMovement : MonoBehaviour
     private bool holdingBridge = false;
     public GameObject bridge;
     public GameObject fish;
+    public GameObject berry;
     private PickaxeRock currentGem;
     public PickUpPickaxe pickUpPickaxe;
     public MagicCloudPillar magicCloudPillar;
@@ -215,6 +216,13 @@ public class ElfMovement : MonoBehaviour
                 SaveManager.Instance.SaveGame();
                 //Debug.Log(SaveManager.Instance.carriedWorldObjectUniqueId);
             }
+            else if (currentBerries != null && currentBerries.berryReady)
+            {
+                dropItems();
+                Destroy(berry);
+                animator.SetBool("Berries", true);
+                holdingBerries = true;
+            }
 
         }
         else
@@ -327,15 +335,17 @@ public class ElfMovement : MonoBehaviour
         
     }
 
-    public void DropItem(ItemData item)
-    {
+    public GameObject DropItem(ItemData item)
+    {   
+        GameObject obj = null;
         //Debug.Log("here");
         if (item.worldPrefab != null)
         {
             Vector3 dropPosition = transform.position + Vector3.right;
 
-            Instantiate(item.worldPrefab, dropPosition, Quaternion.identity);
+            obj = Instantiate(item.worldPrefab, dropPosition, Quaternion.identity);
         }
+        return obj;
     }
 
     public void OnOpenInventory()
@@ -400,7 +410,7 @@ public class ElfMovement : MonoBehaviour
 
     void dropBerries()
     {
-        DropItem(itemBerries);
+        berry = DropItem(itemBerries); // TODO
         animator.SetBool("Berries", false);
         holdingBerries = false;
     }
