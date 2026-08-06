@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a68eadb05577346fba0517c9ee27f687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
-  uniqueId: Berry_01
+  uniqueId: Berry_bush_01
 --- !u!1 &48338682 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4739925098560539076, guid: 5e0791ddb826042fd82b7131de25c32b, type: 3}
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a68eadb05577346fba0517c9ee27f687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
-  uniqueId: Berry_02
+  uniqueId: Berry_bush_02
 --- !u!1 &48348178 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6090178277307433287, guid: f6635475592304e8dac60db9463c5395, type: 3}
@@ -4567,7 +4567,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   myCamera: {fileID: 519420033}
   relocate: 0
-  axe: {fileID: 244154062}
 --- !u!61 &437722470
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4631,7 +4630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a68eadb05577346fba0517c9ee27f687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
-  uniqueId: Berry_03
+  uniqueId: Berry_bush_03
 --- !u!1 &448905510 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6090178277307433287, guid: f6635475592304e8dac60db9463c5395, type: 3}
@@ -8001,7 +8000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a68eadb05577346fba0517c9ee27f687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
-  uniqueId: Berry_05
+  uniqueId: Berry_bush_05
 --- !u!1 &745109871
 GameObject:
   m_ObjectHideFlags: 0
@@ -17324,7 +17323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a68eadb05577346fba0517c9ee27f687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
-  uniqueId: Berry_06
+  uniqueId: Berry_bush_06
 --- !u!1 &1893913370
 GameObject:
   m_ObjectHideFlags: 0
@@ -18127,7 +18126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a68eadb05577346fba0517c9ee27f687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
-  uniqueId: Berry_04
+  uniqueId: Berry_bush_04
 --- !u!1001 &1944746479
 PrefabInstance:
   m_ObjectHideFlags: 0
