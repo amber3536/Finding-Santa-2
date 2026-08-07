@@ -14829,6 +14829,7 @@ MonoBehaviour:
   pickUpBridge: {fileID: 1207512508}
   bridge: {fileID: 1207512505}
   fish: {fileID: 2131040028}
+  berry: {fileID: 0}
   pickUpPickaxe: {fileID: 1839063463}
   magicCloudPillar: {fileID: 1170942043}
   justLoaded: 0
