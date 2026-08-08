@@ -18,7 +18,7 @@ public class Train : MonoBehaviour
     void stopTrain()
     {
         rb_train.linearVelocity = new Vector2(0, 0);
-        sr.sortingOrder = 2;
+        sr.sortingOrder = 1;
         animator.SetBool("Idle", true);
         Invoke("startTrain", 3f);
     }

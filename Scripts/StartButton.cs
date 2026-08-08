@@ -23,7 +23,8 @@ public class StartButton : MonoBehaviour
         //PlayerPrefs.SetInt("gameStarted", 1);
         //SaveManager.Instance.gameStarted = true;
         //SaveManager.Instance.SaveGame();
-        squirrel.beginSquirrel();
+        if (squirrel != null)
+            squirrel.beginSquirrel();
     }
 
 }
