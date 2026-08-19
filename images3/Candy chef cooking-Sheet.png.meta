@@ -1,25 +1,28 @@
 fileFormatVersion: 2
-guid: 6427ae37a3094436cb40ac3d6d831ac6
+guid: 4879a2328e7944bdb8738833edc9326a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8941155335515797889
-    second: Candy house4-Sheet_0
+      213: 6080484473718272169
+    second: Candy chef cooking-Sheet_0
   - first:
-      213: -1184609057580263393
-    second: Candy house4-Sheet_1
+      213: 7558906404245658222
+    second: Candy chef cooking-Sheet_1
   - first:
-      213: -7793589918321353688
-    second: Candy house4-Sheet_2
+      213: -5766097639894146766
+    second: Candy chef cooking-Sheet_2
   - first:
-      213: -8339326821495317603
-    second: Candy house4-Sheet_3
+      213: -480724058784509806
+    second: Candy chef cooking-Sheet_3
   - first:
-      213: -2814009822263929175
-    second: Candy house4-Sheet_4
+      213: -1934560794635190068
+    second: Candy chef cooking-Sheet_4
   - first:
-      213: 5111124043663425673
-    second: Candy house4-Sheet_5
+      213: 5540900909528866313
+    second: Candy chef cooking-Sheet_5
+  - first:
+      213: 8813464838181146579
+    second: Candy chef cooking-Sheet_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -128,133 +131,155 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Candy house4-Sheet_0
+      name: Candy chef cooking-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f760ef83892aae380800000000000000
-      internalID: -8941155335515797889
+      spriteID: 9a0714eb968326450800000000000000
+      internalID: 6080484473718272169
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Candy house4-Sheet_1
+      name: Candy chef cooking-Sheet_1
       rect:
         serializedVersion: 2
-        x: 128
+        x: 100
         y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f18d735a65c6f8fe0800000000000000
-      internalID: -1184609057580263393
+      spriteID: e6adc7b6351a6e860800000000000000
+      internalID: 7558906404245658222
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Candy house4-Sheet_2
+      name: Candy chef cooking-Sheet_2
       rect:
         serializedVersion: 2
-        x: 256
+        x: 200
         y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 82cd361f24b97d390800000000000000
-      internalID: -7793589918321353688
+      spriteID: 23124e12fb4baffa0800000000000000
+      internalID: -5766097639894146766
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Candy house4-Sheet_3
+      name: Candy chef cooking-Sheet_3
       rect:
         serializedVersion: 2
-        x: 384
+        x: 300
         y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d9b52e28072c44c80800000000000000
-      internalID: -8339326821495317603
+      spriteID: 2905a29f3002459f0800000000000000
+      internalID: -480724058784509806
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Candy house4-Sheet_4
+      name: Candy chef cooking-Sheet_4
       rect:
         serializedVersion: 2
-        x: 512
+        x: 400
         y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9a69f75d9f0a2f8d0800000000000000
-      internalID: -2814009822263929175
+      spriteID: cc04f5ff43f0725e0800000000000000
+      internalID: -1934560794635190068
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Candy house4-Sheet_5
+      name: Candy chef cooking-Sheet_5
       rect:
         serializedVersion: 2
-        x: 640
+        x: 500
         y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9804481ec3c5ee640800000000000000
-      internalID: 5111124043663425673
+      spriteID: 90e5b10350c35ec40800000000000000
+      internalID: 5540900909528866313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candy chef cooking-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dfce281397bf4a70800000000000000
+      internalID: 8813464838181146579
       vertices: []
       indices: 
       edges: []
@@ -263,7 +288,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 67e8129848de245eea7ed05430e759f0
+    spriteID: 54b4b024ccd684bb083ee56a053bf0d6
     internalID: 0
     vertices: []
     indices: 
@@ -273,14 +298,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.10000000149011612},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":100.0,"y":100.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Candy house4-Sheet_0: -8941155335515797889
-      Candy house4-Sheet_1: -1184609057580263393
-      Candy house4-Sheet_2: -7793589918321353688
-      Candy house4-Sheet_3: -8339326821495317603
-      Candy house4-Sheet_4: -2814009822263929175
-      Candy house4-Sheet_5: 5111124043663425673
+      Candy chef cooking-Sheet_0: 6080484473718272169
+      Candy chef cooking-Sheet_1: 7558906404245658222
+      Candy chef cooking-Sheet_2: -5766097639894146766
+      Candy chef cooking-Sheet_3: -480724058784509806
+      Candy chef cooking-Sheet_4: -1934560794635190068
+      Candy chef cooking-Sheet_5: 5540900909528866313
+      Candy chef cooking-Sheet_6: 8813464838181146579
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

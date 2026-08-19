@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class EnterCandyHouse3 : MonoBehaviour
 {
     public CameraMovement myCamera;
-    public bool relocate = false;
+    private bool relocate = false;
     public GameObject elf;
     void OnTriggerEnter2D(Collider2D other)
     {
