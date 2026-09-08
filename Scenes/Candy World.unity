@@ -1242,8 +1242,9 @@ GameObject:
   - component: {fileID: 403733126}
   - component: {fileID: 403733125}
   - component: {fileID: 403733127}
+  - component: {fileID: 403733128}
   m_Layer: 0
-  m_Name: Candy tree-Sheet_9
+  m_Name: Candy tree5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1369,6 +1370,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.14432909, y: 0.014846671}
   m_EdgeRadius: 0
+--- !u!95 &403733128
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403733124}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 07bf0013f1ab0409d802e2755f2ddf40, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &449509429
 GameObject:
   m_ObjectHideFlags: 0
@@ -2331,7 +2354,7 @@ GameObject:
   - component: {fileID: 592552648}
   - component: {fileID: 592552649}
   m_Layer: 0
-  m_Name: Candy tree-Sheet_3
+  m_Name: Candy tree1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4611,7 +4634,7 @@ GameObject:
   - component: {fileID: 1435206914}
   - component: {fileID: 1435206915}
   m_Layer: 0
-  m_Name: Candy tree-Sheet_7
+  m_Name: Candy tree4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5781,7 +5804,7 @@ GameObject:
   - component: {fileID: 1696427842}
   - component: {fileID: 1696427843}
   m_Layer: 0
-  m_Name: Candy tree-Sheet_12
+  m_Name: Candy tree3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5942,7 +5965,7 @@ GameObject:
   - component: {fileID: 1697983964}
   - component: {fileID: 1697983965}
   m_Layer: 0
-  m_Name: Candy tree-Sheet_0
+  m_Name: Candy tree2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

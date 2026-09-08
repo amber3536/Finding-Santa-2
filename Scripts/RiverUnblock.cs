@@ -30,6 +30,7 @@ public class RiverUnblock : MonoBehaviour
                 id = po_path.UniqueId,
                 isDestroyed = false
             };
+        SaveManager.Instance.SaveGame();
     }
 
     void keepUnblockin()
@@ -46,6 +47,5 @@ public class RiverUnblock : MonoBehaviour
                 isDestroyed = true
             };
         block.SetActive(false);
-        SaveManager.Instance.SaveGame();
     }
 }
