@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 922f5c710857647379a4e6a04753d5c7
+guid: ec2c856380e7547379c79c0a85a1061c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1057594835878521886
-    second: Elf Pickaxing-Sheet_0
-  - first:
-      213: -3317784829731705972
-    second: Elf Pickaxing-Sheet_1
-  - first:
-      213: 3864023148189811786
-    second: Elf Pickaxing-Sheet_2
+      213: -771019097607320315
+    second: Toy Island2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -119,67 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Elf Pickaxing-Sheet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 84
-        width: 84
-        height: 84
-      alignment: 9
-      pivot: {x: 0.4, y: 0.1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e1ca3dc56e45dae00800000000000000
-      internalID: 1057594835878521886
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Elf Pickaxing-Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 84
-        y: 84
-        width: 84
-        height: 84
-      alignment: 9
-      pivot: {x: 0.4, y: 0.1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c8b69a6964cd4f1d0800000000000000
-      internalID: -3317784829731705972
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Elf Pickaxing-Sheet_2
+      name: Toy Island2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 84
-        height: 84
-      alignment: 9
-      pivot: {x: 0.4, y: 0.1}
+        width: 400
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a448dbfa494cf9530800000000000000
-      internalID: 3864023148189811786
+      spriteID: 50dc21c373acc45f0800000000000000
+      internalID: -771019097607320315
       vertices: []
       indices: 
       edges: []
@@ -188,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 24c6b5f16dafe4599a266cf1a6c3fefd
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -196,13 +146,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":84.0,"y":84.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.4000000059604645,"y":0.10000000149011612},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Elf Pickaxing-Sheet_0: 1057594835878521886
-      Elf Pickaxing-Sheet_1: -3317784829731705972
-      Elf Pickaxing-Sheet_2: 3864023148189811786
+      Toy Island2_0: -771019097607320315
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
