@@ -24,6 +24,7 @@ public class CameraMovementCave : MonoBehaviour
     private Vector3 origin; 
     public CameraModeCave mode = CameraModeCave.LockedPosition;
     private Vector3 lockedPosition;
+    public float targetAspect = 16f / 9f;
  
 
     void Start()
@@ -32,7 +33,8 @@ public class CameraMovementCave : MonoBehaviour
         origin = new Vector3(mapMinX, mapMinY, 0);
 
         height = cam.orthographicSize * 2f;
-        width = height * cam.aspect;
+         width = height * targetAspect;
+        //width = height * cam.aspect;
 
         minX = Mathf.FloorToInt((mapMinX + width / 2f - origin.x) / width);
         maxX = Mathf.FloorToInt((mapMaxX - width / 2f - origin.x) / width);

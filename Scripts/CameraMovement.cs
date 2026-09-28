@@ -2,9 +2,9 @@ using UnityEngine;
 
 public enum CameraMode
 {
-    GridFollow,     // your normal map behavior
-    Free,           // free movement / cutscene
-    LockedPosition  // fixed location (like inside cabin)
+    GridFollow,
+    Free,
+    LockedPosition
 }
 
 public class CameraMovement : MonoBehaviour
@@ -14,6 +14,7 @@ public class CameraMovement : MonoBehaviour
 
     private float width;
     private float height;
+
     private int minX;
     private int maxX;
     private int minY;
@@ -24,21 +25,37 @@ public class CameraMovement : MonoBehaviour
     public float mapMinY = -15;
     public float mapMaxY = 50;
 
-    // The aspect ratio your game is designed around
-    public float targetAspect = 16f / 9f;
-
     private Vector3 origin;
 
     public CameraMode mode = CameraMode.GridFollow;
     private Vector3 lockedPosition;
 
+    private float lastAspect;
+
     void Start()
     {
         origin = new Vector3(mapMinX, mapMinY, 0);
 
-        // Use the FIXED aspect ratio rather than cam.aspect
+        RecalculateCamera();
+        lastAspect = cam.aspect;
+    }
+
+    void Update()
+    {
+        // Detect window resizing
+        if (!Mathf.Approximately(lastAspect, cam.aspect))
+        {
+            RecalculateCamera();
+            lastAspect = cam.aspect;
+        }
+    }
+
+    void RecalculateCamera()
+    {
         height = cam.orthographicSize * 2f;
-        width = height * targetAspect;
+
+        // Width changes with the actual window
+        width = height * cam.aspect;
 
         minX = Mathf.FloorToInt(
             (mapMinX + width / 2f - origin.x) / width
@@ -59,25 +76,25 @@ public class CameraMovement : MonoBehaviour
 
     void LateUpdate()
     {
-        int gridX = Mathf.FloorToInt(
-            (player.position.x - origin.x) / width
-        );
-
-        int gridY = Mathf.FloorToInt(
-            (player.position.y - origin.y) / height
-        );
-
-        gridX = Mathf.Clamp(gridX, minX, maxX);
-        gridY = Mathf.Clamp(gridY, minY, maxY);
-
-        Vector3 targetPosition = new Vector3(
-            origin.x + gridX * width + width / 2f,
-            origin.y + gridY * height + height / 2f,
-            transform.position.z
-        );
-
         if (mode == CameraMode.GridFollow)
         {
+            int gridX = Mathf.FloorToInt(
+                (player.position.x - origin.x) / width
+            );
+
+            int gridY = Mathf.FloorToInt(
+                (player.position.y - origin.y) / height
+            );
+
+            gridX = Mathf.Clamp(gridX, minX, maxX);
+            gridY = Mathf.Clamp(gridY, minY, maxY);
+
+            Vector3 targetPosition = new Vector3(
+                origin.x + gridX * width + width / 2f,
+                origin.y + gridY * height + height / 2f,
+                transform.position.z
+            );
+
             transform.position = targetPosition;
         }
         else if (mode == CameraMode.LockedPosition)

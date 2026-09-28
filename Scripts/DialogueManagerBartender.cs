@@ -14,10 +14,12 @@ public class DialogueManagerBartender : MonoBehaviour
     public GameObject shrimp_bubble;
     public GoInsideCabin goInsideCabin;
     public GameObject elf;
+    public GameObject magicTower;
     private string[] bartenderSentences = {"I am starving right now."};
         //"It's okay, dad. Just stay strong.\r\nYou can do this. I believe in you."};
     private string[] bartenderSentences1 = {"Delicious. Got any more\r\nwhere that came from?"};
-    private string[] bartenderSentences2 = {"I'm not the only who's one hungry around here."};
+    private string[] bartenderSentences2 = {"I saw something unusual just south of here.\nYou should check it out."};
+    // {"I'm not the only who's one hungry around here."};
     //{"Thanks for the presents.\r\nEveryone likes presents..."};
     private string[] shrimpSentences = { };
     private int bartenderIndex = 0;
@@ -36,6 +38,7 @@ public class DialogueManagerBartender : MonoBehaviour
 
         bartender_bubble.SetActive(false);
         shrimp_bubble.SetActive(false);
+        magicTower.SetActive(false);
 
         ContentSizeFitter fitter3 = bartender_bubble.GetComponent<ContentSizeFitter>();
         ContentSizeFitter fitter2 = shrimp_bubble.GetComponent<ContentSizeFitter>();
@@ -78,7 +81,7 @@ public class DialogueManagerBartender : MonoBehaviour
             int num = PlayerPrefs.GetInt("berries");
             startedSpeaking = true;
 
-            if (num == 6)
+            if (num == 4)
             {
                 //Debug.Log("hyooo");
                 Invoke("lastLines", 1f);
@@ -120,6 +123,7 @@ public class DialogueManagerBartender : MonoBehaviour
 
     private void lastLines()
     {
+        magicTower.SetActive(true);
         dontInterrupt = true;
         wait = false;
         StartCoroutine(TypeBartenderDialogue(bartenderSentences2));

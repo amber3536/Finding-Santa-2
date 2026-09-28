@@ -3,7 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class FixedAspectRatio : MonoBehaviour
 {
-    public float targetAspect = 16f / 9f;
+    //public float targetAspect = 16f / 9f;
+    public float targetAspect = 400f / 255f;
 
     private Camera cam;
 

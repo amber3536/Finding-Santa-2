@@ -17114,6 +17114,7 @@ MonoBehaviour:
   shrimp_bubble: {fileID: 57645833}
   goInsideCabin: {fileID: 437722469}
   elf: {fileID: 1663202928}
+  magicTower: {fileID: 1170942039}
 --- !u!4 &1840774115
 Transform:
   m_ObjectHideFlags: 0
