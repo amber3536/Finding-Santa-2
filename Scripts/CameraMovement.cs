@@ -18,37 +18,54 @@ public class CameraMovement : MonoBehaviour
     private int maxX;
     private int minY;
     private int maxY;
+
     public float mapMinX = -8.5f;
     public float mapMaxX = 60;
     public float mapMinY = -15;
-    public float mapMaxY = 50; 
-    private Vector3 origin; 
+    public float mapMaxY = 50;
+
+    // The aspect ratio your game is designed around
+    public float targetAspect = 16f / 9f;
+
+    private Vector3 origin;
+
     public CameraMode mode = CameraMode.GridFollow;
     private Vector3 lockedPosition;
 
     void Start()
     {
-
         origin = new Vector3(mapMinX, mapMinY, 0);
 
+        // Use the FIXED aspect ratio rather than cam.aspect
         height = cam.orthographicSize * 2f;
-        width = height * cam.aspect;
+        width = height * targetAspect;
 
-        minX = Mathf.FloorToInt((mapMinX + width / 2f - origin.x) / width);
-        maxX = Mathf.FloorToInt((mapMaxX - width / 2f - origin.x) / width);
+        minX = Mathf.FloorToInt(
+            (mapMinX + width / 2f - origin.x) / width
+        );
 
-        minY = Mathf.FloorToInt((mapMinY + height / 2f - origin.y) / height);
-        maxY = Mathf.FloorToInt((mapMaxY - height / 2f - origin.y) / height);
+        maxX = Mathf.FloorToInt(
+            (mapMaxX - width / 2f - origin.x) / width
+        );
 
-        // Debug.Log($"height = {height}");
-        // Debug.Log($"minY = {minY}");
-        // Debug.Log($"maxY = {maxY}");
+        minY = Mathf.FloorToInt(
+            (mapMinY + height / 2f - origin.y) / height
+        );
+
+        maxY = Mathf.FloorToInt(
+            (mapMaxY - height / 2f - origin.y) / height
+        );
     }
 
     void LateUpdate()
     {
-        int gridX = Mathf.FloorToInt((player.position.x - origin.x) / width);
-        int gridY = Mathf.FloorToInt((player.position.y - origin.y) / height);
+        int gridX = Mathf.FloorToInt(
+            (player.position.x - origin.x) / width
+        );
+
+        int gridY = Mathf.FloorToInt(
+            (player.position.y - origin.y) / height
+        );
 
         gridX = Mathf.Clamp(gridX, minX, maxX);
         gridY = Mathf.Clamp(gridY, minY, maxY);
@@ -57,7 +74,7 @@ public class CameraMovement : MonoBehaviour
             origin.x + gridX * width + width / 2f,
             origin.y + gridY * height + height / 2f,
             transform.position.z
-            );
+        );
 
         if (mode == CameraMode.GridFollow)
         {
@@ -79,5 +96,4 @@ public class CameraMovement : MonoBehaviour
     {
         mode = CameraMode.GridFollow;
     }
-
 }

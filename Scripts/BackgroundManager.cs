@@ -7,80 +7,70 @@ public class BackgroundManager : MonoBehaviour
     public SpriteRenderer bottomLeft;
     public SpriteRenderer bottomRight;
 
-    public float targetHeight = 10f;
+    public Camera targetCamera;
 
     void Start()
     {
-        ArrangeGrid();
+        SetupGrid();
     }
 
-    void ArrangeGrid()
+    void SetupGrid()
     {
-        // Scale all four images to the same height
-        ScaleToHeight(topLeft);
-        ScaleToHeight(topRight);
-        ScaleToHeight(bottomLeft);
-        ScaleToHeight(bottomRight);
+        if (targetCamera == null)
+            targetCamera = Camera.main;
 
-        // -----------------------------------------
-        // TOP RIGHT
-        // Move it so its LEFT edge touches
-        // the RIGHT edge of TOP LEFT.
-        // -----------------------------------------
+        // Camera viewport size in world units
+        float tileHeight = targetCamera.orthographicSize * 2f;
+        float tileWidth = tileHeight * targetCamera.aspect;
 
-        float horizontalGap =
-            topLeft.bounds.max.x - topRight.bounds.min.x;
+        // Scale each background to EXACTLY the camera viewport
+        FitToSize(topLeft, tileWidth, tileHeight);
+        FitToSize(topRight, tileWidth, tileHeight);
+        FitToSize(bottomLeft, tileWidth, tileHeight);
+        FitToSize(bottomRight, tileWidth, tileHeight);
 
-        topRight.transform.position +=
-            new Vector3(horizontalGap, 0f, 0f);
+        // Use top-left as the anchor
+        Vector3 anchor = topLeft.transform.position;
 
+        // 2x2 grid
+        topRight.transform.position = new Vector3(
+            anchor.x + tileWidth,
+            anchor.y,
+            topRight.transform.position.z
+        );
 
-        // -----------------------------------------
-        // BOTTOM LEFT
-        // Move it so its TOP edge touches
-        // the BOTTOM edge of TOP LEFT.
-        // -----------------------------------------
+        bottomLeft.transform.position = new Vector3(
+            anchor.x,
+            anchor.y - tileHeight,
+            bottomLeft.transform.position.z
+        );
 
-        float verticalGap =
-            topLeft.bounds.min.y - bottomLeft.bounds.max.y;
-
-        bottomLeft.transform.position +=
-            new Vector3(0f, verticalGap, 0f);
-
-
-        // -----------------------------------------
-        // BOTTOM RIGHT
-        // First align it horizontally with
-        // BOTTOM LEFT.
-        // -----------------------------------------
-
-        float bottomRightHorizontalGap =
-            bottomLeft.bounds.max.x - bottomRight.bounds.min.x;
-
-        bottomRight.transform.position +=
-            new Vector3(bottomRightHorizontalGap, 0f, 0f);
-
-
-        // -----------------------------------------
-        // Then align BOTTOM RIGHT vertically
-        // with TOP RIGHT.
-        // -----------------------------------------
-
-        float bottomRightVerticalGap =
-            topRight.bounds.min.y - bottomRight.bounds.max.y;
-
-        bottomRight.transform.position +=
-            new Vector3(0f, bottomRightVerticalGap, 0f);
+        bottomRight.transform.position = new Vector3(
+            anchor.x + tileWidth,
+            anchor.y - tileHeight,
+            bottomRight.transform.position.z
+        );
     }
 
-    void ScaleToHeight(SpriteRenderer sprite)
+    void FitToSize(
+        SpriteRenderer sprite,
+        float targetWidth,
+        float targetHeight)
     {
         if (sprite == null || sprite.sprite == null)
             return;
 
+        float spriteWidth = sprite.sprite.bounds.size.x;
         float spriteHeight = sprite.sprite.bounds.size.y;
 
-        float scale = targetHeight / spriteHeight;
+        // IMPORTANT:
+        // Use uniform scaling so the image isn't distorted.
+        float scaleX = targetWidth / spriteWidth;
+        float scaleY = targetHeight / spriteHeight;
+
+        // If aspect ratios already match, these will be almost identical.
+        // Use scaleX because we want the tile width to be exact.
+        float scale = scaleX;
 
         sprite.transform.localScale = new Vector3(
             scale,
