@@ -42,10 +42,12 @@ public class ElfMovement : MonoBehaviour
     public SaveMenu saveMenu;
     public OpenInventory openInventory;
     public PickUpFish pickUpFish;
+    public PickUpFishSkeleton pickUpFishSkeleton;
     public PickUpBridge pickUpBridge;
     private bool holdingBridge = false;
     public GameObject bridge;
     public GameObject fish;
+    public GameObject fishSkeleton;
     public GameObject berry;
     private PickaxeRock currentGem;
     public PickUpPickaxe pickUpPickaxe;
@@ -215,6 +217,13 @@ public class ElfMovement : MonoBehaviour
                 SaveManager.Instance.carriedWorldObjectUniqueId = "fish";
                 SaveManager.Instance.SaveGame();
                 //Debug.Log(SaveManager.Instance.carriedWorldObjectUniqueId);
+            }
+            else if (pickUpFishSkeleton.fishSkeletonReady)
+            {
+                dropItems();
+                fishSkeleton.SetActive(false);
+                animator.SetBool("Fish Skeleton", true);
+                //TODO
             }
             else if (currentBerries != null && currentBerries.berryReady)
             {

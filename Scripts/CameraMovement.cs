@@ -30,23 +30,31 @@ public class CameraMovement : MonoBehaviour
     public CameraMode mode = CameraMode.GridFollow;
     private Vector3 lockedPosition;
 
-    private float lastAspect;
+    private int lastScreenWidth;
+    private int lastScreenHeight;
 
     void Start()
     {
         origin = new Vector3(mapMinX, mapMinY, 0);
 
+        SetFixedAspectRatio();
         RecalculateCamera();
-        lastAspect = cam.aspect;
+
+        lastScreenWidth = Screen.width;
+        lastScreenHeight = Screen.height;
     }
 
     void Update()
     {
-        // Detect window resizing
-        if (!Mathf.Approximately(lastAspect, cam.aspect))
+        // Detect browser/window resizing
+        if (Screen.width != lastScreenWidth ||
+            Screen.height != lastScreenHeight)
         {
+            SetFixedAspectRatio();
             RecalculateCamera();
-            lastAspect = cam.aspect;
+
+            lastScreenWidth = Screen.width;
+            lastScreenHeight = Screen.height;
         }
     }
 
@@ -54,7 +62,8 @@ public class CameraMovement : MonoBehaviour
     {
         height = cam.orthographicSize * 2f;
 
-        // Width changes with the actual window
+        // Because SetFixedAspectRatio() forces the camera viewport
+        // to 16:9, this will always be 17.7778 when size = 5.
         width = height * cam.aspect;
 
         minX = Mathf.FloorToInt(
@@ -112,5 +121,36 @@ public class CameraMovement : MonoBehaviour
     public void ResumeFollow()
     {
         mode = CameraMode.GridFollow;
+    }
+
+    private void SetFixedAspectRatio()
+    {
+        float targetAspect = 16f / 9f;
+        float windowAspect = (float)Screen.width / Screen.height;
+
+        float scaleHeight = windowAspect / targetAspect;
+
+        Rect rect = new Rect();
+
+        if (scaleHeight < 1.0f)
+        {
+            // Window is narrower than 16:9
+            rect.width = 1.0f;
+            rect.height = scaleHeight;
+            rect.x = 0;
+            rect.y = (1.0f - scaleHeight) / 2.0f;
+        }
+        else
+        {
+            // Window is wider than 16:9
+            float scaleWidth = 1.0f / scaleHeight;
+
+            rect.width = scaleWidth;
+            rect.height = 1.0f;
+            rect.x = (1.0f - scaleWidth) / 2.0f;
+            rect.y = 0;
+        }
+
+        cam.rect = rect;
     }
 }

@@ -24,51 +24,89 @@ public class CameraMovementCave : MonoBehaviour
     private Vector3 origin; 
     public CameraModeCave mode = CameraModeCave.LockedPosition;
     private Vector3 lockedPosition;
-    public float targetAspect = 16f / 9f;
+    //public float targetAspect = 16f / 9f;
+    private int lastScreenWidth;
+    private int lastScreenHeight;
  
-
-    void Start()
+     void Start()
     {
-
         origin = new Vector3(mapMinX, mapMinY, 0);
 
-        height = cam.orthographicSize * 2f;
-         width = height * targetAspect;
-        //width = height * cam.aspect;
+        SetFixedAspectRatio();
+        RecalculateCamera();
 
-        minX = Mathf.FloorToInt((mapMinX + width / 2f - origin.x) / width);
-        maxX = Mathf.FloorToInt((mapMaxX - width / 2f - origin.x) / width);
-
-        minY = Mathf.FloorToInt((mapMinY + height / 2f - origin.y) / height);
-        maxY = Mathf.FloorToInt((mapMaxY - height / 2f - origin.y) / height);
+        lastScreenWidth = Screen.width;
+        lastScreenHeight = Screen.height;
 
         LockToPosition(new Vector3(-20, 0, -10));
     }
 
+    void Update()
+    {
+        // Detect browser/window resizing
+        if (Screen.width != lastScreenWidth ||
+            Screen.height != lastScreenHeight)
+        {
+            SetFixedAspectRatio();
+            RecalculateCamera();
+
+            lastScreenWidth = Screen.width;
+            lastScreenHeight = Screen.height;
+        }
+    }
+
+    void RecalculateCamera()
+    {
+        height = cam.orthographicSize * 2f;
+
+        // Because SetFixedAspectRatio() forces the camera viewport
+        // to 16:9, this will always be 17.7778 when size = 5.
+        width = height * cam.aspect;
+
+        minX = Mathf.FloorToInt(
+            (mapMinX + width / 2f - origin.x) / width
+        );
+
+        maxX = Mathf.FloorToInt(
+            (mapMaxX - width / 2f - origin.x) / width
+        );
+
+        minY = Mathf.FloorToInt(
+            (mapMinY + height / 2f - origin.y) / height
+        );
+
+        maxY = Mathf.FloorToInt(
+            (mapMaxY - height / 2f - origin.y) / height
+        );
+    }
+
     void LateUpdate()
     {
-        int gridX = Mathf.FloorToInt((player.position.x - origin.x) / width);
-        int gridY = Mathf.FloorToInt((player.position.y - origin.y) / height);
-
-        gridX = Mathf.Clamp(gridX, minX, maxX);
-        gridY = Mathf.Clamp(gridY, minY, maxY);
-
-        Vector3 targetPosition = new Vector3(
-            origin.x + gridX * width + width / 2f,
-            origin.y + gridY * height + height / 2f,
-            transform.position.z
-            );
-
         if (mode == CameraModeCave.GridFollow)
         {
+            int gridX = Mathf.FloorToInt(
+                (player.position.x - origin.x) / width
+            );
+
+            int gridY = Mathf.FloorToInt(
+                (player.position.y - origin.y) / height
+            );
+
+            gridX = Mathf.Clamp(gridX, minX, maxX);
+            gridY = Mathf.Clamp(gridY, minY, maxY);
+
+            Vector3 targetPosition = new Vector3(
+                origin.x + gridX * width + width / 2f,
+                origin.y + gridY * height + height / 2f,
+                transform.position.z
+            );
+
             transform.position = targetPosition;
         }
         else if (mode == CameraModeCave.LockedPosition)
         {
             transform.position = lockedPosition;
         }
-        //if (!snowyHill.relocate && !goInsideCabin.relocate)
-        //transform.position = targetPosition;
     }
 
     public void LockToPosition(Vector3 pos)
@@ -81,4 +119,97 @@ public class CameraMovementCave : MonoBehaviour
     {
         mode = CameraModeCave.GridFollow;
     }
+    private void SetFixedAspectRatio()
+    {
+        float targetAspect = 16f / 9f;
+
+        cam.aspect = targetAspect;
+        cam.rect = new Rect(0f, 0f, 1f, 1f);
+    }
+
+    // private void SetFixedAspectRatio()
+    // {
+    //     float targetAspect = 16f / 9f;
+    //     float windowAspect = (float)Screen.width / Screen.height;
+
+    //     float scaleHeight = windowAspect / targetAspect;
+
+    //     Rect rect = new Rect();
+
+    //     if (scaleHeight < 1.0f)
+    //     {
+    //         // Window is narrower than 16:9
+    //         rect.width = 1.0f;
+    //         rect.height = scaleHeight;
+    //         rect.x = 0;
+    //         rect.y = (1.0f - scaleHeight) / 2.0f;
+    //     }
+    //     else
+    //     {
+    //         // Window is wider than 16:9
+    //         float scaleWidth = 1.0f / scaleHeight;
+
+    //         rect.width = scaleWidth;
+    //         rect.height = 1.0f;
+    //         rect.x = (1.0f - scaleWidth) / 2.0f;
+    //         rect.y = 0;
+    //     }
+
+    //     cam.rect = rect;
+    // }
+
+    // void Start()
+    // {
+
+    //     origin = new Vector3(mapMinX, mapMinY, 0);
+
+    //     height = cam.orthographicSize * 2f;
+    //      width = height * targetAspect;
+    //     //width = height * cam.aspect;
+
+    //     minX = Mathf.FloorToInt((mapMinX + width / 2f - origin.x) / width);
+    //     maxX = Mathf.FloorToInt((mapMaxX - width / 2f - origin.x) / width);
+
+    //     minY = Mathf.FloorToInt((mapMinY + height / 2f - origin.y) / height);
+    //     maxY = Mathf.FloorToInt((mapMaxY - height / 2f - origin.y) / height);
+
+    //     LockToPosition(new Vector3(-20, 0, -10));
+    // }
+
+    // void LateUpdate()
+    // {
+    //     int gridX = Mathf.FloorToInt((player.position.x - origin.x) / width);
+    //     int gridY = Mathf.FloorToInt((player.position.y - origin.y) / height);
+
+    //     gridX = Mathf.Clamp(gridX, minX, maxX);
+    //     gridY = Mathf.Clamp(gridY, minY, maxY);
+
+    //     Vector3 targetPosition = new Vector3(
+    //         origin.x + gridX * width + width / 2f,
+    //         origin.y + gridY * height + height / 2f,
+    //         transform.position.z
+    //         );
+
+    //     if (mode == CameraModeCave.GridFollow)
+    //     {
+    //         transform.position = targetPosition;
+    //     }
+    //     else if (mode == CameraModeCave.LockedPosition)
+    //     {
+    //         transform.position = lockedPosition;
+    //     }
+    //     //if (!snowyHill.relocate && !goInsideCabin.relocate)
+    //     //transform.position = targetPosition;
+    // }
+
+    // public void LockToPosition(Vector3 pos)
+    // {
+    //     lockedPosition = pos;
+    //     mode = CameraModeCave.LockedPosition;
+    // }
+
+    // public void ResumeFollow()
+    // {
+    //     mode = CameraModeCave.GridFollow;
+    // }
 }

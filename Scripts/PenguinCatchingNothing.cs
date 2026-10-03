@@ -45,7 +45,8 @@ public class PenguinCatchingNothing : MonoBehaviour
 
     void magicHappens()
     {
-        magic.transform.position = new Vector3(elf.transform.position.x, elf.transform.position.y + 1f, 0f);
+        magic.transform.position = new Vector3(54.5f, 9.6f, 0f);
+        //(elf.transform.position.x, elf.transform.position.y + 1f, 0f);
         magic.SetActive(true);
         Invoke("endMagic", 1f);
     }
