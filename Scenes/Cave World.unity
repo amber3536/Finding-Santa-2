@@ -7612,11 +7612,11 @@ MonoBehaviour:
   saveMenu: {fileID: 1184807338}
   openInventory: {fileID: 1184807336}
   pickUpFish: {fileID: 1683834442}
-  pickUpFishSkeleton: {fileID: 0}
+  pickUpFishSkeleton: {fileID: 1561109623}
   pickUpBridge: {fileID: 1207023579}
   bridge: {fileID: 1207023578}
   fish: {fileID: 1683834439}
-  fishSkeleton: {fileID: 0}
+  fishSkeleton: {fileID: 1561109620}
   berry: {fileID: 0}
   pickUpPickaxe: {fileID: 1072602741}
   magicCloudPillar: {fileID: 0}
