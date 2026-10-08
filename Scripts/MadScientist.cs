@@ -6,6 +6,8 @@ public class MadScientist : MonoBehaviour
     public GameObject fish;
     public GameObject sci;
     private bool gotFish = false;
+    public ElfMovement elfMovement;
+    public Animator animator;
     
     void Start()
     {
@@ -14,11 +16,13 @@ public class MadScientist : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!gotFish)
+        if (!gotFish && elfMovement.holdingFishSkeleton)
         {
             gotFish = true;
             scientist.SetBool("Spell", true);
             Invoke("done", .75f);
+            elfMovement.holdingFishSkeleton = false;
+            animator.SetBool("Fish Skeleton", false);
         }
 
     }

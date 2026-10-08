@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ElfMovement : MonoBehaviour
 {
+    //Elf data
     public float speed = 5f; // Movement speed
     public Animator animator;
     private Rigidbody2D rb;
@@ -14,45 +15,54 @@ public class ElfMovement : MonoBehaviour
     public float stepDistance = 0.3f;
     public AudioSource crunching;
     public AudioClip crunch;
-    public GameObject rock;
-    public bool holdingRock = false;
-    public PickUpRock pickUpRock;
-    public ItemData itemWood;
-    public ItemData itemRock;
-    public ItemData itemBerries;
     Vector3 lastStepPos;
     public float lifetime = 6f;
     public float fadeTime = 2f;
-    private RiverUnblock currentUnblock;
-    private SnowyTree currentTree;
-    private ThreeLogs currentLogs;
-    private PickBerries currentBerryBush;
-    private PickUpBerries currentBerries;
+    private int inventoryLocation = 0;
+
+    //Other game objects
+    public GameObject rock;
     public GameObject axe;
     public GameObject pickAxe;
-    public PickUpAxe pickUpAxe;
-    public GoInsideCabin goInsideCabin;
+    public GameObject bridge;
+    public GameObject fish;
+    public GameObject fishSkeleton;
+    public GameObject berry;
+    
+    // bools
+    public bool holdingRock = false;
     private bool holdingAxe = false;
     private bool holdingPickaxe = false;
     private bool holdingLogs = false;
     private bool holdingBerries = false;
     public bool holdingFish = false;
     private bool inventoryOpen = false;
-    private int inventoryLocation = 0;
+    private bool holdingBridge = false;
+    public bool justLoaded = false;
+    public bool holdingFishSkeleton = false;
+    
+    // script references
+    public PickUpRock pickUpRock;
+    private RiverUnblock currentUnblock;
+    private SnowyTree currentTree;
+    private ThreeLogs currentLogs;
+    private PickBerries currentBerryBush;
+    private PickUpBerries currentBerries;
+    public PickUpAxe pickUpAxe;
+    public GoInsideCabin goInsideCabin;
     public SaveMenu saveMenu;
     public OpenInventory openInventory;
     public PickUpFish pickUpFish;
     public PickUpFishSkeleton pickUpFishSkeleton;
     public PickUpBridge pickUpBridge;
-    private bool holdingBridge = false;
-    public GameObject bridge;
-    public GameObject fish;
-    public GameObject fishSkeleton;
-    public GameObject berry;
     private PickaxeRock currentGem;
     public PickUpPickaxe pickUpPickaxe;
     public MagicCloudPillar magicCloudPillar;
-    public bool justLoaded = false;
+
+    // Item data
+    public ItemData itemWood;
+    public ItemData itemRock;
+    public ItemData itemBerries;
 
 
     void Start()
@@ -223,6 +233,7 @@ public class ElfMovement : MonoBehaviour
                 dropItems();
                 fishSkeleton.SetActive(false);
                 animator.SetBool("Fish Skeleton", true);
+                holdingFishSkeleton = true;
                 //TODO
             }
             else if (currentBerries != null && currentBerries.berryReady)
@@ -300,6 +311,10 @@ public class ElfMovement : MonoBehaviour
         else if (holdingFish)
         {
             dropFish();
+        }
+        else if (holdingFishSkeleton)
+        {
+            dropFishSkeleton();
         }
         else if (inventoryOpen)
         {
@@ -396,6 +411,15 @@ public class ElfMovement : MonoBehaviour
         holdingFish = false;
         animator.SetBool("Fish", false);
         SaveManager.Instance.carriedWorldObjectUniqueId = null;
+    }
+
+    void dropFishSkeleton()
+    {
+        fishSkeleton.SetActive(true);
+        Vector3 dropPosition = transform.position + Vector3.right;
+        fishSkeleton.transform.position = dropPosition;
+        holdingFishSkeleton = false;
+        animator.SetBool("Fish Skeleton", false);
     }
 
     void dropAxe()

@@ -3582,7 +3582,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 55.9, y: 0.5, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -6196,6 +6196,8 @@ MonoBehaviour:
   scientist: {fileID: 1401364949}
   fish: {fileID: 1683834439}
   sci: {fileID: 1401364948}
+  elfMovement: {fileID: 1578600842}
+  animator: {fileID: 1578600837}
 --- !u!1 &1402873412
 GameObject:
   m_ObjectHideFlags: 0
@@ -7596,31 +7598,32 @@ MonoBehaviour:
   stepDistance: 0.3
   crunching: {fileID: 0}
   crunch: {fileID: 8300000, guid: 13f1eb39319f144f4b5cd34187256ac4, type: 3}
-  rock: {fileID: 1185667655}
-  holdingRock: 0
-  pickUpRock: {fileID: 1185667658}
-  itemWood: {fileID: 11400000, guid: 136102abb98174c85b963b5dba51fe42, type: 2}
-  itemRock: {fileID: 11400000, guid: 2a1707a9660eb4e6eae705551b93f0f3, type: 2}
-  itemBerries: {fileID: 11400000, guid: 609ff2074b6374723abc40f14ee51953, type: 2}
   lifetime: 6
   fadeTime: 2
+  rock: {fileID: 1185667655}
   axe: {fileID: 1090099081}
   pickAxe: {fileID: 1072602736}
+  bridge: {fileID: 1207023578}
+  fish: {fileID: 1683834439}
+  fishSkeleton: {fileID: 1561109620}
+  berry: {fileID: 0}
+  holdingRock: 0
+  holdingFish: 0
+  justLoaded: 0
+  holdingFishSkeleton: 0
+  pickUpRock: {fileID: 1185667658}
   pickUpAxe: {fileID: 1090099084}
   goInsideCabin: {fileID: 0}
-  holdingFish: 0
   saveMenu: {fileID: 1184807338}
   openInventory: {fileID: 1184807336}
   pickUpFish: {fileID: 1683834442}
   pickUpFishSkeleton: {fileID: 1561109623}
   pickUpBridge: {fileID: 1207023579}
-  bridge: {fileID: 1207023578}
-  fish: {fileID: 1683834439}
-  fishSkeleton: {fileID: 1561109620}
-  berry: {fileID: 0}
   pickUpPickaxe: {fileID: 1072602741}
   magicCloudPillar: {fileID: 0}
-  justLoaded: 0
+  itemWood: {fileID: 11400000, guid: 136102abb98174c85b963b5dba51fe42, type: 2}
+  itemRock: {fileID: 11400000, guid: 2a1707a9660eb4e6eae705551b93f0f3, type: 2}
+  itemBerries: {fileID: 11400000, guid: 609ff2074b6374723abc40f14ee51953, type: 2}
 --- !u!1 &1620095014
 GameObject:
   m_ObjectHideFlags: 0

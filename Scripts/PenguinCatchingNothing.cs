@@ -55,6 +55,7 @@ public class PenguinCatchingNothing : MonoBehaviour
     {
         magic.SetActive(false);
         animator_elf.SetBool("Fish", false);
+        elf.holdingFish = false;
     }
 
     void startTrain()
