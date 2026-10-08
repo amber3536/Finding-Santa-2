@@ -1,34 +1,22 @@
 fileFormatVersion: 2
-guid: 6908d64a4e6d145cb9842424fb4bb878
+guid: 921c0c20c534d48dab753b5ba2dc200a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2287794524126129875
-    second: Dragon flying-Sheet2_0
+      213: 620852761321319939
+    second: Dragon flying-Sheet6_0
   - first:
-      213: -7108270739016382813
-    second: Dragon flying-Sheet2_1
+      213: 4307459267176522008
+    second: Dragon flying-Sheet6_1
   - first:
-      213: 6234015559685299257
-    second: Dragon flying-Sheet2_2
+      213: 6888255347973213584
+    second: Dragon flying-Sheet6_2
   - first:
-      213: -405778831047834625
-    second: Dragon flying-Sheet2_3
+      213: -4188706948873777321
+    second: Dragon flying-Sheet6_3
   - first:
-      213: 7520913484246609066
-    second: Dragon flying-Sheet2_4
-  - first:
-      213: -118908085163867986
-    second: Dragon flying-Sheet2_5
-  - first:
-      213: 2756316975252081166
-    second: Dragon flying-Sheet2_6
-  - first:
-      213: -1783357665783391706
-    second: Dragon flying-Sheet2_7
-  - first:
-      213: 386330043539126870
-    second: Dragon flying-Sheet2_8
+      213: 2551673765928966849
+    second: Dragon flying-Sheet6_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -137,7 +125,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dragon flying-Sheet2_0
+      name: Dragon flying-Sheet6_0
       rect:
         serializedVersion: 2
         x: 0
@@ -152,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d21d066600f1040e0800000000000000
-      internalID: -2287794524126129875
+      spriteID: 30ea0680c46bd9800800000000000000
+      internalID: 620852761321319939
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dragon flying-Sheet2_1
+      name: Dragon flying-Sheet6_1
       rect:
         serializedVersion: 2
         x: 256
@@ -174,14 +162,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3a600a19c695a5d90800000000000000
-      internalID: -7108270739016382813
+      spriteID: 8116580b16b27cb30800000000000000
+      internalID: 4307459267176522008
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dragon flying-Sheet2_2
+      name: Dragon flying-Sheet6_2
       rect:
         serializedVersion: 2
         x: 512
@@ -196,14 +184,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 93cdc4f4f1ca38650800000000000000
-      internalID: 6234015559685299257
+      spriteID: 09dc0225ebff79f50800000000000000
+      internalID: 6888255347973213584
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dragon flying-Sheet2_3
+      name: Dragon flying-Sheet6_3
       rect:
         serializedVersion: 2
         x: 768
@@ -218,14 +206,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ff345069d426e5af0800000000000000
-      internalID: -405778831047834625
+      spriteID: 75f0b240939bed5c0800000000000000
+      internalID: -4188706948873777321
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dragon flying-Sheet2_4
+      name: Dragon flying-Sheet6_4
       rect:
         serializedVersion: 2
         x: 1024
@@ -240,96 +228,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aace6f667f6af5860800000000000000
-      internalID: 7520913484246609066
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dragon flying-Sheet2_5
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 0
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ea0c2eef9bd895ef0800000000000000
-      internalID: -118908085163867986
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dragon flying-Sheet2_6
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 0
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e0a87467fa7604620800000000000000
-      internalID: 2756316975252081166
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dragon flying-Sheet2_7
-      rect:
-        serializedVersion: 2
-        x: 1792
-        y: 0
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 62ad28fc6ad3047e0800000000000000
-      internalID: -1783357665783391706
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dragon flying-Sheet2_8
-      rect:
-        serializedVersion: 2
-        x: 2048
-        y: 0
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 65af533b0258c5500800000000000000
-      internalID: 386330043539126870
+      spriteID: 1ca11e055cd596320800000000000000
+      internalID: 2551673765928966849
       vertices: []
       indices: 
       edges: []
@@ -338,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4d06ecf9785e84181bb7337e7236290e
+    spriteID: 461c82614c53e4c00a6b887fbdd36b66
     internalID: 0
     vertices: []
     indices: 
@@ -350,15 +250,11 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":256.0,"y":256.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.4000000059604645},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Dragon flying-Sheet2_0: -2287794524126129875
-      Dragon flying-Sheet2_1: -7108270739016382813
-      Dragon flying-Sheet2_2: 6234015559685299257
-      Dragon flying-Sheet2_3: -405778831047834625
-      Dragon flying-Sheet2_4: 7520913484246609066
-      Dragon flying-Sheet2_5: -118908085163867986
-      Dragon flying-Sheet2_6: 2756316975252081166
-      Dragon flying-Sheet2_7: -1783357665783391706
-      Dragon flying-Sheet2_8: 386330043539126870
+      Dragon flying-Sheet6_0: 620852761321319939
+      Dragon flying-Sheet6_1: 4307459267176522008
+      Dragon flying-Sheet6_2: 6888255347973213584
+      Dragon flying-Sheet6_3: -4188706948873777321
+      Dragon flying-Sheet6_4: 2551673765928966849
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
