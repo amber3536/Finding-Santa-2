@@ -12,69 +12,57 @@ public class CameraMovementIsland : MonoBehaviour
     public Transform player;
     public Camera cam;
 
-    [Header("Fixed 2x2 Camera Grid")]
-    public float bottomLeftX = 8.8889f;   // Center X of the bottom-left tile
-    public float bottomLeftY = 5.0f;      // Center Y of the bottom-left tile
+    // 2x2 grid — each tile is exactly 16x9 Unity units
+    private const float TILE_W = 16f;
+    private const float TILE_H = 9f;
 
-    public float cameraStepX = 17.7778f;  // Exact tile width in Unity units
-    public float cameraStepY = 10.0f;     // Exact tile height in Unity units
+    // Pre-calculated exact snap positions for each grid cell
+    // No runtime math = no floating point drift
+    private readonly Vector2[,] snapPositions = new Vector2[2, 2]
+    {
+        { new Vector2(8f,  4.5f),  new Vector2(8f,  13.5f) },  // Left column
+        { new Vector2(24f, 4.5f),  new Vector2(24f, 13.5f) }   // Right column
+    };
+
+    // Center of bottom-left tile — used for grid boundary detection
+    private const float ORIGIN_X = 8f;
+    private const float ORIGIN_Y = 4.5f;
 
     private Vector3 lockedPosition;
-
     public CameraModeIsland mode = CameraModeIsland.GridFollow;
-
-    private int lastScreenWidth;
-    private int lastScreenHeight;
 
     void Start()
     {
-        SetFixedAspectRatio();
-
-        lastScreenWidth = Screen.width;
-        lastScreenHeight = Screen.height;
+        cam.orthographicSize = 4.5f;
+        cam.aspect = 16f / 9f;
+        cam.rect = new Rect(0f, 0f, 1f, 1f);
     }
 
     void Update()
     {
-        if (Screen.width != lastScreenWidth ||
-            Screen.height != lastScreenHeight)
-        {
-            SetFixedAspectRatio();
-
-            lastScreenWidth = Screen.width;
-            lastScreenHeight = Screen.height;
-        }
+        // Re-enforce every frame to prevent WebGL drift
+        cam.orthographicSize = 4.5f;
+        cam.aspect = 16f / 9f;
     }
 
     void LateUpdate()
     {
         if (mode == CameraModeIsland.GridFollow)
         {
-            // Determine which of the four background tiles
-            // the player is currently in.
+            // Determine which tile the player is in
+            int gridX = (player.position.x < ORIGIN_X + TILE_W / 2f) ? 0 : 1;
+            int gridY = (player.position.y < ORIGIN_Y + TILE_H / 2f) ? 0 : 1;
 
-            float leftEdge = bottomLeftX - cameraStepX / 2f;
-            float bottomEdge = bottomLeftY - cameraStepY / 2f;
-
-            int gridX = Mathf.FloorToInt(
-                (player.position.x - leftEdge) / cameraStepX
-            );
-
-            int gridY = Mathf.FloorToInt(
-                (player.position.y - bottomEdge) / cameraStepY
-            );
-
-            // Clamp to the 2x2 grid
+            // Clamp to 2x2 grid
             gridX = Mathf.Clamp(gridX, 0, 1);
             gridY = Mathf.Clamp(gridY, 0, 1);
 
-            // Calculate the exact camera center.
-            float cameraX = bottomLeftX + gridX * cameraStepX;
-            float cameraY = bottomLeftY + gridY * cameraStepY;
+            // Snap to exact pre-calculated position
+            Vector2 snap = snapPositions[gridX, gridY];
 
             transform.position = new Vector3(
-                cameraX,
-                cameraY,
+                snap.x,
+                snap.y,
                 transform.position.z
             );
         }
@@ -93,16 +81,5 @@ public class CameraMovementIsland : MonoBehaviour
     public void ResumeFollow()
     {
         mode = CameraModeIsland.GridFollow;
-    }
-
-    private void SetFixedAspectRatio()
-    {
-        float targetAspect = 16f / 9f;
-
-        // Force the camera's projection to remain 16:9.
-        cam.aspect = targetAspect;
-
-        // Use the entire Unity canvas.
-        cam.rect = new Rect(0f, 0f, 1f, 1f);
     }
 }

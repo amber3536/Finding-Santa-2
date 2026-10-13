@@ -13,10 +13,10 @@ public class EnterCandyHouse3 : MonoBehaviour
         relocate = true;
     }
 
-    void OnTriggerExit2D(Collider2D other)
-    {
-        relocate = false;
-    }
+    // void OnTriggerExit2D(Collider2D other)
+    // {
+    //     relocate = false;
+    // }
 
     void Update()
     {

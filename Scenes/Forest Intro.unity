@@ -13148,7 +13148,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!224 &1410682179
 RectTransform:
@@ -14901,29 +14901,32 @@ MonoBehaviour:
   stepDistance: 0.5
   crunching: {fileID: 746240384}
   crunch: {fileID: 8300000, guid: 13f1eb39319f144f4b5cd34187256ac4, type: 3}
-  rock: {fileID: 1729712580}
-  holdingRock: 0
-  pickUpRock: {fileID: 1729712585}
-  itemWood: {fileID: 11400000, guid: 136102abb98174c85b963b5dba51fe42, type: 2}
-  itemRock: {fileID: 11400000, guid: 2a1707a9660eb4e6eae705551b93f0f3, type: 2}
-  itemBerries: {fileID: 11400000, guid: 609ff2074b6374723abc40f14ee51953, type: 2}
   lifetime: 6
   fadeTime: 2
+  rock: {fileID: 1729712580}
   axe: {fileID: 244154062}
   pickAxe: {fileID: 1839063462}
+  bridge: {fileID: 1207512505}
+  fish: {fileID: 2131040028}
+  fishSkeleton: {fileID: 0}
+  berry: {fileID: 0}
+  holdingRock: 0
+  holdingFish: 0
+  justLoaded: 0
+  holdingFishSkeleton: 0
+  pickUpRock: {fileID: 1729712585}
   pickUpAxe: {fileID: 244154066}
   goInsideCabin: {fileID: 437722469}
-  holdingFish: 0
   saveMenu: {fileID: 2055963203}
   openInventory: {fileID: 2055963199}
   pickUpFish: {fileID: 2131040029}
+  pickUpFishSkeleton: {fileID: 0}
   pickUpBridge: {fileID: 1207512508}
-  bridge: {fileID: 1207512505}
-  fish: {fileID: 2131040028}
-  berry: {fileID: 0}
   pickUpPickaxe: {fileID: 1839063463}
   magicCloudPillar: {fileID: 1170942043}
-  justLoaded: 0
+  itemWood: {fileID: 11400000, guid: 136102abb98174c85b963b5dba51fe42, type: 2}
+  itemRock: {fileID: 11400000, guid: 2a1707a9660eb4e6eae705551b93f0f3, type: 2}
+  itemBerries: {fileID: 11400000, guid: 609ff2074b6374723abc40f14ee51953, type: 2}
 --- !u!61 &1663202934
 BoxCollider2D:
   m_ObjectHideFlags: 0

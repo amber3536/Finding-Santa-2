@@ -5,6 +5,7 @@ public class LandDragon : MonoBehaviour
     //public Animator animator;
     public Dragon dragon;
     private bool hasStarted = false;
+    private bool hasStopped = false;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -13,8 +14,9 @@ public class LandDragon : MonoBehaviour
             hasStarted = true;
             dragon.startDragon();
         }
-        else if (other.gameObject.name == "Dragon")
+        else if (!hasStopped && other.gameObject.name == "Dragon")
         {
+            hasStopped = true;
             dragon.stopDragon();
         }
     }

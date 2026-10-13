@@ -12,10 +12,10 @@ public class EnterCandyHouse5 : MonoBehaviour
         myCamera.LockToPosition(new Vector3(-40, 0, -10));
         relocate = true;
     }
-    void OnTriggerExit2D(Collider2D other)
-    {
-        relocate = false;
-    }
+    // void OnTriggerExit2D(Collider2D other)
+    // {
+    //     relocate = false;
+    // }
 
     void Update()
     {
