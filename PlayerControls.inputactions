@@ -238,6 +238,17 @@
                 },
                 {
                     "name": "",
+                    "id": "6c956ccd-37cf-4def-ab55-8f6e19044ebb",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Use Tool",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "0a3d5574-b132-44c5-b2a8-60a161937e9f",
                     "path": "<Keyboard>/f",
                     "interactions": "",

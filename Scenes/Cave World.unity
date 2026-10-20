@@ -427,6 +427,7 @@ GameObject:
   - component: {fileID: 126784672}
   - component: {fileID: 126784671}
   - component: {fileID: 126784670}
+  - component: {fileID: 126784673}
   m_Layer: 0
   m_Name: Lava
   m_TagString: Untagged
@@ -530,6 +531,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &126784673
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126784669}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.028779864}
+  m_Radius: 0.35220158
 --- !u!1 &172265810
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,6 +712,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   startMenu: {fileID: 590380054}
   squirrel: {fileID: 0}
+  cameraMovementCave: {fileID: 691852924}
 --- !u!114 &219764268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2184,14 +2222,15 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0645942831104c2faecf8fb911b7f94, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: Assembly-CSharp::CameraMovementCave
   player: {fileID: 1578600840}
   cam: {fileID: 691852922}
   mapMinX: -8.5
   mapMaxX: 60
   mapMinY: -5
   mapMaxY: 50
-  mode: 2
+  mode: 0
+  elf: {fileID: 1578600842}
 --- !u!114 &691852925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2325,6 +2364,7 @@ GameObject:
   - component: {fileID: 756295092}
   - component: {fileID: 756295091}
   - component: {fileID: 756295090}
+  - component: {fileID: 756295093}
   m_Layer: 0
   m_Name: Lava flowers1
   m_TagString: Untagged
@@ -2412,7 +2452,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!4 &756295092
 Transform:
   m_ObjectHideFlags: 0
@@ -2428,6 +2468,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &756295093
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756295089}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.019256644, y: 0.10194525}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.1}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 0.64, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.33188754, y: 0.062293053}
+  m_EdgeRadius: 0
 --- !u!1 &763270489
 GameObject:
   m_ObjectHideFlags: 0
@@ -2530,6 +2616,7 @@ GameObject:
   - component: {fileID: 768838572}
   - component: {fileID: 768838571}
   - component: {fileID: 768838570}
+  - component: {fileID: 768838573}
   m_Layer: 0
   m_Name: Blacksmith Troll
   m_TagString: Untagged
@@ -2617,7 +2704,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!4 &768838572
 Transform:
   m_ObjectHideFlags: 0
@@ -2633,6 +2720,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &768838573
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768838569}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.04155168, y: 0.013380874}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.1}
+    oldSize: {x: 1.28, y: 1.28}
+    newSize: {x: 1.28, y: 1.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.5597725, y: 0.061152935}
+  m_EdgeRadius: 0
 --- !u!1 &797797572
 GameObject:
   m_ObjectHideFlags: 0
@@ -3937,6 +4070,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   startMenu: {fileID: 590380054}
   elf: {fileID: 1578600842}
+  cameraMovementCave: {fileID: 691852924}
 --- !u!114 &985611156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6032,6 +6166,7 @@ GameObject:
   - component: {fileID: 1401364949}
   - component: {fileID: 1401364952}
   - component: {fileID: 1401364953}
+  - component: {fileID: 1401364954}
   m_Layer: 0
   m_Name: TrollScientist
   m_TagString: Untagged
@@ -6119,7 +6254,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!4 &1401364951
 Transform:
   m_ObjectHideFlags: 0
@@ -6198,6 +6333,52 @@ MonoBehaviour:
   sci: {fileID: 1401364948}
   elfMovement: {fileID: 1578600842}
   animator: {fileID: 1578600837}
+--- !u!61 &1401364954
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401364948}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.009947941, y: -0.015257902}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.1}
+    oldSize: {x: 1.28, y: 1.28}
+    newSize: {x: 1.28, y: 1.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.3846576, y: 0.066312}
+  m_EdgeRadius: 0
 --- !u!1 &1402873412
 GameObject:
   m_ObjectHideFlags: 0
@@ -7200,6 +7381,7 @@ GameObject:
   - component: {fileID: 1561109621}
   - component: {fileID: 1561109624}
   - component: {fileID: 1561109623}
+  - component: {fileID: 1561109625}
   m_Layer: 0
   m_Name: Fish skeleton
   m_TagString: Untagged
@@ -7340,6 +7522,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.7921294, y: 0.24037486}
   m_EdgeRadius: 0
+--- !u!114 &1561109625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561109620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a68eadb05577346fba0517c9ee27f687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
+  uniqueId: Fish_Skeleton
 --- !u!1 &1578600833
 GameObject:
   m_ObjectHideFlags: 0
@@ -8050,6 +8245,7 @@ GameObject:
   - component: {fileID: 1735573283}
   - component: {fileID: 1735573286}
   - component: {fileID: 1735573287}
+  - component: {fileID: 1735573288}
   m_Layer: 0
   m_Name: Gem Troll
   m_TagString: Untagged
@@ -8137,7 +8333,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!4 &1735573285
 Transform:
   m_ObjectHideFlags: 0
@@ -8195,6 +8391,52 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &1735573288
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735573282}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.18486643, y: 0.0018086098}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.1}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 0.64, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.5475663, y: 0.03918407}
+  m_EdgeRadius: 0
 --- !u!1 &1791957048
 GameObject:
   m_ObjectHideFlags: 0
@@ -9799,6 +10041,7 @@ GameObject:
   - component: {fileID: 2105172662}
   - component: {fileID: 2105172661}
   - component: {fileID: 2105172660}
+  - component: {fileID: 2105172663}
   m_Layer: 0
   m_Name: Lava flowers
   m_TagString: Untagged
@@ -9886,7 +10129,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!4 &2105172662
 Transform:
   m_ObjectHideFlags: 0
@@ -9902,6 +10145,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &2105172663
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105172659}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.005755931, y: -0.08633979}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.57, y: 0.56}
+    newSize: {x: 0.57, y: 0.56}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.30522537, y: 0.1570816}
+  m_EdgeRadius: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -22,11 +22,12 @@ public class CameraMovementCave : MonoBehaviour
     public float mapMinY = -5;
     public float mapMaxY = 50; 
     private Vector3 origin; 
-    public CameraModeCave mode = CameraModeCave.LockedPosition;
+    public CameraModeCave mode = CameraModeCave.GridFollow;
     private Vector3 lockedPosition;
     //public float targetAspect = 16f / 9f;
     private int lastScreenWidth;
     private int lastScreenHeight;
+    public ElfMovement elf;
  
      void Start()
     {
@@ -38,7 +39,8 @@ public class CameraMovementCave : MonoBehaviour
         lastScreenWidth = Screen.width;
         lastScreenHeight = Screen.height;
 
-        LockToPosition(new Vector3(-20, 0, -10));
+
+        
     }
 
     void Update()
@@ -118,6 +120,18 @@ public class CameraMovementCave : MonoBehaviour
     public void ResumeFollow()
     {
         mode = CameraModeCave.GridFollow;
+    }
+
+    public void updateOnLoad()
+    {
+        if (elf.justLoaded)
+        {
+            ResumeFollow();
+        }
+        else
+        {
+            LockToPosition(new Vector3(-20, 0, -10));
+        }
     }
     private void SetFixedAspectRatio()
     {

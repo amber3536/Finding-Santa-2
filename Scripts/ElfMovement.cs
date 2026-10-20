@@ -234,6 +234,8 @@ public class ElfMovement : MonoBehaviour
                 fishSkeleton.SetActive(false);
                 animator.SetBool("Fish Skeleton", true);
                 holdingFishSkeleton = true;
+                SaveManager.Instance.carriedWorldObjectUniqueId = "fish skeleton";
+                SaveManager.Instance.SaveGame();
                 //TODO
             }
             else if (currentBerries != null && currentBerries.berryReady)
@@ -420,6 +422,7 @@ public class ElfMovement : MonoBehaviour
         fishSkeleton.transform.position = dropPosition;
         holdingFishSkeleton = false;
         animator.SetBool("Fish Skeleton", false);
+        SaveManager.Instance.carriedWorldObjectUniqueId = null;
     }
 
     void dropAxe()

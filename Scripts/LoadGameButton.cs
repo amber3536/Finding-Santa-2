@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LoadGameButton : MonoBehaviour
 {
     public GameObject startMenu;
     static bool gameStarted = false;
     public ElfMovement elf;
+    public CameraMovementCave cameraMovementCave;
 
     void Start()
     {
@@ -19,8 +21,12 @@ public class LoadGameButton : MonoBehaviour
         startMenu.SetActive(false);
         gameStarted = true;
         elf.justLoaded = true;
-        //SaveManager.Instance.gameStarted = true;
-        //PlayerPrefs.SetInt("gameStarted", 1);
+
+        Scene currentScene = SceneManager.GetActiveScene();
+        if (currentScene.name == "Cave World")
+        {
+            cameraMovementCave.updateOnLoad();
+        }
         SaveManager.Instance.LoadGame();
     }
 }
