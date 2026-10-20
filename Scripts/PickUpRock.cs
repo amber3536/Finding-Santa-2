@@ -34,7 +34,8 @@ public class PickUpRock : MonoBehaviour
         SaveManager.Instance.worldObjects[po.UniqueId] = new WorldObjectSaveData
             {
                 id = po.UniqueId,
-                isDestroyed = false
+                isDestroyed = false,
+                objectPosition = transform.position
             };
     }
 }

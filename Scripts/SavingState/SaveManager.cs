@@ -122,8 +122,9 @@ public class SaveManager : MonoBehaviour
                 }
                 else
                 {
-                    //Debug.Log(obj.UniqueId);
                     obj.gameObject.SetActive(true);
+                    obj.transform.position = d.objectPosition;
+                    //TODO add object locations
                 }
             }
         }
@@ -136,6 +137,18 @@ public class SaveManager : MonoBehaviour
         SaveData saveData = new SaveData();
         saveData.inventoryItems = inventory.GetInventorySaveData();
         saveData.playerPosition = player.position;
+
+        foreach (var persistentObject in FindObjectsByType<PersistentObject>(
+             FindObjectsSortMode.None))
+        {
+            string id = persistentObject.UniqueId;
+
+            if (worldObjects.TryGetValue(id, out WorldObjectSaveData data))
+            {
+                data.objectPosition = persistentObject.transform.position;
+            }
+        }
+
         saveData.worldObjects = worldObjects.Values.ToList();
         saveData.carriedObjectId = carriedWorldObjectUniqueId;
     
