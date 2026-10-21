@@ -27,7 +27,7 @@ public class PickUpRock : MonoBehaviour
             };
     }
 
-    public void restoreRock()
+    public void dropRock()
     {
         PersistentObject po = GetComponent<PersistentObject>();
 

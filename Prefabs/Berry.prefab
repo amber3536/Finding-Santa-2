@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4907909092136773926}
   - component: {fileID: 6136507401745305839}
   - component: {fileID: -865941805623977983}
+  - component: {fileID: 2276346106161374640}
   m_Layer: 0
   m_Name: Berry
   m_TagString: Untagged
@@ -152,3 +153,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   berryReady: 0
+--- !u!114 &2276346106161374640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6350080988336178923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a68eadb05577346fba0517c9ee27f687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
+  uniqueId: Berry

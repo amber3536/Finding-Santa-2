@@ -357,7 +357,8 @@ public class ElfMovement : MonoBehaviour
             }
 
         }
-        
+        SaveManager.Instance.carriedWorldObjectUniqueId = null;
+        SaveManager.Instance.SaveGame();
         
     }
 
@@ -370,6 +371,14 @@ public class ElfMovement : MonoBehaviour
             Vector3 dropPosition = transform.position + Vector3.right;
 
             obj = Instantiate(item.worldPrefab, dropPosition, Quaternion.identity);
+            
+            PersistentObject po = obj.GetComponent<PersistentObject>();
+
+            if (po != null)
+            {
+                po.SetUniqueId(System.Guid.NewGuid().ToString());
+                po.SetPrefabKey(item.itemName);
+            }
         }
         return obj;
     }
@@ -394,7 +403,7 @@ public class ElfMovement : MonoBehaviour
         rock.transform.position = dropPosition; // (transform.position.x + .5f, transform.position.y - .5f, 0f);
         holdingRock = false;
         animator.SetBool("Rock", false);
-        pickUpRock.restoreRock();
+        pickUpRock.dropRock();
     }
 
     void dropLogs()
@@ -412,7 +421,8 @@ public class ElfMovement : MonoBehaviour
         fish.transform.position = dropPosition; // (transform.position.x + .5f, transform.position.y - .5f, 0f);
         holdingFish = false;
         animator.SetBool("Fish", false);
-        SaveManager.Instance.carriedWorldObjectUniqueId = null;
+        pickUpFish.dropFish();
+        //SaveManager.Instance.carriedWorldObjectUniqueId = null;
     }
 
     void dropFishSkeleton()
@@ -422,7 +432,7 @@ public class ElfMovement : MonoBehaviour
         fishSkeleton.transform.position = dropPosition;
         holdingFishSkeleton = false;
         animator.SetBool("Fish Skeleton", false);
-        SaveManager.Instance.carriedWorldObjectUniqueId = null;
+        //SaveManager.Instance.carriedWorldObjectUniqueId = null;
     }
 
     void dropAxe()
@@ -432,7 +442,8 @@ public class ElfMovement : MonoBehaviour
         holdingAxe = false;
         Vector3 dropPosition = transform.position + Vector3.right;
         axe.transform.position = dropPosition; //new Vector3(transform.position.x + .5f, transform.position.y - .5f, 0f);
-        SaveManager.Instance.carriedWorldObjectUniqueId = null;
+        //SaveManager.Instance.carriedWorldObjectUniqueId = null;
+        pickUpAxe.dropAxe();
     }
 
     void dropPickaxe()
@@ -446,9 +457,14 @@ public class ElfMovement : MonoBehaviour
 
     void dropBerries()
     {
-        berry = DropItem(itemBerries); // TODO
+        berry = DropItem(itemBerries); 
         animator.SetBool("Berries", false);
         holdingBerries = false;
+
+        PickUpBerries berries = berry.GetComponent<PickUpBerries>();
+        berries.dropBerry();
+  
+           // currentBerries.dropBerry();
     }
 
     public void OnUseTool()

@@ -109,6 +109,8 @@ public class SaveManager : MonoBehaviour
                 FindObjectsInactive.Include,
                 FindObjectsSortMode.None);
 
+        HashSet<string> foundIds = new HashSet<string>();
+
         foreach (PersistentObject obj in objects)
         {
             //Debug.Log($"Found object: {obj.name}  ID: {obj.UniqueId}");
@@ -116,6 +118,7 @@ public class SaveManager : MonoBehaviour
                     obj.UniqueId,
                     out WorldObjectSaveData d))
             {
+                foundIds.Add(d.id);
                 if (d.isDestroyed)
                 {
                     obj.gameObject.SetActive(false);
@@ -128,6 +131,39 @@ public class SaveManager : MonoBehaviour
                 }
             }
         }
+
+        // Recreate saved objects that don't exist in the scene
+        foreach (WorldObjectSaveData d in worldObjects.Values)
+        {
+            if (foundIds.Contains(d.id) || d.isDestroyed)
+                continue;
+
+            ItemData item = itemDatabase.GetItem(d.prefabKey);
+
+            if (item == null || item.worldPrefab == null)
+            {
+                Debug.LogError($"Cannot recreate world object: {d.prefabKey}");
+                continue;
+            }
+
+            GameObject obj = Instantiate(
+                item.worldPrefab,
+                d.objectPosition,
+                Quaternion.identity);
+
+            PersistentObject po = obj.GetComponent<PersistentObject>();
+
+            if (po == null)
+            {
+                Debug.LogError($"Prefab '{d.prefabKey}' has no PersistentObject!");
+                Destroy(obj);
+                continue;
+            }
+
+            po.SetUniqueId(d.id);
+            po.SetPrefabKey(d.prefabKey);
+        }
+
         carriedWorldObjectUniqueId = data.carriedObjectId;
         elf.addCarryItem();
     }

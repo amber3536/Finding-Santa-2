@@ -14,4 +14,15 @@ public class PickUpFish : MonoBehaviour
     {
         fishReady = false;
     }
+    public void dropFish()
+    {
+        PersistentObject po = GetComponent<PersistentObject>();
+
+        SaveManager.Instance.worldObjects[po.UniqueId] = new WorldObjectSaveData
+            {
+                id = po.UniqueId,
+                isDestroyed = false,
+                objectPosition = transform.position
+            };
+    }
 }

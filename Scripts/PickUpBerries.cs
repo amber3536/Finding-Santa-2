@@ -13,4 +13,17 @@ public class PickUpBerries : MonoBehaviour
     {
         berryReady = false;
     }
+
+    public void dropBerry()
+    {
+        PersistentObject po = GetComponent<PersistentObject>();
+
+        SaveManager.Instance.worldObjects[po.UniqueId] = new WorldObjectSaveData
+            {
+                id = po.UniqueId,
+                isDestroyed = false,
+                objectPosition = transform.position,
+                prefabKey = po.PrefabKey
+            };
+    }
 }
