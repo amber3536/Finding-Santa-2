@@ -178,6 +178,7 @@ public class ElfMovement : MonoBehaviour
                 holdingAxe = true;              
                 SaveManager.Instance.carriedWorldObjectUniqueId = "axe";
                 SaveManager.Instance.SaveGame();
+                pickUpAxe.destroyAxe();
             }
             else if (pickUpBridge.bridgeReady)
             {
@@ -187,12 +188,14 @@ public class ElfMovement : MonoBehaviour
                 holdingBridge = true;
                 SaveManager.Instance.carriedWorldObjectUniqueId = "bridge";
                 SaveManager.Instance.SaveGame();
+                pickUpBridge.destroyBridge();
             }
 
             else if (currentLogs != null && currentLogs.logsReady)
             {
                 dropItems();
                 animator.SetBool("Logs", true);
+                currentLogs.destroyLogs();
                 Destroy(currentLogs.threeLogs);
                 holdingLogs = true;
                 SaveManager.Instance.carriedWorldObjectUniqueId = "logs";
@@ -285,6 +288,10 @@ public class ElfMovement : MonoBehaviour
         {
             dropAxe();
         }
+        else if (holdingBridge)
+        {
+            dropBridge();
+        }
     }
 
     public void OnDrop()
@@ -340,11 +347,12 @@ public class ElfMovement : MonoBehaviour
             }
             else
             {
-                Vector3 dropPosition = transform.position + Vector3.right;
+                dropLogs();
+                // Vector3 dropPosition = transform.position + Vector3.right;
 
-                Instantiate(itemWood.worldPrefab, dropPosition, Quaternion.identity);
-                animator.SetBool("Logs", false);
-                holdingLogs = false;
+                // Instantiate(itemWood.worldPrefab, dropPosition, Quaternion.identity);
+                // animator.SetBool("Logs", false);
+                // holdingLogs = false;
             }
         }
         else if (holdingBridge)
@@ -353,7 +361,12 @@ public class ElfMovement : MonoBehaviour
             {
                 //trigger unblock
                 animator.SetBool("Bridge", false);
+                pickUpBridge.destroyBridge();
                 currentUnblock.UnblockRiver();
+            }
+            else
+            {
+                dropBridge();
             }
 
         }
@@ -406,12 +419,25 @@ public class ElfMovement : MonoBehaviour
         pickUpRock.dropRock();
     }
 
+    void dropBridge()
+    {
+        bridge.SetActive(true);
+        Vector3 dropPosition = transform.position + Vector3.right;
+        bridge.transform.position = dropPosition;
+        holdingBridge = true;
+        animator.SetBool("Bridge", false);
+        pickUpBridge.dropBridge();
+    }
+
     void dropLogs()
     {
-        DropItem(itemWood);
+        GameObject log = DropItem(itemWood);
         animator.SetBool("Logs", false);
         holdingLogs = false;
-        SaveManager.Instance.carriedWorldObjectUniqueId = null;
+        
+        ThreeLogs threeLogs = log.GetComponent<ThreeLogs>();
+        threeLogs.dropLogs();
+        //SaveManager.Instance.carriedWorldObjectUniqueId = null;
     }
 
     void dropFish()

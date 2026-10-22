@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2797024833584404844}
   - component: {fileID: 8885287598951840837}
   - component: {fileID: 1797190172960385403}
+  - component: {fileID: 434910208752565407}
   m_Layer: 0
   m_Name: three logs
   m_TagString: Untagged
@@ -200,3 +201,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ThreeLogs
   logsReady: 0
   threeLogs: {fileID: 4200078866031125869}
+--- !u!114 &434910208752565407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4200078866031125869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a68eadb05577346fba0517c9ee27f687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
+  uniqueId: 
+  prefabKey: 

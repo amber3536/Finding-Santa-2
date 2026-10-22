@@ -13,4 +13,28 @@ public class ThreeLogs : MonoBehaviour
     {
         logsReady = false;
     }
+
+    public void destroyLogs()
+    {
+        PersistentObject po = GetComponent<PersistentObject>();
+
+        SaveManager.Instance.worldObjects[po.UniqueId] = new WorldObjectSaveData
+            {
+                id = po.UniqueId,
+                isDestroyed = true
+            };
+    }
+
+    public void dropLogs()
+    {
+        PersistentObject po = GetComponent<PersistentObject>();
+
+        SaveManager.Instance.worldObjects[po.UniqueId] = new WorldObjectSaveData
+            {
+                id = po.UniqueId,
+                isDestroyed = false,
+                objectPosition = transform.position,
+                prefabKey = po.PrefabKey
+            };
+    }
 }

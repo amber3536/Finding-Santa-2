@@ -13,6 +13,17 @@ public class PickUpAxe : MonoBehaviour
     {
         axeReady = false;
     }
+
+    public void destroyAxe()
+    {
+        PersistentObject po = GetComponent<PersistentObject>();
+
+        SaveManager.Instance.worldObjects[po.UniqueId] = new WorldObjectSaveData
+            {
+                id = po.UniqueId,
+                isDestroyed = true
+            };
+    }
     public void dropAxe()
     {
         PersistentObject po = GetComponent<PersistentObject>();

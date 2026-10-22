@@ -165,4 +165,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a68eadb05577346fba0517c9ee27f687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
-  uniqueId: Berry
+  uniqueId: 
+  prefabKey: 
