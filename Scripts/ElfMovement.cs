@@ -166,19 +166,19 @@ public class ElfMovement : MonoBehaviour
                 rock.SetActive(false);
                 animator.SetBool("Rock", true);
                 holdingRock = true;
+                pickUpRock.destroyRock();
                 SaveManager.Instance.carriedWorldObjectUniqueId = "rock";
                 SaveManager.Instance.SaveGame();
-                pickUpRock.destroyRock();
             }
             else if (pickUpAxe.axeReady)
             {
                 dropItems();
                 axe.SetActive(false);
                 animator.SetBool("Wood axe", true);
-                holdingAxe = true;              
+                holdingAxe = true;     
+                pickUpAxe.destroyAxe();         
                 SaveManager.Instance.carriedWorldObjectUniqueId = "axe";
                 SaveManager.Instance.SaveGame();
-                pickUpAxe.destroyAxe();
             }
             else if (pickUpBridge.bridgeReady)
             {
@@ -186,9 +186,9 @@ public class ElfMovement : MonoBehaviour
                 bridge.SetActive(false);
                 animator.SetBool("Bridge", true);
                 holdingBridge = true;
+                pickUpBridge.destroyBridge();
                 SaveManager.Instance.carriedWorldObjectUniqueId = "bridge";
                 SaveManager.Instance.SaveGame();
-                pickUpBridge.destroyBridge();
             }
 
             else if (currentLogs != null && currentLogs.logsReady)
@@ -220,6 +220,9 @@ public class ElfMovement : MonoBehaviour
                 pickAxe.SetActive(false);
                 animator.SetBool("Pickaxe", true);
                 holdingPickaxe = true;
+                pickUpPickaxe.destroyPickaxe();
+                SaveManager.Instance.carriedWorldObjectUniqueId = "bridge";
+                SaveManager.Instance.SaveGame();
             } 
             else if (pickUpFish.fishReady)
             {
@@ -227,6 +230,7 @@ public class ElfMovement : MonoBehaviour
                 fish.SetActive(false);
                 animator.SetBool("Fish", true);
                 holdingFish = true;
+                pickUpFish.destroyFish();
                 SaveManager.Instance.carriedWorldObjectUniqueId = "fish";
                 SaveManager.Instance.SaveGame();
                 //Debug.Log(SaveManager.Instance.carriedWorldObjectUniqueId);
@@ -468,7 +472,6 @@ public class ElfMovement : MonoBehaviour
         holdingAxe = false;
         Vector3 dropPosition = transform.position + Vector3.right;
         axe.transform.position = dropPosition; //new Vector3(transform.position.x + .5f, transform.position.y - .5f, 0f);
-        //SaveManager.Instance.carriedWorldObjectUniqueId = null;
         pickUpAxe.dropAxe();
     }
 
@@ -479,6 +482,7 @@ public class ElfMovement : MonoBehaviour
         holdingPickaxe = false;
         Vector3 dropPosition = transform.position + Vector3.right;
         pickAxe.transform.position = dropPosition; //new Vector3(transform.position.x + .5f, transform.position.y - .5f, 0f);
+        pickUpPickaxe.dropPickaxe();
     }
 
     void dropBerries()

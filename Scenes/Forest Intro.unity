@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Tree_12
+  prefabKey: 
 --- !u!1 &6893390 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 352212457482717439, guid: bb62398c53c404b5ebdaf5fcd254694d, type: 3}
@@ -155,6 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Stump_01
+  prefabKey: 
 --- !u!1001 &21545443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -233,6 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Berry_bush_01
+  prefabKey: 
 --- !u!1 &48338682 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4739925098560539076, guid: 5e0791ddb826042fd82b7131de25c32b, type: 3}
@@ -251,6 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Berry_bush_02
+  prefabKey: 
 --- !u!1 &48348178 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6090178277307433287, guid: f6635475592304e8dac60db9463c5395, type: 3}
@@ -269,6 +273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Tree_15
+  prefabKey: 
 --- !u!1 &50891977
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,6 +812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Stump_18
+  prefabKey: 
 --- !u!1001 &107337703
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -885,6 +891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Logs_15
+  prefabKey: 
 --- !u!1 &118440778
 GameObject:
   m_ObjectHideFlags: 0
@@ -1153,6 +1160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Bridge_01
+  prefabKey: 
 --- !u!1001 &133892902
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1624,6 +1632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Stump_06
+  prefabKey: 
 --- !u!1 &174193090 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6090178277307433287, guid: f6635475592304e8dac60db9463c5395, type: 3}
@@ -1642,6 +1651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Tree_17
+  prefabKey: 
 --- !u!1 &204599514
 GameObject:
   m_ObjectHideFlags: 0
@@ -1971,6 +1981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Woodaxe
+  prefabKey: 
 --- !u!1 &247760734 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 352212457482717439, guid: bb62398c53c404b5ebdaf5fcd254694d, type: 3}
@@ -1989,6 +2000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Stump_20
+  prefabKey: 
 --- !u!1 &252214724 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6090178277307433287, guid: f6635475592304e8dac60db9463c5395, type: 3}
@@ -2007,6 +2019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Tree_11
+  prefabKey: 
 --- !u!1 &256877833 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6090178277307433287, guid: f6635475592304e8dac60db9463c5395, type: 3}
@@ -2025,6 +2038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Tree_04
+  prefabKey: 
 --- !u!1 &271128217
 GameObject:
   m_ObjectHideFlags: 0
@@ -2264,6 +2278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Logs_04
+  prefabKey: 
 --- !u!1001 &291083601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2458,6 +2473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: RiverBlock_01
+  prefabKey: 
 --- !u!61 &305911432
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2878,6 +2894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Logs_11
+  prefabKey: 
 --- !u!1 &337800389
 GameObject:
   m_ObjectHideFlags: 0
@@ -3068,6 +3085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: RiverBlock_02
+  prefabKey: 
 --- !u!61 &356653562
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3832,6 +3850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Stump_19
+  prefabKey: 
 --- !u!1 &395784686
 GameObject:
   m_ObjectHideFlags: 0
@@ -4350,6 +4369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Stump_17
+  prefabKey: 
 --- !u!1 &424731190
 GameObject:
   m_ObjectHideFlags: 0
@@ -4485,6 +4505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: RiverBlock_00
+  prefabKey: 
 --- !u!61 &427993287
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4657,6 +4678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Berry_bush_03
+  prefabKey: 
 --- !u!1 &448905510 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6090178277307433287, guid: f6635475592304e8dac60db9463c5395, type: 3}
@@ -4675,6 +4697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Tree_20
+  prefabKey: 
 --- !u!1 &487212167
 GameObject:
   m_ObjectHideFlags: 0
@@ -4934,6 +4957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Tree_02
+  prefabKey: 
 --- !u!1 &503361928
 GameObject:
   m_ObjectHideFlags: 0
@@ -5255,6 +5279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Stump_00
+  prefabKey: 
 --- !u!1 &515892596 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4200078866031125869, guid: 428e8b653f3e84f23bd1c5147bab4bee, type: 3}
@@ -5273,6 +5298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Logs_19
+  prefabKey: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -5599,6 +5625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Logs_02
+  prefabKey: 
 --- !u!1 &544360885
 GameObject:
   m_ObjectHideFlags: 0
@@ -5886,6 +5913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Logs_14
+  prefabKey: 
 --- !u!1 &549564620
 GameObject:
   m_ObjectHideFlags: 0
@@ -6055,6 +6083,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Stump_11
+  prefabKey: 
 --- !u!1 &562128560 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6090178277307433287, guid: f6635475592304e8dac60db9463c5395, type: 3}
@@ -6073,6 +6102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Tree_06
+  prefabKey: 
 --- !u!1 &568507898
 GameObject:
   m_ObjectHideFlags: 0
@@ -6316,6 +6346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Bridge_02
+  prefabKey: 
 --- !u!1001 &584448548
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6544,6 +6575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Logs_18
+  prefabKey: 
 --- !u!1001 &614699294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6718,6 +6750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Tree_16
+  prefabKey: 
 --- !u!1 &645123152 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6090178277307433287, guid: f6635475592304e8dac60db9463c5395, type: 3}
@@ -6736,6 +6769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Tree_07
+  prefabKey: 
 --- !u!1 &646089472
 GameObject:
   m_ObjectHideFlags: 0
@@ -6904,6 +6938,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   startMenu: {fileID: 1275092817}
   elf: {fileID: 1663202933}
+  cameraMovementCave: {fileID: 0}
 --- !u!114 &648389343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7578,6 +7613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Tree_01
+  prefabKey: 
 --- !u!1001 &708280412
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7656,6 +7692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Logs_12
+  prefabKey: 
 --- !u!1 &709567810
 GameObject:
   m_ObjectHideFlags: 0
@@ -8035,6 +8072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Tree_13
+  prefabKey: 
 --- !u!1 &740445064 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4739925098560539076, guid: 5e0791ddb826042fd82b7131de25c32b, type: 3}
@@ -8053,6 +8091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Berry_bush_05
+  prefabKey: 
 --- !u!1 &745109871
 GameObject:
   m_ObjectHideFlags: 0
@@ -8430,6 +8469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Tree_14
+  prefabKey: 
 --- !u!1 &778262317 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6090178277307433287, guid: f6635475592304e8dac60db9463c5395, type: 3}
@@ -8448,6 +8488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Tree_05
+  prefabKey: 
 --- !u!1 &784447080 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4200078866031125869, guid: 428e8b653f3e84f23bd1c5147bab4bee, type: 3}
@@ -8466,6 +8507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Logs_20
+  prefabKey: 
 --- !u!1001 &799107994
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8953,6 +8995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Logs_09
+  prefabKey: 
 --- !u!1001 &877342379
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9031,6 +9074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Logs_17
+  prefabKey: 
 --- !u!1 &881613978
 GameObject:
   m_ObjectHideFlags: 0
@@ -9136,6 +9180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Bridge_03
+  prefabKey: 
 --- !u!1 &886701354
 GameObject:
   m_ObjectHideFlags: 0
@@ -9397,6 +9442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Tree_19
+  prefabKey: 
 --- !u!1 &915813532
 GameObject:
   m_ObjectHideFlags: 0
@@ -9721,6 +9767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Tree_03
+  prefabKey: 
 --- !u!1001 &934833749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9799,6 +9846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Logs_10
+  prefabKey: 
 --- !u!1001 &935303839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9877,6 +9925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Stump_03
+  prefabKey: 
 --- !u!1001 &939938533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9955,6 +10004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Logs_08
+  prefabKey: 
 --- !u!1001 &946429991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10947,6 +10997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Logs_05
+  prefabKey: 
 --- !u!1 &1169357401
 GameObject:
   m_ObjectHideFlags: 0
@@ -11653,8 +11704,9 @@ GameObject:
   - component: {fileID: 1207512509}
   - component: {fileID: 1207512508}
   - component: {fileID: 1207512510}
+  - component: {fileID: 1207512511}
   m_Layer: 0
-  m_Name: Wooden Bridge_0
+  m_Name: Bridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11839,6 +11891,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.4748271, y: 0.14891994}
   m_EdgeRadius: 0
+--- !u!114 &1207512511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207512505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a68eadb05577346fba0517c9ee27f687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
+  uniqueId: Bridge
+  prefabKey: 
 --- !u!1001 &1227893013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11917,6 +11983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Stump_05
+  prefabKey: 
 --- !u!1001 &1256767811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11995,6 +12062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Logs_01
+  prefabKey: 
 --- !u!1001 &1271085083
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12346,6 +12414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Stump_09
+  prefabKey: 
 --- !u!1 &1282365354
 GameObject:
   m_ObjectHideFlags: 0
@@ -12707,6 +12776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Stump_02
+  prefabKey: 
 --- !u!1001 &1341509925
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12789,6 +12859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Tree_10
+  prefabKey: 
 --- !u!1 &1352949116
 GameObject:
   m_ObjectHideFlags: 0
@@ -12958,6 +13029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Logs_16
+  prefabKey: 
 --- !u!1 &1377995064
 GameObject:
   m_ObjectHideFlags: 0
@@ -13199,6 +13271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Logs_06
+  prefabKey: 
 --- !u!1 &1410682175
 GameObject:
   m_ObjectHideFlags: 0
@@ -13698,6 +13771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Logs_13
+  prefabKey: 
 --- !u!1 &1468570177
 GameObject:
   m_ObjectHideFlags: 0
@@ -13914,6 +13988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Logs_07
+  prefabKey: 
 --- !u!1 &1491792117 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6090178277307433287, guid: f6635475592304e8dac60db9463c5395, type: 3}
@@ -13932,6 +14007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Tree_09
+  prefabKey: 
 --- !u!1001 &1504359356
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14010,6 +14086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Stump_07
+  prefabKey: 
 --- !u!1 &1535366205 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6090178277307433287, guid: f6635475592304e8dac60db9463c5395, type: 3}
@@ -14028,6 +14105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Tree_00
+  prefabKey: 
 --- !u!1 &1546893759
 GameObject:
   m_ObjectHideFlags: 0
@@ -14572,6 +14650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Stump_04
+  prefabKey: 
 --- !u!1 &1617011487
 GameObject:
   m_ObjectHideFlags: 0
@@ -15531,6 +15610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Bridge_00
+  prefabKey: 
 --- !u!1 &1699210563
 GameObject:
   m_ObjectHideFlags: 0
@@ -15704,6 +15784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Stump_12
+  prefabKey: 
 --- !u!1 &1722421128
 GameObject:
   m_ObjectHideFlags: 0
@@ -15876,6 +15957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Stump_15
+  prefabKey: 
 --- !u!1 &1723304645
 GameObject:
   m_ObjectHideFlags: 0
@@ -16019,6 +16101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Rock
+  prefabKey: 
 --- !u!1 &1732867393 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6090178277307433287, guid: f6635475592304e8dac60db9463c5395, type: 3}
@@ -16037,6 +16120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Tree_18
+  prefabKey: 
 --- !u!1001 &1741334806
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16115,6 +16199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Stump_13
+  prefabKey: 
 --- !u!1 &1742273778
 GameObject:
   m_ObjectHideFlags: 0
@@ -16404,6 +16489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Stump_08
+  prefabKey: 
 --- !u!1 &1781867269
 GameObject:
   m_ObjectHideFlags: 0
@@ -16726,6 +16812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Tree_08
+  prefabKey: 
 --- !u!1001 &1807127116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16804,6 +16891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Stump_16
+  prefabKey: 
 --- !u!1 &1821207342
 GameObject:
   m_ObjectHideFlags: 0
@@ -16858,6 +16946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   startMenu: {fileID: 1275092817}
   squirrel: {fileID: 1893913374}
+  cameraMovementCave: {fileID: 0}
 --- !u!114 &1821207345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17554,6 +17643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Berry_bush_06
+  prefabKey: 
 --- !u!1 &1893913370
 GameObject:
   m_ObjectHideFlags: 0
@@ -18220,6 +18310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: RiverBlock_03
+  prefabKey: 
 --- !u!61 &1926217207
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18363,6 +18454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Berry_bush_04
+  prefabKey: 
 --- !u!1001 &1944746479
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18837,6 +18929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Stump_10
+  prefabKey: 
 --- !u!1 &2064981021
 GameObject:
   m_ObjectHideFlags: 0
@@ -19413,6 +19506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Stump_14
+  prefabKey: 
 --- !u!1001 &2140105978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19491,6 +19585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Logs_03
+  prefabKey: 
 --- !u!1001 &577906441995091495
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19831,6 +19926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
   uniqueId: Logs_00
+  prefabKey: 
 --- !u!1001 &8926606458947566598
 PrefabInstance:
   m_ObjectHideFlags: 0

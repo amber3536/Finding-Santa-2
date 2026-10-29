@@ -14,6 +14,17 @@ public class PickUpPickaxe : MonoBehaviour
         pickAxeReady = false;
     }
 
+    public void destroyPickaxe()
+    {
+        PersistentObject po = GetComponent<PersistentObject>();
+
+        SaveManager.Instance.worldObjects[po.UniqueId] = new WorldObjectSaveData
+            {
+                id = po.UniqueId,
+                isDestroyed = true
+            };
+    }
+
     public void dropPickaxe()
     {
         PersistentObject po = GetComponent<PersistentObject>();
