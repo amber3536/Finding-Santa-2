@@ -9,7 +9,7 @@ public class EnterCandyHouse1 : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         myCamera.mode = CameraMode.LockedPosition;
-        myCamera.LockToPosition(new Vector3(-40, 10f, -10));
+        myCamera.LockToPosition(new Vector3(-40f, 10.5f, -10));
         relocate = true;
     }
     // void OnTriggerExit2D(Collider2D other)
@@ -21,7 +21,7 @@ public class EnterCandyHouse1 : MonoBehaviour
     {
         if (relocate && Keyboard.current.spaceKey.isPressed)
         {   
-            elf.transform.position = new Vector3(15f, 25.1f, 0);
+            elf.transform.position = new Vector3(0f, -4f, 0);
             myCamera.ResumeFollow();
             relocate = false;
         }
