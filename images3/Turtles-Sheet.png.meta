@@ -1,25 +1,13 @@
 fileFormatVersion: 2
-guid: 8583a9fc5b3a94845a63ddda0cca6932
+guid: 10ca676d1f6294d049956360be4d4686
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5282482904841895409
-    second: Inside candy house2-Sheet_0
+      213: 1178102758694191715
+    second: Turtles-Sheet_0
   - first:
-      213: -3788708356977289127
-    second: Inside candy house2-Sheet_1
-  - first:
-      213: -4863359516242069939
-    second: Inside candy house2-Sheet_2
-  - first:
-      213: 5398555304503603087
-    second: Inside candy house2-Sheet_3
-  - first:
-      213: -6840216836401395682
-    second: Inside candy house2-Sheet_4
-  - first:
-      213: -5278021534931341142
-    second: Inside candy house2-Sheet_5
+      213: 7720116826640011680
+    second: Turtles-Sheet_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -128,133 +116,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Inside candy house2-Sheet_0
+      name: Turtles-Sheet_0
       rect:
         serializedVersion: 2
-        x: 34
-        y: 34
-        width: 188
-        height: 188
+        x: 0
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f0243dc29c9d0b6b0800000000000000
-      internalID: -5282482904841895409
+      spriteID: 36200e89736795010800000000000000
+      internalID: 1178102758694191715
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Inside candy house2-Sheet_1
+      name: Turtles-Sheet_1
       rect:
         serializedVersion: 2
-        x: 290
-        y: 34
-        width: 188
-        height: 188
+        x: 128
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 95890d0a2ddcb6bc0800000000000000
-      internalID: -3788708356977289127
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Inside candy house2-Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 546
-        y: 34
-        width: 188
-        height: 188
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d4630638940e18cb0800000000000000
-      internalID: -4863359516242069939
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Inside candy house2-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 802
-        y: 34
-        width: 188
-        height: 188
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f8fec3952758bea40800000000000000
-      internalID: 5398555304503603087
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Inside candy house2-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 1058
-        y: 34
-        width: 188
-        height: 188
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e1806af370ba211a0800000000000000
-      internalID: -6840216836401395682
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Inside candy house2-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 1314
-        y: 34
-        width: 188
-        height: 188
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: aa03e8dc063b0c6b0800000000000000
-      internalID: -5278021534931341142
+      spriteID: 0a1d464d95d532b60800000000000000
+      internalID: 7720116826640011680
       vertices: []
       indices: 
       edges: []
@@ -263,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f8d70b0f6e6c44e49856a7a2eaad6852
     internalID: 0
     vertices: []
     indices: 
@@ -271,14 +171,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Inside candy house2-Sheet_0: -5282482904841895409
-      Inside candy house2-Sheet_1: -3788708356977289127
-      Inside candy house2-Sheet_2: -4863359516242069939
-      Inside candy house2-Sheet_3: 5398555304503603087
-      Inside candy house2-Sheet_4: -6840216836401395682
-      Inside candy house2-Sheet_5: -5278021534931341142
+      Turtles-Sheet_0: 1178102758694191715
+      Turtles-Sheet_1: 7720116826640011680
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
