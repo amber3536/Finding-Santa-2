@@ -26,4 +26,15 @@ public class PickUpBerries : MonoBehaviour
                 prefabKey = po.PrefabKey
             };
     }
+
+    public void destroyBerry()
+    {
+        PersistentObject po = GetComponent<PersistentObject>();
+
+        SaveManager.Instance.worldObjects[po.UniqueId] = new WorldObjectSaveData
+            {
+                id = po.UniqueId,
+                isDestroyed = true
+            };
+    }
 }
