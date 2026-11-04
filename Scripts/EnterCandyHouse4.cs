@@ -11,6 +11,7 @@ public class EnterCandyHouse4 : MonoBehaviour
     public GameObject elf;
     public TextMeshProUGUI chefDialogue;
     public GameObject chef_bubble;
+    public Animator animator;
 
     private string[] chefSentences = {"Bonjour! Have some milk on the house."};
     private int chefIndex = 0;
@@ -31,7 +32,9 @@ public class EnterCandyHouse4 : MonoBehaviour
         myCamera.mode = CameraMode.LockedPosition;
         myCamera.LockToPosition(new Vector3(-20, 10f, -10));
         relocate = true;
-        firstLines();
+        Invoke("firstLines", 2f);
+        animator.SetBool("Milk", true);
+        //firstLines();
     }
     // void OnTriggerExit2D(Collider2D other)
     // {
