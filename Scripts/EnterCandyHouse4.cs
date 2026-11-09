@@ -11,11 +11,11 @@ public class EnterCandyHouse4 : MonoBehaviour
     public GameObject elf;
     public TextMeshProUGUI chefDialogue;
     public GameObject chef_bubble;
-    public Animator animator;
-
     private string[] chefSentences = {"Bonjour! Have some milk on the house."};
     private int chefIndex = 0;
     private float typingSpeed = 0.01f;
+    public Animator animator;
+    public bool holdingMilk = false;
 
     void Start()
     {
@@ -34,12 +34,8 @@ public class EnterCandyHouse4 : MonoBehaviour
         relocate = true;
         Invoke("firstLines", 2f);
         animator.SetBool("Milk", true);
-        //firstLines();
+        holdingMilk = true;
     }
-    // void OnTriggerExit2D(Collider2D other)
-    // {
-    //     relocate = false;
-    // }
 
     void Update()
     {
