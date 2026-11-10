@@ -40,6 +40,7 @@ public class EnterCandyHouse2 : MonoBehaviour
         {
             animator.SetBool("Waking", true);
             animator_elf.SetBool("Milk", false);
+            animator_elf.SetBool("Bone", true);
             Invoke("Wake", 2f);
         }
         else
