@@ -18,6 +18,7 @@ public class EnterCandyHouse2 : MonoBehaviour
     public Animator animator;
     public Animator animator_elf;
     public EnterCandyHouse4 enterCandyHouse4;
+    public bool holdingBone = false;
 
     void Start()
     {
@@ -41,6 +42,7 @@ public class EnterCandyHouse2 : MonoBehaviour
             animator.SetBool("Waking", true);
             animator_elf.SetBool("Milk", false);
             animator_elf.SetBool("Bone", true);
+            holdingBone = true;
             Invoke("Wake", 2f);
         }
         else
